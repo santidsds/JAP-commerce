@@ -8,7 +8,13 @@ function showCarSection(){
     
     let htmlContentToAppend = "";
     
-    console.log()
+    console.log(carSectionArray.catName)
+
+    document.getElementById("product-title").innerHTML += `
+    <h1>${carSectionArray.catName}</h1>
+    <p>Aquí encontraras todos los productos disponibles de la categoría: ${carSectionArray.catName}</p>
+    
+    `
 
     for(let i = 0; i < carSectionArray.products.length; i++){
         let product = carSectionArray.products[i];
