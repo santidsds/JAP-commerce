@@ -1,0 +1,82 @@
+
+.hero-container {
+
+    .tarjetas {
+        display: flex;
+        
+        
+    }
+
+    .buttn {
+
+        display: flex;
+        margin-left: 17em ;
+        margin-top: 2.5em;
+        margin-bottom: 10em;
+        
+       
+        
+        
+        
+        
+        a {
+            text-align: center;
+            font-size: 20px;
+            padding: 0.5em;
+            width: 150px;
+            border: 1px gray solid;
+            
+            border-radius: 15px;
+            background-color: #212529;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #212529;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+    }
+
+    .container {
+        margin-left: 15em;
+        
+        
+        
+    }
+    
+    
+
+    img {
+        width: 250px;
+    }
+
+    .tarjeta {
+
+        
+        h3 {
+            padding: 0.5em;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        margin-right: 1.5em;
+        margin-left: 1.5em;
+        width: min-content;
+
+        height: 230px;
+
+        .card-text {
+            max-width: 15em;
+            font-size: 14px;
+        }
+
+        
+
+    }
+
+    
+}

@@ -5,6 +5,10 @@
   font-family: 'Raleway', serif !important;
 }
 
+body {
+  background-color:#f8f9fa;
+}
+
 .jumbotron .display-4 {
   font-weight: bold;
 }
@@ -29,12 +33,13 @@ nav a {
 }
 
 .jumbotron {
+  margin-top: 0em;
   height: 50vh;
   padding: 5em inherit;
-  margin-bottom: 0;
+  margin-bottom: 0em;
   background-color: #53C0FB;
   background: url('../img/cover_back.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   color: black;
