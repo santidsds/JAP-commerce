@@ -26,4 +26,16 @@
   margin-left: 2em;
   max-height: 400px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.product-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3em;
+}
+.product-title h1 {
+  font-size: 55px;
+  font-weight: bold;
 }/*# sourceMappingURL=products.css.map */
