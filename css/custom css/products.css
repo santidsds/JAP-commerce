@@ -1,0 +1,26 @@
+.product-hero-section {
+  padding: 5em;
+  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  align-items: center;
+  justify-content: center;
+}
+.product-hero-section .card-body .price {
+  display: flex;
+}
+.product-hero-section .card-body .price p {
+  margin-right: 1em;
+  font-size: 15px;
+}
+.product-hero-section .card-body .description {
+  min-height: 5em;
+}
+.product-hero-section .card-body p {
+  font-size: 14px;
+}
+.product-hero-section .card {
+  margin-top: 4em;
+  margin-left: 2em;
+  max-height: 400px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}/*# sourceMappingURL=products.css.map */

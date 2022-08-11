@@ -2,6 +2,8 @@ const CAR_SECTION_URL = "https://japceibal.github.io/emercado-api/cats_products/
 
 let carSectionArray = [];
 
+
+
 function showCarSection(){
     
     let htmlContentToAppend = "";
@@ -15,8 +17,22 @@ function showCarSection(){
 
         
         htmlContentToAppend += `
-            
-            
+
+        <div class="card" style="width: 18rem;">
+            <img src="${product.image}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                
+                <div class = "price ">
+                    <p class="card-text">${product.currency}</p>
+                    <p class="card-text">${product.cost}</p>
+                </div>
+
+                <p class="card-text description">${product.description}</p>
+                
+                <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
                
             `
 
