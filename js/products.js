@@ -12,7 +12,7 @@ function showCarSection(){
 
     for(let i = 0; i < carSectionArray.products.length; i++){
         let product = carSectionArray.products[i];
-        console.log(product)
+        console.log(product.image)
        
 
         

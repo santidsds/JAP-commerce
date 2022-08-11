@@ -5,6 +5,9 @@
   align-items: center;
   justify-content: center;
 }
+.product-hero-section .card-body h5 {
+  font-weight: bold;
+}
 .product-hero-section .card-body .price {
   display: flex;
 }
