@@ -1,0 +1,38 @@
+body {
+  overflow-y: hidden;
+}
+
+.form-control {
+  width: 300px;
+  margin-bottom: 1em;
+}
+
+.form-container {
+  margin-top: 1em;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 3em 3em 1em 3em;
+}
+.form-container h2 {
+  margin-bottom: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.login-container {
+  padding: 3em;
+  display: flex;
+  margin-top: 2em;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.login-container button {
+  margin-top: 2em;
+  width: 300px;
+  height: 3em;
+}
+
+#email-alert, #pass-alert {
+  color: red;
+  font-size: 13px;
+}/*# sourceMappingURL=login.css.map */
