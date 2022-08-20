@@ -16,7 +16,7 @@ loginBtn.addEventListener("click", () => {
     }
     else {
         passAlertp.innerHTML = ""
-        window.location.replace("index.html");
+        window.location.replace("main.html");
 
     }
         
