@@ -18,6 +18,12 @@ body {
   text-align: center;
 }
 
+.login-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-container {
   padding: 3em;
   display: flex;
