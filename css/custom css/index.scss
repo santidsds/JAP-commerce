@@ -87,12 +87,16 @@ body {
         a {
             color: black;
             font-weight: bold;
+            &:hover {
+                font-weight: bold;
+                box-shadow: 0 4px 2px -2px #4AC3DE;
+            }
         }
 
         img {
             margin-right: 0.5em;
             margin-bottom: 0.2em;
-            width: 25px;
+            width: 20px;
         }
         
         position: absolute;
@@ -250,9 +254,9 @@ footer {
         }
         display: flex;
         flex-direction: column;
-        align-items: end;
+        align-items: center;
         margin-top: -2em;
-        margin-right:4em;
+        
     }
     p {
         font-size: 14px;
