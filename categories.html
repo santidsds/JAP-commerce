@@ -10,10 +10,11 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom css/category.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
+  <nav class="navbar navbar-expand-lg navbar-dark p-2" style="background-color: black;">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,11 +39,11 @@
       </div>
     </div>
   </nav>
-  <main class="pb-5">
-    <div class="text-center p-4">
-      <h2>Categorías</h2>
-      <p class="lead">Verás aquí todas las categorías del sitio.</p>
-    </div>
+  <div class="cat-title">
+    <h1>Categorias</h1>
+    
+  </div>
+  <div class="filter-container">
     <div class="container">
       <div class="row">
         <div class="col text-end">
@@ -77,12 +78,16 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="list-group" id="cat-list-container">
-        </div>
+    
+        
       </div>
-    </div>
+
+  </div>
+  
   </main>
+  <div class="cat-list-container"id="cat-list-container">
+        
+  </div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">

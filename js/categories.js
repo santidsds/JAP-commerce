@@ -45,26 +45,28 @@ function showCategoriesList(){
     let htmlContentToAppend = "";
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let category = currentCategoriesArray[i];
+        console.log(category)
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+            
 
             htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${category.name}</h4>
-                            <small class="text-muted">${category.productCount} artículos</small>
-                        </div>
-                        <p class="mb-1">${category.description}</p>
+            <div onclick="setCatID(${category.id})">
+                <ul class="card-wrapper">
+                    <li class="card">
+                        <img src='${category.imgSrc}' alt=''>
+                        <div class="card-cont">
+                            <div class="inner-cont">
+                                <h3><a href="">${category.name}</a></h3>
+                                <p>${category.productCount} vendidos</p>
+                            </div>
                         
-
-                    </div>
-                </div>
+                        <p>${category.description}</p>
+                        </div>
+                        
+                    </li>
+                </ul>
             </div>
             `
         }
