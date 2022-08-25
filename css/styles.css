@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('http://fonts.cdnfonts.com/css/sf-pro-display');
 
 .jumbotron,
 .card-body,
@@ -7,7 +8,7 @@
 
 
 body {
-  font-family: 'Poppins';
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 .user {

@@ -19,6 +19,7 @@ function showSection(){
 
     document.getElementById("product-title").innerHTML += `
     <h1>${SectionArray.catName}</h1>
+    <p>explora todos los artículos de esta categoria</p>
     
     
     `
@@ -35,7 +36,7 @@ function showSection(){
         
         htmlContentToAppend += `
 
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <img src="${product.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>

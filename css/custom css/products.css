@@ -1,17 +1,24 @@
 * {
-  font-family: "Poppins";
+  font-family: "SF Pro Display", sans-serif;
 }
 * a {
   text-decoration: none;
 }
 
+body {
+  background-color: #f5f5f7;
+}
+
 .product-hero-section {
-  margin-top: 4em;
+  margin-top: 1em;
   padding-bottom: 5em;
   display: grid;
   grid-template-columns: 350px 350px 350px;
-  align-items: center;
   justify-content: center;
+}
+.product-hero-section .card-body {
+  display: flex;
+  flex-direction: column;
 }
 .product-hero-section .card-body h5 {
   font-weight: bold;
@@ -22,7 +29,7 @@
 .product-hero-section .card-body .price p {
   margin-right: 1em;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
 }
 .product-hero-section .card-body .description {
   min-height: 5em;
@@ -30,26 +37,52 @@
 .product-hero-section .card-body p {
   font-size: 14px;
 }
-.product-hero-section .card {
+
+.card {
+  padding: 1em;
   margin-top: 4em;
   margin-left: 2em;
-  max-height: 5000px;
+  max-height: 500px;
+  border-radius: 1em;
+  width: 18rem;
+  transition: 0.1s;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.card:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.card img {
+  border-radius: 0.5em;
 }
 
 .product-title {
+  background-color: #f5f5f7;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 5em;
+  margin-left: 28.9em;
+  align-items: start;
   justify-content: center;
-  margin-top: 3em;
 }
 .product-title h1 {
-  font-size: 55px;
+  color: black;
+  font-size: 95px;
   font-weight: bold;
+}
+.product-title p {
+  margin-top: -0.5em;
+  font-size: 50px;
+  color: #6e6e73;
+  margin-bottom: 1em;
 }
 
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  height: 3em;
   font-weight: 600;
 }
 .btn:hover {
@@ -58,13 +91,12 @@
 
 .order {
   font-weight: bold;
-  padding: 5em 0em 0em 28.7em;
+  padding: 1em 0em 0em 28.9em;
   display: flex;
   flex-direction: column;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  margin-bottom: -4em;
   position: absolute;
   z-index: 2;
 }
@@ -94,20 +126,21 @@
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   background-color: white;
   border-radius: 1em;
+  width: 177px;
   display: flex;
   flex-direction: column;
-  margin-left: 6em;
+  margin-left: 4.8em;
 }
 .a-container a {
   padding: 0.5em;
 }
 .a-container a:hover {
-  box-shadow: 0 4px 2px -2px #0d6efd;
+  font-weight: bold;
 }
 
 .dropbtn {
   border: 0px;
-  background-color: #ffffff;
+  background-color: #f5f5f7;
 }
 
 .show {
