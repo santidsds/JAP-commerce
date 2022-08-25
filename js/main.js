@@ -1,3 +1,5 @@
+navbarUl = document.getElementById("navbar-ul");
+
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -12,3 +14,10 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+navbarUl.innerHTML += `
+        <li class="nav-item">
+            <a class="user nav-link" href="#">${localStorage.getItem("user")}</a>
+        </li>
+`
+

@@ -6,6 +6,8 @@ let emailInput = document.getElementById("email")
 let passInput = document.getElementById("pass")
 
 loginBtn.addEventListener("click", () => {
+    localStorage.setItem("user", emailInput.value);
+    
     console.log(passInput.value.length)
     
     if(emailInput.value.length === 0 || passInput.value.length === 0){
