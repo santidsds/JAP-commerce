@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Raleway', serif !important;
+  font-family: 'Poppins';
 }
 
 body {
@@ -33,14 +33,19 @@ nav a {
 }
 
 .jumbotron {
-  margin-top: 0em;
-  height: 50vh;
-  padding: 5em inherit;
-  margin-bottom: 0em;
+  
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 2em;
+  
+  height: 85vh;
+  width:85vw;
+  
+  
+  
   background-color: #53C0FB;
   background: url('../img/cover_back.png');
   background-size: contain;
-  background-position: center;
+  background-position-y: center;
   background-repeat: no-repeat;
   color: black;
   font-weight: bold;
@@ -48,7 +53,7 @@ nav a {
 
 @media (min-width: 768px) {
   .jumbotron {
-    padding-top: 6rem;
+    padding-top: 4rem;
     padding-bottom: 6rem;
   }
 }
