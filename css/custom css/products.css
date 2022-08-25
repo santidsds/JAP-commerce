@@ -56,25 +56,31 @@ body {
   border-radius: 0.5em;
 }
 
-.product-title {
-  background-color: #f5f5f7;
-  display: flex;
-  flex-direction: column;
-  margin-top: 5em;
-  margin-left: 28.9em;
-  align-items: start;
-  justify-content: center;
+.title-cont {
+  margin-bottom: 5em;
+  padding: 2em;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-.product-title h1 {
+.title-cont h1 {
   color: black;
-  font-size: 95px;
+  font-size: 75px;
+  margin-left: 3em;
   font-weight: bold;
 }
-.product-title p {
-  margin-top: -0.5em;
+
+.cat-title {
+  padding: 2em;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.cat-title h1 {
+  color: black;
+  font-size: 75px;
+  margin-left: 3em;
+  font-weight: bold;
+}
+.cat-title p {
   font-size: 50px;
-  color: #6e6e73;
-  margin-bottom: 1em;
+  color: rgb(110, 110, 115);
 }
 
 .btn {
@@ -91,8 +97,9 @@ body {
 
 .order {
   font-weight: bold;
-  padding: 1em 0em 0em 28.9em;
+  margin-right: 30em;
   display: flex;
+  right: 0;
   flex-direction: column;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -126,10 +133,11 @@ body {
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   background-color: white;
   border-radius: 1em;
-  width: 177px;
+  width: 183px;
   display: flex;
   flex-direction: column;
-  margin-left: 4.8em;
+  margin-left: 5em;
+  position: absolute;
 }
 .a-container a {
   padding: 0.5em;

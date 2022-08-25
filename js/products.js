@@ -19,7 +19,7 @@ function showSection(){
 
     document.getElementById("product-title").innerHTML += `
     <h1>${SectionArray.catName}</h1>
-    <p>explora todos los artículos de esta categoria</p>
+    
     
     
     `
