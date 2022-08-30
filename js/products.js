@@ -1,14 +1,25 @@
 const CAR_SECTION_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-navbarUl = document.getElementById("navbar-ul");
+const ORDER_BY_COST = "Cost.";
 
-navbarUl.innerHTML += `
-        <li class="nav-item">
-            <a class="user nav-link" href="#">${localStorage.getItem("user")}</a>
+orderDropBtn = document.getElementById("order-drop-btn");
+masRelevantesBtn = document.getElementById("masRelevantes");
+menosRelevantesBtn = document.getElementById("menosRelevantes");
+mayorPrecioBtn = document.getElementById("mayorPrecio");
+menorPrecioBtn = document.getElementById("menorPrecio");
+dropdown = document.getElementById("myDropdown");
+dropArrow = document.getElementById("drop-arrow");
+
+
+let currentSortCriteria = undefined;
+let CurrentSectionArray = [];
+
+let navUl = document.getElementById("nav-izq");
+
+navUl.innerHTML += `
+        <li>
+          <a href="">${localStorage.getItem("user")}</a>
         </li>
 `
-
-let SectionArray = [];
-
 
 
 function showSection(){
@@ -17,18 +28,24 @@ function showSection(){
     
     
 
-    document.getElementById("product-title").innerHTML += `
+    document.getElementById("product-title").innerHTML = `
     <h1>${SectionArray.catName}</h1>
     
     
     
     `
+
+    
+
+    
+
+    console.log(CurrentSectionArray)
     
     
     
 
-    for(let i = 0; i < SectionArray.products.length; i++){
-        let product = SectionArray.products[i];
+    for(let i = 0; i < CurrentSectionArray.length; i++){
+        let product = CurrentSectionArray[i];
         
         
        
@@ -65,12 +82,67 @@ function showSection(){
  
 document.addEventListener("DOMContentLoaded", function(e){
     
+
         getJSONData(wantedSection).then(function(resultObj){
             if (resultObj.status === "ok"){
                 SectionArray = resultObj.data
+                
+                CurrentSectionArray = sortCategories("masRelevante", SectionArray.products)
+                
                 showSection()
                 
+                
+                
+                console.log(sortCategories(ORDER_BY_COST, SectionArray.products),"hello")
+
+
+
             }
+
+            
+        })
+
+        orderDropBtn.addEventListener("click", () => {
+            dropdown.classList.toggle("show");
+            dropArrow.classList.toggle("drop-arrow-flip")
+            
+            
+        })
+        
+        
+        
+        masRelevantesBtn.addEventListener("click", () => {
+            orderDropBtn.innerHTML = masRelevantesBtn.innerHTML
+            dropdown.classList.toggle("show");
+            dropArrow.classList.toggle("drop-arrow-flip")
+            sortAndShowCategories("masRelevante",CurrentSectionArray)
+        
+        })
+        
+        menosRelevantesBtn.addEventListener("click", () => {
+            orderDropBtn.innerHTML = menosRelevantesBtn.innerHTML
+            dropdown.classList.toggle("show");
+            dropArrow.classList.toggle("drop-arrow-flip")
+            sortAndShowCategories("menosRelevante",CurrentSectionArray)
+        
+        })
+        
+        mayorPrecioBtn.addEventListener("click", () => {
+            orderDropBtn.innerHTML = mayorPrecioBtn.innerHTML
+            dropdown.classList.toggle("show");
+            dropArrow.classList.toggle("drop-arrow-flip")
+            sortAndShowCategories("mayor",CurrentSectionArray)
+            
+        
+        })
+        
+        menorPrecioBtn.addEventListener("click", () => {
+            orderDropBtn.innerHTML = menorPrecioBtn.innerHTML
+            dropdown.classList.toggle("show");
+            dropArrow.classList.toggle("drop-arrow-flip")
+            sortAndShowCategories("menor",CurrentSectionArray)
+            
+        
         })
 
         
@@ -78,60 +150,64 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     });
  
-orderDropBtn = document.getElementById("order-drop-btn");
-masRelevantesBtn = document.getElementById("masRelevantes");
-menosRelevantesBtn = document.getElementById("menosRelevantes");
-mayorPrecioBtn = document.getElementById("mayorPrecio");
-menorPrecioBtn = document.getElementById("menorPrecio");
-dropdown = document.getElementById("myDropdown");
-dropArrow = document.getElementById("drop-arrow");
+function sortCategories(criteria, array){
+    let result = [];
+    if (criteria === "mayor"){
+        result = array.sort(function(a, b) {
+            let aCost = parseInt(a.cost);
+            let bCost = parseInt(b.cost);
 
+            if ( aCost > bCost ){ return -1; }
+            if ( aCost < bCost ){ return 1; }
+            return 0;
+        });
+    } 
+    else if (criteria === "menor"){
+        result = array.sort(function(a, b) {
+            let aCost = parseInt(a.cost);
+            let bCost = parseInt(b.cost);
 
-
-orderDropBtn.addEventListener("click", () => {
-    dropdown.classList.toggle("show");
-    dropArrow.classList.toggle("drop-arrow-flip")
+            if ( aCost < bCost ){ return -1; }
+            if ( aCost > bCost ){ return 1; }
+            return 0;
+        })
     
+    }
+    else if(criteria === "masRelevante"){
+        result = array.sort(function (a,b) {
+            let aSold = parseInt(a.soldCount)
+            let bSold = parseInt(b.soldCount)
+
+            if ( aSold > bSold ){ return -1; }
+            if ( aSold < bSold ){ return 1; }
+            return 0;
+        });
+        
+    }
+    else if(criteria === "menosRelevante"){
+        result = array.sort(function (a,b) {
+            let aSold = parseInt(a.soldCount)
+            let bSold = parseInt(b.soldCount)
+
+            if ( aSold < bSold ){ return -1; }
+            if ( aSold > bSold ){ return 1; }
+            return 0;
+        });
+        
+    }
     
-})
+    return result;
+}
 
+function sortAndShowCategories(sortCriteria, CurrentSectionArray){
+    currentSortCriteria = sortCriteria;
 
+    if(SectionArray != undefined){
+        CurrentSecionArray = SectionArray;
+    }
 
-masRelevantesBtn.addEventListener("click", () => {
-    orderDropBtn.innerHTML = masRelevantesBtn.innerHTML
-    dropdown.classList.toggle("show");
-    dropArrow.classList.toggle("drop-arrow-flip")
+    CurrentSectionArray = sortCategories(currentSortCriteria, CurrentSectionArray);
 
-})
-
-menosRelevantesBtn.addEventListener("click", () => {
-    orderDropBtn.innerHTML = menosRelevantesBtn.innerHTML
-    dropdown.classList.toggle("show");
-    dropArrow.classList.toggle("drop-arrow-flip")
-
-})
-
-mayorPrecioBtn.addEventListener("click", () => {
-    orderDropBtn.innerHTML = mayorPrecioBtn.innerHTML
-    dropdown.classList.toggle("show");
-    dropArrow.classList.toggle("drop-arrow-flip")
-
-})
-
-menorPrecioBtn.addEventListener("click", () => {
-    orderDropBtn.innerHTML = menorPrecioBtn.innerHTML
-    dropdown.classList.toggle("show");
-    dropArrow.classList.toggle("drop-arrow-flip")
-
-})
-
-
-
-
-
-
-
-
-  
-
+    showSection();
+}
 

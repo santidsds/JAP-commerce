@@ -6,6 +6,15 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
+let navUl = document.getElementById("nav-izq");
+
+navUl.innerHTML += `
+        <li>
+          <a href="my-profile.html">${localStorage.getItem("user")}</a>
+        </li>
+`
+
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
