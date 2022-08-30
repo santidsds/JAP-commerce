@@ -12,6 +12,31 @@ body {
     background-color: #f5f5f7;
 }
 
+#nav-izq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  margin-top: -0.3em;
+
+  .user-icon {
+    margin-top: 1.2em;
+    margin-right: 0.5em;
+  }
+
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 300,
+  'GRAD' 200,
+  'opsz' 48;
+  color: white;
+  
+}
+
 .nav-container {
 
     font-family: 'Poppins';

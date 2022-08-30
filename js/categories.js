@@ -10,7 +10,7 @@ let navUl = document.getElementById("nav-izq");
 
 navUl.innerHTML += `
         <li>
-          <a href="my-profile.html">${localStorage.getItem("user")}</a>
+          <a href="">${localStorage.getItem("user")}</a>
         </li>
 `
 

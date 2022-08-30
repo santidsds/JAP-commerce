@@ -12,6 +12,31 @@ body {
     background-color: #f5f5f7;
 }
 
+#nav-izq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    margin-top: -0.3em;
+  
+    .user-icon {
+      margin-top: 1.2em;
+      margin-right: 0.5em;
+    }
+  
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 300,
+    'GRAD' 200,
+    'opsz' 48;
+    color: white;
+    
+  }
+
 .nav-container {
 
     font-family: 'Poppins';
@@ -148,7 +173,7 @@ body {
   
       img {
         width: 40px;
-        margin-right: 8.5em;
+        margin-right: 17em;
         transition: 0.5s;
   
         &:hover {
@@ -164,7 +189,7 @@ body {
     h1 {
         color: black;
         font-size: 75px;
-        margin-left: 1.4em;
+        margin-left: 3em;
         font-weight: bold;
     }
 
@@ -181,7 +206,7 @@ body {
     h1 {
         color: black;
         font-size: 75px;
-        margin-left: 3em;
+        margin-left: 5em;
         font-weight: bold;
     }
 
