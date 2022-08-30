@@ -84,7 +84,7 @@
 }
 
 .card {
-  --card-gradient: rgba(0, 0, 0, 0.945);
+  --card-gradient: rgba(0, 0, 0, 0.742);
   transition: 0.5s;
   --card-blend-mode: overlay;
   background-color: #fff;
@@ -92,7 +92,7 @@
   box-shadow: rgba(0, 0, 0, 0.362) 0px 3px 8px;
   padding-bottom: 1rem;
   max-height: 480px;
-  background-image: linear-gradient(var(--card-gradient), rgba(255, 255, 255, 0) max(9.5rem, 30vh));
+  background-image: linear-gradient(var(--card-gradient), rgba(255, 255, 255, 0) max(9.5rem, 29vh));
   overflow: hidden;
 }
 .card p {

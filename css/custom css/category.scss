@@ -118,7 +118,7 @@
         
         margin-top: 1em;
     }
-    --card-gradient: rgba(0, 0, 0, 0.945);
+    --card-gradient: rgba(0, 0, 0, 0.742);
     
     transition: 0.5s;
     
@@ -134,7 +134,7 @@
     max-height: 480px;
     background-image: linear-gradient(
       var(--card-gradient),
-      rgba(255, 255, 255, 0) max(9.5rem, 30vh)
+      rgba(255, 255, 255, 0) max(9.5rem, 29vh)
     );
     overflow: hidden;
     
