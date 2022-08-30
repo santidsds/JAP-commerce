@@ -40,15 +40,15 @@ nav a {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 2em;
   
-  height: 90vh;
-  width:90vw;
+  height: 87vh;
+  width:86vw;
   
   
   
   background-color: #53C0FB;
   background: url('../img/cover_back.png');
   background-size: contain;
-  background-position-y: center;
+  background-position-y: 12em;
   background-repeat: no-repeat;
   color: black;
   font-weight: bold;

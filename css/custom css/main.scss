@@ -20,7 +20,7 @@ body {
     align-items: flex-end;
     justify-content: start;
     margin-left: 13em;
-    margin-bottom: 1em;
+    margin-bottom: 4em;
 }
 
 
@@ -155,7 +155,7 @@ body {
             }
         }
     }
-    margin-top: 3em;
+    margin-top: 3.5em;
     display: flex;
     
     
@@ -261,13 +261,16 @@ footer {
             text-decoration: none;
         }
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: end;
         justify-content: center;
-        margin-top: -2em;
+        
+        margin-top: -7em;
+        margin-right: 11em;
         
     }
     p {
-        font-size: 14px;
+        font-size: 12px;
+        margin-top: -0.6em;
     }
 }
