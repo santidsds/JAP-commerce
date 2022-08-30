@@ -11,8 +11,8 @@
   justify-content: space-between;
   background-color: black;
   padding: 1em;
-  padding-right: 10em;
-  padding-left: 10em;
+  padding-right: 7em;
+  padding-left: 7em;
 }
 .nav-container nav {
   display: flex;
@@ -75,7 +75,7 @@
 .cat-title h1 {
   color: black;
   font-size: 75px;
-  margin-left: 1.7em;
+  margin-left: 1.4em;
   font-weight: bold;
 }
 .cat-title p {

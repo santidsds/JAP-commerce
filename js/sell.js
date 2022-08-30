@@ -9,11 +9,11 @@ let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
 let MSG = "FUNCIONALIDAD NO IMPLEMENTADA";
 
-navbarUl = document.getElementById("navbar-ul");
+let navUl = document.getElementById("nav-izq");
 
-navbarUl.innerHTML += `
-        <li class="nav-item">
-            <a class="user nav-link" href="#">${localStorage.getItem("user")}</a>
+navUl.innerHTML += `
+        <li>
+          <a href="">${localStorage.getItem("user")}</a>
         </li>
 `
 
