@@ -142,14 +142,26 @@
 }
 
 .card {
+  min-width: 400px;
+  
+  min-height:460px;
+
+  .vendidos {
+    color: rgb(141, 138, 138);
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    margin-top: -0.5em;
+  }
 
     p {
+        font-size: 1rem;
+        transition: 0.5s;
         
-        margin-top: 1em;
+        
     }
-    --card-gradient: rgba(0, 0, 0, 0.742);
+    --card-gradient: rgba(0, 0, 0, 0.734);
     
-    transition: 0.5s;
+    transition: 0.1s;
     
     
     // --card-gradient: tomato, orange;
@@ -160,20 +172,22 @@
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.362) 0px 3px 8px;
     padding-bottom: 1rem;
-    max-height: 480px;
+    
     background-image: linear-gradient(
       var(--card-gradient),
-      rgba(255, 255, 255, 0) max(9.5rem, 29vh)
+      rgba(255, 255, 255, 0) max(9.5rem, 28vh)
     );
     overflow: hidden;
     
     &:hover {
-        opacity: 100%;
+        
         cursor: pointer;
+        
        
     }
   
     .card-cont {
+        margin-top: -2.5em;
         padding: 1.80em;
     }
 
@@ -205,8 +219,17 @@
     &:hover,
     &:focus-within {
         
+      p {
+        
+        font-size: 1rem;
+
+        
+        
+    }
+
       a {
-        font-size: 2em;
+        
+        font-size: 2.1rem;
         cursor: pointer;
         
       }
@@ -225,7 +248,9 @@
   
   .card h3 {
     margin-top: -1em;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
+    
+    
     
   }
   

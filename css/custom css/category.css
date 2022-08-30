@@ -102,25 +102,33 @@
 }
 
 .card {
-  --card-gradient: rgba(0, 0, 0, 0.742);
-  transition: 0.5s;
+  min-width: 400px;
+  min-height: 460px;
+  --card-gradient: rgba(0, 0, 0, 0.734);
+  transition: 0.1s;
   --card-blend-mode: overlay;
   background-color: #fff;
   border-radius: 2em;
   box-shadow: rgba(0, 0, 0, 0.362) 0px 3px 8px;
   padding-bottom: 1rem;
-  max-height: 480px;
-  background-image: linear-gradient(var(--card-gradient), rgba(255, 255, 255, 0) max(9.5rem, 29vh));
+  background-image: linear-gradient(var(--card-gradient), rgba(255, 255, 255, 0) max(9.5rem, 28vh));
   overflow: hidden;
 }
+.card .vendidos {
+  color: rgb(141, 138, 138);
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  margin-top: -0.5em;
+}
 .card p {
-  margin-top: 1em;
+  font-size: 1rem;
+  transition: 0.5s;
 }
 .card:hover {
-  opacity: 100%;
   cursor: pointer;
 }
 .card .card-cont {
+  margin-top: -2.5em;
   padding: 1.8em;
 }
 .card img {
@@ -143,8 +151,11 @@
 .card > :last-child {
   margin-bottom: 0;
 }
+.card:hover p, .card:focus-within p {
+  font-size: 1rem;
+}
 .card:hover a, .card:focus-within a {
-  font-size: 2em;
+  font-size: 2.1rem;
   cursor: pointer;
 }
 
@@ -159,7 +170,7 @@ body {
 
 .card h3 {
   margin-top: -1em;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
 }
 
 .card a {

@@ -68,7 +68,7 @@ function showCategoriesList(){
                         <div class="card-cont">
                             <div class="inner-cont">
                                 <h3><a href="">${category.name}</a></h3>
-                                <p>${category.productCount} vendidos</p>
+                                <p class="vendidos">${category.productCount} vendidos</p>
                             </div>
                         
                         <p>${category.description}</p>
