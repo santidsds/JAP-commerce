@@ -1,5 +1,10 @@
 const CAR_SECTION_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-const ORDER_BY_COST = "Cost.";
+let minCount = undefined;
+let maxCount = undefined;
+
+minPriceInput = document.getElementById("rangeFilterCountMin");
+maxPriceInput = document.getElementById("rangeFilterCountMax");
+
 
 orderDropBtn = document.getElementById("order-drop-btn");
 masRelevantesBtn = document.getElementById("masRelevantes");
@@ -46,6 +51,9 @@ function showSection(){
 
     for(let i = 0; i < CurrentSectionArray.length; i++){
         let product = CurrentSectionArray[i];
+
+        if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
         
         
        
@@ -72,10 +80,11 @@ function showSection(){
         </div>
                
             `
-
+        }
         document.getElementById("Sections").innerHTML = htmlContentToAppend;
 
     }
+    
 
         
     };
@@ -93,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 
                 
                 
-                console.log(sortCategories(ORDER_BY_COST, SectionArray.products),"hello")
+                
 
 
 
@@ -144,6 +153,41 @@ document.addEventListener("DOMContentLoaded", function(e){
             
         
         })
+
+        document.getElementById("clearRangeFilter").addEventListener("click", function(){
+            document.getElementById("rangeFilterCountMin").value = "";
+            document.getElementById("rangeFilterCountMax").value = "";
+    
+            minCount = undefined;
+            maxCount = undefined;
+    
+            showSection();
+        });
+
+        document.getElementById("rangeFilterCount").addEventListener("click", function(){
+            //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+            //de productos por categoría.
+            minCount = minPriceInput.value;
+            maxCount = maxPriceInput.value;
+    
+            if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
+                minCount = parseInt(minCount);
+            }
+            else{
+                minCount = undefined;
+            }
+    
+            if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
+                maxCount = parseInt(maxCount);
+            }
+            else{
+                maxCount = undefined;
+            }
+
+            console.log(minCount,maxCount)
+    
+            showSection();
+        });
 
         
 
