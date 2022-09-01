@@ -274,3 +274,24 @@ footer {
         margin-top: -0.6em;
     }
 }
+
+@media only screen and (max-width:1700px) {
+    .user-cont, nav, .btn-container {
+        transform: scale(0.9);
+    }
+    
+    .jumbotron {
+        height: 90vh;
+        width:90vw;
+
+        margin-top: 2em;
+
+        background-position-y: 9em;
+        
+
+        .btn-container {
+            margin-bottom: 0em;
+            margin-left: 9.5em;
+        }
+    }
+}
