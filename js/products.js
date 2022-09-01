@@ -44,7 +44,7 @@ function showSection(){
 
     
 
-    console.log(CurrentSectionArray)
+    console.log()
     
     
     
@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                 CurrentSectionArray = sortCategories("masRelevante", SectionArray.products)
                 
                 showSection()
+
+                
                 
                 
                 
@@ -254,4 +256,26 @@ function sortAndShowCategories(sortCriteria, CurrentSectionArray){
 
     showSection();
 }
+
+searchBar = document.getElementById("search-bar");
+
+searchBar.addEventListener("input", () => {
+    if(searchBar.value){
+        CurrentSectionArray = CurrentSectionArray.filter(x =>  x.name.toUpperCase().includes(searchBar.value.toUpperCase()) || x.description.toUpperCase().includes(searchBar.value.toUpperCase()));
+        showSection()
+    }
+    else if(!searchBar.value){
+        CurrentSectionArray = sortCategories("masRelevante", SectionArray.products)
+        showSection()
+        console.log("sero")
+     }
+     else if(searchBar.value){
+        console.log("menosunopapi")
+     }
+
+
+    
+
+    
+})
 
