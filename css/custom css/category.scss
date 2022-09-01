@@ -4,12 +4,17 @@
 
 * {
   font-family: 'SF Pro Display', sans-serif;
+  
   a {
     text-decoration: none;
   }
 
   
 
+}
+
+body {
+  overflow-x: hidden;
 }
 
 #nav-izq {
@@ -82,6 +87,7 @@
 }
 
 .cat-list-container {
+  margin-top: 4em;
     padding: 5em;
     display: grid;
     place-content: center;
@@ -142,6 +148,7 @@
 }
 
 .card {
+  
   min-width: 400px;
   
   min-height:460px;
@@ -282,3 +289,40 @@
     transform: scale(0.9, 0.9);
   }
   
+
+  @media only screen and (max-width:1700px){
+
+    .card,.cat-list-container, h1, .shop-cart, nav, .filter-container {
+      transform: scale(0.9);
+    }
+
+    .card {
+      min-width: none;
+      min-height: 480px;
+      margin-right: -1em;
+      margin-left: -1em;
+      margin-top: -2em;
+
+      .card-cont {
+        margin-top: 2em;
+      }
+
+      background-image: linear-gradient(
+      var(--card-gradient),
+      rgba(255, 255, 255, 0) max(9.5rem, 30vh)
+    );
+    }
+
+    .cat-title{
+      h1 {
+        margin-left: 2em;
+      }
+    }
+
+    .shop-cart {
+      margin-right: -7em;
+    }
+    .cat-list-container {
+      margin-top: -3em;
+    }
+  }
