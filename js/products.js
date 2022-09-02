@@ -2,6 +2,8 @@ const CAR_SECTION_URL = "https://japceibal.github.io/emercado-api/cats_products/
 let minCount = undefined;
 let maxCount = undefined;
 
+swipeBtn = document.getElementById("swipeBtn");
+
 minPriceInput = document.getElementById("rangeFilterCountMin");
 maxPriceInput = document.getElementById("rangeFilterCountMax");
 
@@ -112,6 +114,17 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             
         })
+
+        swipeBtn.addEventListener("click", () => {
+            document.getElementById("hero-hide").classList.toggle("swipe")
+            
+            document.getElementById("swipeImg").classList.toggle("swipeToggle")
+
+            document.getElementById("Sections").classList.toggle("product-hero-section-margin")
+            
+        })
+        
+        
 
         orderDropBtn.addEventListener("click", () => {
             dropdown.classList.toggle("show");
@@ -278,4 +291,5 @@ searchBar.addEventListener("input", () => {
 
     
 })
+
 
