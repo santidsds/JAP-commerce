@@ -4,6 +4,8 @@ let maxCount = undefined;
 
 swipeBtn = document.getElementById("swipeBtn");
 
+userBtn = document.getElementById("userBtn");
+
 minPriceInput = document.getElementById("rangeFilterCountMin");
 maxPriceInput = document.getElementById("rangeFilterCountMax");
 
@@ -19,12 +21,13 @@ dropArrow = document.getElementById("drop-arrow");
 
 let currentSortCriteria = undefined;
 let CurrentSectionArray = [];
+let shopCartArray = [];
 
 let navUl = document.getElementById("nav-izq");
 
 navUl.innerHTML += `
         <li>
-          <a href="">${localStorage.getItem("user")}</a>
+          <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
         </li>
 `
 
@@ -63,9 +66,9 @@ function showSection(){
         
         htmlContentToAppend += `
 
-        <div class="card">
+        <div  class="card">
             <img src="${product.image}" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div id=${product.id} class="card-body">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="">${product.soldCount} vendidos</p>
                 
@@ -76,7 +79,7 @@ function showSection(){
 
                 <p class="card-text description">${product.description}</p>
                 
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <button href="#" id="itemBuyBtn${i}" class="btn btn-primary buyButton">Comprar</button>
                 
             </div>
         </div>
@@ -85,12 +88,24 @@ function showSection(){
         }
         document.getElementById("Sections").innerHTML = htmlContentToAppend;
 
+        
+
+
+
     }
     
 
         
     };
- 
+
+
+    function checkId(elem){
+        return elem.parentNode.id.value
+    }
+    
+    
+    let subtotalCalc = 0
+
 document.addEventListener("DOMContentLoaded", function(e){
     
 
@@ -101,19 +116,84 @@ document.addEventListener("DOMContentLoaded", function(e){
                 CurrentSectionArray = sortCategories("masRelevante", SectionArray.products)
                 
                 showSection()
-
+                shopCartAppend()
                 
-                
-                
-                
-                
-
-
 
             }
 
             
         })
+
+        
+        
+
+        function shopCartAppend () {
+            for(let i=0;i<CurrentSectionArray.length;i++){
+
+                
+                let buttonId = "itemBuyBtn"+i
+                let itemBuyBtn = document.getElementById(buttonId);
+                shopCartContent = document.getElementById("shopCartContent");
+                shopCartRemove = document.getElementById("shopCartRemove");
+                cartSubtotal = document.getElementById("cartSubtotal");
+                itemPrice = document.getElementById("itemPrice");
+
+                shopCartRemove.addEventListener("click", () => {
+                    shopCartContent.innerHTML = ""
+                    cartSubtotal.innerHTML = "$ 0";
+                })
+                
+
+                
+                
+
+                itemBuyBtn.addEventListener("click",()=>{
+
+                    shopCartArray = CurrentSectionArray.filter(x =>  x.id == (itemBuyBtn.parentNode.id));
+
+                    for(let i=0;i<shopCartArray.length;i++){
+                          
+                        let item = shopCartArray[i]
+
+                        shopCartContent.innerHTML += `
+                        <div class="item">
+                            <p class="itemName">${item.name}</p>
+                            <p id="itemPrice" class="itemPrice">${item.currency} ${item.cost}</p>
+                        </div>
+                        `
+                        
+                        subtotalCalc += parseInt(item.cost)
+                        console.log(item)
+
+                        cartSubtotal.innerHTML = item.currency+ " " + parseInt(subtotalCalc)
+
+                        
+                        
+                    
+                    } 
+
+                    
+                    
+                    
+                        
+                 }) 
+                
+                 
+            }
+            
+        }
+
+        
+
+        
+
+        document.getElementById("userBtn").addEventListener("click", () => {
+            
+            document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
+            
+        })
+
+        
 
         swipeBtn.addEventListener("click", () => {
             document.getElementById("hero-hide").classList.toggle("swipe")
@@ -291,5 +371,7 @@ searchBar.addEventListener("input", () => {
 
     
 })
+
+
 
 
