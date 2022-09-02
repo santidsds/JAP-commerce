@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 shopCartRemove.addEventListener("click", () => {
                     shopCartContent.innerHTML = ""
                     cartSubtotal.innerHTML = "$ 0";
+                    subtotalCalc = 0
                 })
                 
 
