@@ -149,8 +149,14 @@ document.addEventListener("DOMContentLoaded", function(e){
                 
 
                 itemBuyBtn.addEventListener("click",()=>{
+                    
+                    console.log(itemBuyBtn.parentNode.id)
 
+                    localStorage.setItem("product", JSON.stringify(CurrentSectionArray.filter(x =>  x.id == (itemBuyBtn.parentNode.id))));
+                    
                     shopCartArray = CurrentSectionArray.filter(x =>  x.id == (itemBuyBtn.parentNode.id));
+
+                    window.location.replace("product-info.html");
 
                     for(let i=0;i<shopCartArray.length;i++){
                           
@@ -361,11 +367,9 @@ searchBar.addEventListener("input", () => {
     else if(!searchBar.value){
         CurrentSectionArray = sortCategories("masRelevante", SectionArray.products)
         showSection()
-        console.log("sero")
+        
      }
-     else if(searchBar.value){
-        console.log("menosunopapi")
-     }
+    
 
 
     

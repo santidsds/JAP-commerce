@@ -1,0 +1,210 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+* {
+  font-family: "SF Pro Display", sans-serif;
+}
+* a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #f5f5f7;
+  overflow-x: hidden;
+}
+body .userBtn {
+  background-color: black;
+  color: white;
+}
+
+#nav-izq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  margin-top: -0.3em;
+}
+#nav-izq .user-icon {
+  margin-top: 1.2em;
+  margin-right: 0.5em;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 200, "opsz" 48;
+  color: white;
+}
+
+.nav-container {
+  font-family: "Poppins";
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  padding: 1em;
+  padding-right: 7em;
+  padding-left: 7em;
+}
+.nav-container nav {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.nav-container ul {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.nav-container ul li {
+  margin-top: 1em;
+  list-style: none;
+}
+.nav-container ul a {
+  font-size: 19px;
+  color: white;
+  margin-right: 3em;
+}
+
+.user-settings-swipe {
+  transform: translateY(12em);
+  position: absolute;
+}
+
+.user-settings-swipe-off {
+  transform: translateY(-12em);
+  position: absolute;
+}
+
+.user-settings-hide {
+  margin-top: -12em;
+  position: absolute;
+}
+
+.user-settings {
+  height: 10em;
+  width: 11em;
+  background-color: black;
+  position: absolute;
+  margin-top: -2em;
+  margin-left: 8em;
+  border-radius: 1.5em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.user-settings a {
+  color: white;
+  margin-left: 0.5em;
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
+  padding: 10em;
+  background-color: #f5f5f7;
+}
+.main-section .main-container {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 3.5em 1.5em 1.5em 1.5em;
+  background-color: white;
+  border-radius: 1em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.main-section .main-container .top-cont {
+  display: flex;
+  justify-content: space-around;
+}
+.main-section .main-container .bottom-cont {
+  padding: 3em 3em 3em 3em;
+}
+.main-section .main-container .info-cont {
+  padding: 3em 3em 3em 3em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main-section .main-container .info-cont .price h2 {
+  margin-top: 1em;
+  font-weight: bold;
+}
+.main-section .main-container .info-cont .price span {
+  color: rgb(0, 166, 80);
+}
+.main-section .main-container .info-cont .price .stock {
+  font-weight: bold;
+}
+.main-section .main-container .info-cont .button-cont {
+  display: flex;
+  flex-direction: column;
+}
+.main-section .main-container .info-cont .button-cont button {
+  padding: 0.9em;
+  border: none;
+  border-radius: 0.7em;
+  color: white;
+  font-weight: bold;
+  margin-top: 1em;
+}
+.main-section .main-container .info-cont .button-cont .buyBtn {
+  background-color: #0d6efd;
+}
+.main-section .main-container .info-cont .button-cont .cartAddBtn {
+  background-color: rgb(217, 231, 250);
+  color: rgb(83, 150, 250);
+}
+.main-section .main-container .description {
+  margin-top: 1em;
+  padding-top: 2em;
+  border-top: 1px solid rgb(226, 226, 226);
+  min-width: 1000px;
+}
+.main-section .main-container .description h2 {
+  font-size: 1.7em;
+}
+.main-section .main-container .description p {
+  color: rgb(127, 127, 127);
+}
+.main-section .main-container .comment-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10em;
+  border-radius: 1em;
+  padding: 3em;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  min-width: 1000px;
+}
+.main-section .main-container .comment-section h2 {
+  font-size: 1em;
+  font-weight: bold;
+}
+.main-section .main-container .comment-section .comments {
+  margin-top: 2em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 1.5em;
+  border-radius: 1em;
+}
+.main-section .main-container .comment-section .comments p {
+  font-size: 0.85em;
+}
+.main-section .main-container .img-cont img {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 0.3em;
+}
+.main-section .main-container .img-cont .main-img img {
+  width: 550px;
+  margin-bottom: 0.3em;
+}
+.main-section .main-container .img-cont .secondary-img {
+  display: flex;
+  justify-content: center;
+}
+.main-section .main-container .img-cont .secondary-img img {
+  width: 180px;
+  margin-right: 0.3em;
+}/*# sourceMappingURL=products-info.css.map */

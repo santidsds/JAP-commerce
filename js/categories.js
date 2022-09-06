@@ -89,7 +89,6 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
 
     if(categoriesArray != undefined){
         currentCategoriesArray = categoriesArray;
-        
     }
 
     currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
