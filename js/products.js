@@ -355,6 +355,7 @@ function sortAndShowCategories(sortCriteria, CurrentSectionArray){
     CurrentSectionArray = sortCategories(currentSortCriteria, CurrentSectionArray);
 
     showSection();
+    
 }
 
 searchBar = document.getElementById("search-bar");
