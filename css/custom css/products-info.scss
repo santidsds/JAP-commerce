@@ -164,9 +164,9 @@ body {
         }
 
         .info-cont {
-            padding: 3.5em;
+            padding: 4em;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            width: fit-content;
+            width: 500px;
             border-radius: 1em;
             display: flex;
             
@@ -196,7 +196,7 @@ body {
             }
 
             .button-cont{
-                margin-top: 1em;
+                margin-top: 3em;
                 display: flex;
                 flex-direction: column;
 
@@ -266,7 +266,7 @@ body {
 
         .img-cont {
             
-            margin-top: 1em;
+            margin-top: 3em;
             img {
                 
                 border-radius: 0.3em;
@@ -291,5 +291,12 @@ body {
         }
 
 
+    }
+}
+
+@media only screen and (max-width:1700px){
+    .main-section {
+        transform: scale(0.9);
+        padding-top: 0;
     }
 }
