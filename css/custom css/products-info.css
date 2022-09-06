@@ -181,7 +181,6 @@ body .userBtn {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  min-width: 1000px;
 }
 .main-section .main-container .comment-section h2 {
   font-size: 1em;
@@ -192,9 +191,28 @@ body .userBtn {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 1.5em;
   border-radius: 1em;
+  min-width: 1070px;
+}
+.main-section .main-container .comment-section .comments .cont {
+  display: flex;
+  justify-content: space-between;
+}
+.main-section .main-container .comment-section .comments .cont .date {
+  font-size: 12px;
+  color: rgb(179, 179, 179);
 }
 .main-section .main-container .comment-section .comments p {
   font-size: 0.85em;
+}
+.main-section .main-container .comment-section .comments .user-cont {
+  display: flex;
+}
+.main-section .main-container .comment-section .comments .user-cont h2 {
+  margin-bottom: 0em;
+  margin-right: 1em;
+}
+.main-section .main-container .comment-section .comments .user-cont .rating {
+  margin-top: -0.1em;
 }
 .main-section .main-container .img-cont {
   margin-top: 3em;
@@ -219,5 +237,13 @@ body .userBtn {
   .main-section {
     transform: scale(0.9);
     padding-top: 0;
+  }
+}
+@media only screen and (max-width: 1500px) {
+  .main-section, h1, nav {
+    transform: scale(0.75);
+  }
+  .main-container {
+    margin-top: -9em;
   }
 }/*# sourceMappingURL=products-info.css.map */

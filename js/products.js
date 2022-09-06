@@ -117,6 +117,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                 
                 showSection()
                 shopCartAppend()
+
+                console.log(CurrentSectionArray[0])
+
+                
                 
 
             }
@@ -153,7 +157,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                     console.log(itemBuyBtn.parentNode.id)
 
                     localStorage.setItem("product", JSON.stringify(CurrentSectionArray.filter(x =>  x.id == (itemBuyBtn.parentNode.id))));
-                    
+                    localStorage.setItem("itemSelectedId", itemBuyBtn.parentNode.id);
+
                     shopCartArray = CurrentSectionArray.filter(x =>  x.id == (itemBuyBtn.parentNode.id));
 
                     window.location.replace("product-info.html");

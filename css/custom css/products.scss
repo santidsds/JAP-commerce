@@ -708,3 +708,45 @@ input[type="number"]::-webkit-inner-spin-button {
     }
 
 }
+
+@media only screen and (max-width:1500px){
+    
+    .product-hero-section, .search-cont, h1, .order, nav, .shop-cart {
+        transform: scale(0.75);
+    }
+
+    .product-hero-section{
+        margin-top: -7em;
+    }
+
+    .order {
+        margin-right: 3em;
+    }
+
+    .search-cont {
+        margin-top: -1.5em;
+        margin-left: 0.5em;
+    }
+
+    .title-cont {
+        h1 {
+            margin-left:1em ;
+        }
+
+        .shop-cart {
+            margin-right: -9em;
+        }
+    }
+
+    .left-cont {
+        background-color: rgb(245, 245, 247);
+        padding: 3em;
+        height: 165vh;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        margin-top: -5em;
+        position: absolute;
+        z-index:-1;
+        width: 25em;
+    }
+
+}

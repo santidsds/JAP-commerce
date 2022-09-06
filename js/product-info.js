@@ -13,11 +13,26 @@ document.getElementById("userBtn").addEventListener("click", () => {
 })
 
 let arrayToShow = JSON.parse(localStorage.getItem("product"));
+let productCommentsUrl = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE
 let mainSection = document.getElementById("main-section");
 let item = arrayToShow[0];
+let productCommentArray = []
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(item)
+
+  getJSONData(productCommentsUrl).then(function(resultObj){
+    if (resultObj.status === "ok"){
+        productCommentArray = resultObj.data
+        
+        showComments()
+        
+        
+    }
+
+    
+})
+
+  
   mainSection.innerHTML = `
   <div class="main-container">
 
@@ -64,22 +79,105 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
       </div>
-      <div class="comment-section">
+      <div id="comment-section" class="comment-section">
         <h3>Reseñas</h3>
-        <div class="comments">
-          <h2>User</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cupiditate fugiat minus possimus quam magnam nostrum impedit facere quod alias dignissimos adipisci, dolor temporibus sint. Fugit in laudantium voluptatibus autem.</p>
-        </div>
-        <div class="comments">
-          <h2>User</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cupiditate fugiat minus possimus quam magnam nostrum impedit facere quod alias dignissimos adipisci, dolor temporibus sint. Fugit in laudantium voluptatibus autem.</p>
-        </div>
-        <div class="comments">
-          <h2>User</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cupiditate fugiat minus possimus quam magnam nostrum impedit facere quod alias dignissimos adipisci, dolor temporibus sint. Fugit in laudantium voluptatibus autem.</p>
-        </div>
+       
       </div>
     </div>
   `
   
 } )
+
+function showComments() {
+  for(let i = 0; i < productCommentArray.length; i++){
+    let comment = productCommentArray[i];
+
+    function rating () {
+      let ratingToAppend = ""
+      if(comment.score === 1) {
+        ratingToAppend = `
+      
+          <span id="ratingStar-1" class="fa fa-star checked"></span>
+          <span id="ratingStar-2" class="fa fa-star"></span>
+          <span id="ratingStar-3" class="fa fa-star"></span>
+          <span id="ratingStar-4" class="fa fa-star"></span>
+          <span id="ratingStar-5" class="fa fa-star"></span>
+          `
+
+          return ratingToAppend
+
+      }
+      else if(comment.score === 2) {
+        ratingToAppend = `
+      
+          <span id="ratingStar-1" class="fa fa-star checked"></span>
+          <span id="ratingStar-2" class="fa fa-star checked"></span>
+          <span id="ratingStar-3" class="fa fa-star"></span>
+          <span id="ratingStar-4" class="fa fa-star"></span>
+          <span id="ratingStar-5" class="fa fa-star"></span>
+          `
+          return ratingToAppend
+
+      }
+      else if(comment.score === 3) {
+        ratingToAppend = `
+      
+          <span id="ratingStar-1" class="fa fa-star checked"></span>
+          <span id="ratingStar-2" class="fa fa-star checked"></span>
+          <span id="ratingStar-3" class="fa fa-star checked"></span>
+          <span id="ratingStar-4" class="fa fa-star"></span>
+          <span id="ratingStar-5" class="fa fa-star"></span>
+          `
+          return ratingToAppend
+
+      }
+      else if(comment.score === 4) {
+        ratingToAppend = `
+      
+          <span id="ratingStar-1" class="fa fa-star checked"></span>
+          <span id="ratingStar-2" class="fa fa-star checked"></span>
+          <span id="ratingStar-3" class="fa fa-star checked"></span>
+          <span id="ratingStar-4" class="fa fa-star checked"></span>
+          <span id="ratingStar-5" class="fa fa-star"></span>
+          `
+          return ratingToAppend
+
+      }
+      else if(comment.score === 5) {
+        ratingToAppend = `
+      
+          <span id="ratingStar-1" class="fa fa-star checked"></span>
+          <span id="ratingStar-2" class="fa fa-star checked"></span>
+          <span id="ratingStar-3" class="fa fa-star checked"></span>
+          <span id="ratingStar-4" class="fa fa-star checked"></span>
+          <span id="ratingStar-5" class="fa fa-star checked"></span>
+          `
+          return ratingToAppend
+
+      }
+    }
+
+    document.getElementById("comment-section").innerHTML +=
+    `
+        <div class="comments">
+        <div class="cont">
+          <div class="user-cont">
+            <h2>${comment.user}</h2>
+            <div class="rating" >
+              ${rating()}
+            </div>
+            
+          </div>
+            <div class="date">
+            ${comment.dateTime}
+            </div>
+            
+    
+        </div>
+        
+          <p>${comment.description}</p>
+        </div>
+        `
+    console.log(comment)
+  }
+}
