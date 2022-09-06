@@ -89,8 +89,24 @@ document.addEventListener("DOMContentLoaded", () => {
 } )
 
 function showComments() {
+
+  if(productCommentArray.length === 0){
+    document.getElementById("comment-section").innerHTML += `
+    <div class="comments">   
+      <div class="temp-cont">
+        <p class="no-comments" >Todavía no hay comentarios</p>
+      </div> 
+      
+    </div>
+    `
+  }
+
   for(let i = 0; i < productCommentArray.length; i++){
     let comment = productCommentArray[i];
+
+    
+    
+    
 
     function rating () {
       let ratingToAppend = ""
@@ -157,6 +173,7 @@ function showComments() {
       }
     }
 
+
     document.getElementById("comment-section").innerHTML +=
     `
         <div class="comments">
@@ -177,7 +194,10 @@ function showComments() {
         
           <p>${comment.description}</p>
         </div>
+        
         `
     console.log(comment)
+    
   }
 }
+

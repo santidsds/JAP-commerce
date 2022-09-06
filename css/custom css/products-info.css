@@ -214,11 +214,18 @@ body .userBtn {
 .main-section .main-container .comment-section .comments .user-cont .rating {
   margin-top: -0.1em;
 }
+.main-section .main-container .comment-section .comments .temp-cont {
+  display: flex;
+  justify-content: center;
+}
 .main-section .main-container .img-cont {
   margin-top: 3em;
 }
 .main-section .main-container .img-cont img {
   border-radius: 0.3em;
+}
+.main-section .main-container .img-cont img:hover {
+  cursor: pointer;
 }
 .main-section .main-container .img-cont .main-img img {
   width: 550px;
