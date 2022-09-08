@@ -23,6 +23,21 @@ body {
     }
 }
 
+.backArrow-cont {
+    position: absolute;
+
+    button {
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.backArrow {
+    width: 30px;
+    position: relative;
+    margin-left: 5em;
+}
+
 .shopCartContent {
     padding: 3em 1.5em 3em 1.5em;
     margin-top: 1em;
@@ -44,7 +59,7 @@ body {
     }
 }
 
-.cart-cont {
+/*.cart-cont {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -114,7 +129,7 @@ body {
     .price {
         font-size: 20px;
     }
-}
+}*/
 
 .user-settings-swipe {
     transform: translateY(12em);
@@ -151,6 +166,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
+
+    
 
     a {
         

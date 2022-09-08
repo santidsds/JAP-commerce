@@ -91,6 +91,10 @@ body .userBtn {
   align-items: flex-start;
   justify-content: space-around;
 }
+.user-settings button {
+  color: white;
+  background-color: black;
+}
 .user-settings a {
   color: white;
   margin-left: 0.5em;
@@ -122,6 +126,7 @@ body .userBtn {
   width: 500px;
   border-radius: 1em;
   display: flex;
+  border-radius: 1em;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -218,6 +223,92 @@ body .userBtn {
   display: flex;
   justify-content: center;
 }
+.main-section .main-container .user-comments {
+  margin-top: 2em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 1.5em;
+  border-radius: 1em;
+  min-width: 1070px;
+}
+.main-section .main-container .user-comments .cont {
+  display: flex;
+  justify-content: space-between;
+}
+.main-section .main-container .user-comments .cont .date {
+  font-size: 12px;
+  color: rgb(179, 179, 179);
+}
+.main-section .main-container .user-comments p {
+  font-size: 0.85em;
+}
+.main-section .main-container .user-comments .user-cont {
+  display: flex;
+}
+.main-section .main-container .user-comments .user-cont h2 {
+  margin-bottom: 0em;
+  margin-right: 1em;
+}
+.main-section .main-container .user-comments .user-cont .rating {
+  margin-top: -0.1em;
+}
+.main-section .main-container .user-comments .temp-cont {
+  display: flex;
+  justify-content: center;
+}
+.main-section .main-container .submit-comment {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 2em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 2em;
+  border-radius: 1em;
+  min-width: 1070px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.main-section .main-container .submit-comment #submit-close {
+  border: none;
+  background-color: transparent;
+}
+.main-section .main-container .submit-comment .submit-close {
+  width: 10px;
+}
+.main-section .main-container .submit-comment .submit-close:hover {
+  cursor: pointer;
+}
+.main-section .main-container .submit-comment input {
+  border-radius: 1em;
+  width: 1000px;
+  border: none;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+.main-section .main-container .submit-comment .addComment {
+  padding: 0.8em 1.5em 0.8em 1.5em;
+  border: none;
+  border-radius: 0.7em;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 1em;
+  background-color: #0d6efd;
+}
+.main-section .main-container .submit-comment textarea:focus, .main-section .main-container .submit-comment input:focus {
+  outline: none;
+}
+.main-section .main-container .submit-comment .submit-inner-cont {
+  display: flex;
+}
+.main-section .main-container .submit-comment .submit-inner-cont h2 {
+  margin-right: 1em;
+}
+.main-section .main-container .submit-comment .submit-inner-cont .rating-cont {
+  margin-top: -0.1em;
+}
+.main-section .main-container .submit-comment .submit-inner-cont .rating-cont:hover {
+  cursor: pointer;
+}
 .main-section .main-container .img-cont {
   margin-top: 3em;
 }
@@ -238,6 +329,17 @@ body .userBtn {
 .main-section .main-container .img-cont .secondary-img img {
   width: 180px;
   margin-right: 0.3em;
+}
+
+.backArrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-left: 1em;
+  margin-top: -1em;
+}
+.backArrow:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1700px) {
