@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function Comments() {
-
+  
   if(productCommentArray.length === 0){
     document.getElementById("comment-section").innerHTML += `
     <div id="noComments" class="comments">   
@@ -187,11 +187,11 @@ function rating (stars) {
   if(stars === 1) {
     ratingToAppend = `
   
-      <span id="ratingStar-1" class="fa fa-star checked"></span>
-      <span id="ratingStar-2" class="fa fa-star"></span>
-      <span id="ratingStar-3" class="fa fa-star"></span>
-      <span id="ratingStar-4" class="fa fa-star"></span>
-      <span id="ratingStar-5" class="fa fa-star"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
       `
 
       return ratingToAppend
