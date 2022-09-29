@@ -13,25 +13,38 @@ document.getElementById("userBtn").addEventListener("click", () => {
 })
 
 let arrayToShow = JSON.parse(localStorage.getItem("product"));
-let productCommentsUrl = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE
+let productCommentsUrl = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
+let productInfoUrl = PRODUCT_INFO_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
 let mainSection = document.getElementById("main-section");
 let item = arrayToShow[0];
-let productCommentArray = []
+let productCommentArray = [];
+let productInfo = [];
+let AllProductsArray = []
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
   getJSONData(productCommentsUrl).then(function(resultObj){
     if (resultObj.status === "ok"){
-        productCommentArray = resultObj.data
-        
-        
+        productCommentArray = resultObj.data 
         Comments()
-        userComment()
-        
-        
-        
+        userComment() 
     }})
+
+    getJSONData(wantedSection).then(function(resultObj){
+      if (resultObj.status === "ok"){
+          AllProductsArray = resultObj.data.products
+        }})
+
+
+    getJSONData(productInfoUrl).then(function(resultObj){
+      if (resultObj.status === "ok"){
+          productInfo = resultObj.data
+          console.log(productInfo)
+          showRelatedProducts()
+          
+      }})
 
 
 
@@ -85,6 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
       </div>
+      <div class = "relatedProducts" id = "relatedProducts">
+      <h3>Productos relacionados</h3>
+      <div class="relatedProducts-cont" id="relatedProducts-cont">
+      </div>
+      </div>
+
       <div id="comment-section" class="comment-section">
         <h3>Reseñas</h3>
         <div id="allComments">
@@ -144,7 +163,7 @@ function Comments() {
         </div>
         
         `
-    console.log(comment)
+    
     
   }
 
@@ -449,6 +468,59 @@ function showUserComment() {
   })
 }
 
+function showRelatedProducts(){
+  let relatedProductsSection = document.getElementById("relatedProducts-cont");
+  
+
+  for(let i=0; i<productInfo.relatedProducts.length ; i++){
+    let product = productInfo.relatedProducts[i];
+    console.log(product)
+    let itemInfo = AllProductsArray.filter( item => item.id === product.id)[0]
+    
+
+    relatedProductsSection.innerHTML += `
+    
+    <div class="inner-container">
+      
+        <div class="img-container">
+          <img src=${product.image} alt="">
+        </div>
+
+        <div class="body">
+          <h2>${product.name}</h2>
+        
+          <div class="price">
+          <h3>${itemInfo.currency}</h3>
+          <h3>${itemInfo.cost}</h3>
+          </div>
+
+        </div>
+        <div class ="button-cont">
+        <button id="relatedProducts-btn-${product.id}">Ver</button></div>
+      </div>
+    </div>
+    
+  `
+   
+    
+  }
+  
+  for(let i=0; i<productInfo.relatedProducts.length ; i++){
+    let product = productInfo.relatedProducts[i];
+    let relatedBtn = document.getElementById("relatedProducts-btn-"+product.id);
+
+    relatedBtn.addEventListener("click" , () => {
+      localStorage.setItem("product", JSON.stringify(AllProductsArray.filter(x =>  x.id == (product.id))));
+      console.log(product.id)
+      localStorage.setItem("itemSelectedId", product.id);
+      window.location.replace("product-info.html")
+  
+      
+    })
+    
+  }
+
+}
 
 
-
+  

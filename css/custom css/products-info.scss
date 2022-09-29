@@ -217,6 +217,7 @@ body {
                     color: white;
                     font-weight: bold;
                     margin-top: 1em;
+                    
                 }
 
                 .buyBtn {
@@ -232,8 +233,11 @@ body {
 
         .description {
             margin-top: 2em;
+            
             padding-top: 3em;
+            padding-bottom: 3em;
             border-top: 1px solid rgb(226, 226, 226);
+            border-bottom: 1px solid rgb(226, 226, 226);
             min-width: 1000px;
 
             h2 {
@@ -251,10 +255,11 @@ body {
             flex-direction: column;
             justify-content: space-between;
             
-            margin-top: 10em;
+            margin-top: 1em;
             border-radius: 1em;
             padding: 3em;
             max-width: fit-content;
+            
             
 
             h2 {
@@ -265,6 +270,7 @@ body {
 
             .comments {
                 margin-top: 2em;
+                
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                 padding: 1.5em;
                 border-radius: 1em; 
@@ -354,7 +360,7 @@ body {
         }
 
         .submit-comment {
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            
             margin-top: 2em;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             padding:2em;
@@ -464,6 +470,67 @@ body {
 
 
     }
+}
+
+.relatedProducts {
+    padding: 3em;
+    
+    
+}
+
+.relatedProducts-cont {
+
+    
+
+    img {
+        width: 250px;
+        border-radius: 0.6em;
+    }
+
+    display: flex;
+    flex-direction: row;
+    padding: 3em;
+    gap: 5em;
+    margin-top: 2em;
+
+    .inner-container {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 1.5em;
+        border-radius: 1em;
+    }
+
+    .button-cont {
+        button {
+            width: 100%;
+            padding: 0.7em;
+            border: none;
+            border-radius: 0.7em;
+            color: white;
+            margin-top: 1em;
+            background-color: #0d6efd;
+            
+        }
+    }
+
+    .price {
+        display: flex;
+        gap: 10px;
+        margin-top: 1em;
+
+        h3 {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    }
+
+    .body {
+        padding: 0.5em;
+        h2 {
+            font-size: 1.6em;
+            margin-top: 1em;
+        }
+    }
+    
 }
 
 .backArrow {
