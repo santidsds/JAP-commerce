@@ -48,7 +48,7 @@ function showSection(){
     `*/
 
     document.getElementById("product-title").innerHTML = `
-    <h1>${SectionArray.catName}</h1>
+    <h1 class="category-title">${SectionArray.catName}</h1>
     `
 
     for(let i = 0; i < CurrentSectionArray.length; i++){
@@ -187,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     
             
         });
+        
 
         
 

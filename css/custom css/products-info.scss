@@ -108,7 +108,7 @@ body {
 
 .user-settings-hide {
     margin-top: -12em;
-    
+    z-index: 1;
     position: absolute;
     
 }
@@ -127,6 +127,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
+    
 
     span {
        
@@ -136,6 +137,7 @@ body {
     button {
         color: white;
         background-color: black;
+        
     }
 
     a {
@@ -471,6 +473,7 @@ body {
 
     }
 }
+
 
 .relatedProducts {
     padding: 3em;

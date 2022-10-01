@@ -125,6 +125,7 @@ body .userBtn {
 
 .user-settings-hide {
   margin-top: -12em;
+  z-index: 1;
   position: absolute;
 }
 
@@ -141,6 +142,10 @@ body .userBtn {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+}
+.user-settings button {
+  color: white;
+  background-color: black;
 }
 .user-settings a {
   color: white;

@@ -10,9 +10,15 @@ let navUl = document.getElementById("nav-izq");
 
 navUl.innerHTML += `
         <li>
-          <a href="">${localStorage.getItem("user")}</a>
+          <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
         </li>
 `
+
+document.getElementById("userBtn").addEventListener("click", () => {
+            
+  document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
+  
+})
 
 
 function sortCategories(criteria, array){

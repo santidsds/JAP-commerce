@@ -8,8 +8,51 @@ body {
   font-family: "SF Pro Display", sans-serif;
   overflow: hidden;
 }
+body .userBtn {
+  background-color: white;
+  color: black;
+}
 body a {
   text-decoration: none;
+}
+
+.user-settings-swipe {
+  transform: translateY(12em);
+  position: absolute;
+}
+
+.user-settings-swipe-off {
+  transform: translateY(-12em);
+  position: absolute;
+}
+
+.user-settings-hide {
+  margin-top: -12em;
+  z-index: 1;
+  position: absolute;
+}
+
+.user-settings {
+  height: 10em;
+  width: 11em;
+  background-color: black;
+  position: absolute;
+  margin-top: -2em;
+  margin-left: 8em;
+  border-radius: 1.5em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.user-settings button {
+  color: white;
+  background-color: black;
+}
+.user-settings a {
+  color: white;
+  margin-left: 0.5em;
 }
 
 .btn-container {

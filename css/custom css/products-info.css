@@ -74,6 +74,7 @@ body .userBtn {
 
 .user-settings-hide {
   margin-top: -12em;
+  z-index: 1;
   position: absolute;
 }
 
