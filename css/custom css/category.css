@@ -129,14 +129,12 @@ body {
   text-decoration: none;
   font-size: 20px;
   margin-right: 5px;
+  margin-top: 5px;
 }
 .cat-title img {
   width: 40px;
   margin-right: 17em;
-  transition: 0.5s;
-}
-.cat-title img:hover {
-  width: 45px;
+  transition: 0.5s ease;
 }
 .cat-title h1 {
   color: black;

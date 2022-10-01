@@ -21,6 +21,8 @@ document.getElementById("userBtn").addEventListener("click", () => {
 })
 
 
+
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
@@ -159,4 +161,14 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
+    document.getElementById("user-settings-salir").addEventListener("click", () => {
+        window.location.replace("index.html")
+      })
+      document.getElementById("user-settings-cart").addEventListener("click", () => {
+        window.location.replace("cart.html")
+      })
+      document.getElementById("user-settings-perfil").addEventListener("click", () => {
+        window.location.replace("my-profile.html")
+      })
 });

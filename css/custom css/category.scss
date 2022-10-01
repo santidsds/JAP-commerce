@@ -175,6 +175,7 @@ body {
 
     .shop-cart {
       display: flex;
+      
     }
 
     .shop-cart-price {
@@ -182,16 +183,15 @@ body {
       text-decoration: none;
       font-size: 20px;
       margin-right: 5px;
+      margin-top: 5px;
     }
 
     img {
       width: 40px;
       margin-right: 17em;
-      transition: 0.5s;
+      transition: 0.5s ease;
 
-      &:hover {
-        width:45px;
-      }
+      
 
   
     }

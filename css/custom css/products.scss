@@ -549,6 +549,7 @@ input[type="number"]::-webkit-inner-spin-button {
         text-decoration: none;
         font-size: 20px;
         margin-right: 5px;
+        margin-top: 5px;
       }
   
       img {
@@ -556,9 +557,7 @@ input[type="number"]::-webkit-inner-spin-button {
         margin-right: 17em;
         transition: 0.5s;
   
-        &:hover {
-          width:45px;
-        }
+        
 }
 
     margin-bottom: 5em;
