@@ -358,6 +358,9 @@ body .userBtn {
   padding: 1.5em;
   border-radius: 1em;
 }
+.relatedProducts-cont .inner-container:hover {
+  cursor: pointer;
+}
 .relatedProducts-cont .button-cont button {
   width: 100%;
   padding: 0.7em;

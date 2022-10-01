@@ -63,7 +63,7 @@ function showSection(){
         
         htmlContentToAppend += `
         
-        <div  class="card">
+        <div class="card">
             <img src="${product.image}" class="card-img-top" alt="...">
             <div id=${product.id} class="card-body">
                 <h5 class="card-title">${product.name}</h5>

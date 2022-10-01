@@ -115,9 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2>Descripción</h2>
           <p>${item.description}</p>
         </div>
-        
-        
-
+      
       </div>
       <div class = "relatedProducts" id = "relatedProducts">
       <h3>Productos relacionados</h3>
@@ -501,7 +499,7 @@ function showRelatedProducts(){
 
     relatedProductsSection.innerHTML += `
     
-    <div class="inner-container">
+    <div id="related-cont${product.id}"class="inner-container">
       
         <div class="img-container">
           <img src=${product.image} alt="">
@@ -528,7 +526,7 @@ function showRelatedProducts(){
   
   for(let i=0; i<productInfo.relatedProducts.length ; i++){
     let product = productInfo.relatedProducts[i];
-    let relatedBtn = document.getElementById("relatedProducts-btn-"+product.id);
+    let relatedBtn = document.getElementById("related-cont"+product.id);
 
     relatedBtn.addEventListener("click" , () => {
       localStorage.setItem("product", JSON.stringify(AllProductsArray.filter(x =>  x.id == (product.id))));
