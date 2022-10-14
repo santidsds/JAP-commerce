@@ -44,35 +44,91 @@
   </div>
   </div>
   <main>
-    <div class="cart-container">
-      <div class="header">
-        <h3 class="heading">Shopping Cart</h3>
-        <h5 class="remove">Remove all</h5>
+    <div class="hero-cont">
+      <div class="cart-container">
+        <div class="header">
+          <h3 class="heading">Shopping Cart</h3>
+          <h5 class="remove">Remove all</h5>
+        </div>
+        <div class="cart-items">
+          <div id="cart-items-cont" class="cart-items-cont">
+              
+          </div>
+          
+        </div>
+        
       </div>
-      <div class="cart-items">
-        <div id="cart-items-cont" class="cart-items-cont">
+      <div class="cart-subtotal">
+        
+        <div class="cart-subtotal-cont">
+          
+          
+          <div class="sell-options" id="sell-options">
+  
+            <div class="ship-type">
+              <p>Tipo de envío:</p>
+              <div class="ship-type-info">
+                
+                <input id="envio_standard" name=envio type="radio">
+                <label for="envio_standard">Standard</label>
+  
+                
+                <input id="envio_premium" name=envio type="radio">
+                <label for="envio_premium">Premium</label>
+  
+                
+                <input id="envio_express" name=envio type="radio">
+                <label for="envio_express">Express</label>
+              </div>
+              
+            </div>
+  
+            <div class="direccion">
+              <p>Dirección de envío:</p>
+    
+              <div class="direccion-info">
+    
+                <div class="direccion-calle"><label for="direccion-calle">Calle:</label>
+                  <input type="text" name="calle" id="direccion-calle"></div>
+    
+                <div class="direccion-numero"><label for="direccion-numero">Número:</label>
+                  <input type="text" name="numero" id="direccion-numero"></div>
+    
+                <div class="direccion-esquina"><label for="direccion-esquina">Esquina</label>
+                  <input type="text" name="esquina" id="direccion-esquina"></div>
+    
+              </div>
             
-        </div>
-        
-      </div>
-      
-    </div>
-    <div class="cart-subtotal">
-      
-      <div class="cart-subtotal-cont">
-        
-        <div class="cart-subtotal-innercont">
-          <div class="cart-subtotal-left-cont">
-            <p class="subtotal">Subtotal:</p>
-            <p id="itemCount"class="itemCounts">1 item</p>
+            </div>
+  
+            <div class="payment-method">
+              <p>Método de pago:</p>
+              <div class="credit-cards">
+                <a href=""><img src="/img/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg" alt=""></a>
+                <a href=""><img src="/img/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg" alt=""></a>
+                <a href=""><img src="/img/8c527760-f39a-11eb-826e-6db365b9e0dd-m.svg" alt=""></a>
+                <a href=""><img src="/img/06b39b40-2da1-11ea-8ea5-c56de9c85dbe-m.svg" alt=""></a>
+                <a href=""><img src="/img/c2d9dbb0-f39b-11eb-9984-b7076edb0bb7-m.svg" alt=""></a>
+              </div>
+            </div>
+  
+            
           </div>
-          <div class="cart-subtotal-right-cont">
-            <p id="subtotal"></p>
+          
+          <div class="cart-subtotal-innercont">
+            <div class="cart-subtotal-left-cont">
+              <p class="subtotal">Subtotal:</p>
+              <p id="itemCount"class="itemCounts">1 item</p>
+            </div>
+            <div class="cart-subtotal-right-cont">
+              <p id="subtotal"></p>
+            </div>
           </div>
+          <button class="checkoutBtn">Confirmar compra</button>
         </div>
-        <button class="checkoutBtn">Confirmar compra</button>
       </div>
     </div>
+    
   </main>
   
   <div id="spinner-wrapper">

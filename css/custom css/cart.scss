@@ -57,11 +57,6 @@ body {
   justify-content: space-around;
   
 
-  span {
-     
-      
-  }
-
   button {
       color: white;
       background-color: black;
@@ -148,10 +143,12 @@ body {
 
   main {
     padding: 5em;
+    
+  }
+
+  .hero-cont {
     display: flex;
-    justify-content: space-around;
-    
-    
+    gap: 100px;
   }
 
   .cart-container::-webkit-scrollbar {
@@ -161,7 +158,7 @@ body {
    .cart-container{
     overflow-y: scroll;
     padding: 1em;
-    width: 80vw;
+    width: 150vw;
     height: 70vh;
     background-color: #ffffff;
     border-radius: 20px;
@@ -295,20 +292,10 @@ body {
    }
 
    .cart-subtotal {
-    margin-top: 2em;
     width: 80vw;
-    padding: 1em;
-    
     border-radius: 2em;
     
-    display: flex;
-    justify-content: end;
-    
-    
-    
-    
-    
-
+  
     .cart-subtotal-left-cont {
       display: flex;
       flex-direction: column;
@@ -360,7 +347,7 @@ body {
       border-radius: 1em;
       display: flex;
       flex-direction: column;
-      justify-content: end;
+      ;
       
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
@@ -372,3 +359,67 @@ body {
       padding: 1.5em;
     }
    }
+
+   .sell-options {
+    padding: 0.5em;
+
+    p {
+      font-weight: bold;
+    }
+   }
+
+   .ship-type {
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgb(224, 224, 224);
+
+    .ship-type-info {
+
+      padding: 0.5em;
+      label,input {
+        margin-right: 0.5em;
+      }
+    }
+   }
+
+   .direccion {
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin-top: 1em;
+
+    .direccion-info{
+      padding: 0.5em;
+    }
+
+    input {
+      background-color: transparent;
+      border-radius: 0.5em;
+      margin-left: 1em;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    
+    }
+
+    .direccion-numero, .direccion-esquina {
+      margin-top: 1em;
+      
+    }
+
+   }
+
+   .payment-method {
+    margin-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgb(224, 224, 224);
+
+    .credit-cards {
+      padding: 0.5em;
+      img {
+        margin-right: 0.5em;
+      }
+    }
+
+   }
+
+   textarea:focus, input:focus{
+    outline: none;
+}

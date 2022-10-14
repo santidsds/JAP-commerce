@@ -29,6 +29,7 @@ let cartArticlesArray = []
 let cartItemsCont = document.getElementById("cart-items-cont");
 let cartSubtotalItemsCont = document.getElementById("subtotal-article");
 let subtotal = document.getElementById("subtotal");
+let sellOptions = document.getElementById("sell-options");
 
 window.addEventListener("DOMContentLoaded", () => {
   getJSONData(cartArticlesURL).then((res) => {
@@ -77,7 +78,7 @@ function showCartItems () {
   let itemCounterMenos = document.getElementById("cartCounterBtnMenos"+i);
   let subtotalItemCount = document.getElementById("itemCount");
   
-  subtotalCount = item.unitCost
+  subtotalCount += item.unitCost
     
     itemCounterMas.addEventListener("click", () => {
       counter += 1
@@ -109,7 +110,7 @@ function showCartItems () {
       `
     })
   
-  subtotal.innerHTML = `
+  subtotal.innerHTML += `
     ${item.currency} ${subtotalCount}
   `
   }
