@@ -104,7 +104,7 @@ body .userBtn {
 main {
   padding: 5em;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
 }
 
 .cart-container::-webkit-scrollbar {
@@ -185,7 +185,7 @@ main {
   flex-direction: column;
 }
 .cart-items-cont .about {
-  padding: 0.5em;
+  padding: 1em;
 }
 .cart-items-cont .left-cont-cart {
   display: flex;
@@ -196,6 +196,8 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 10px;
+  margin-left: 2em;
 }
 
 .btn {
@@ -216,7 +218,7 @@ main {
 }
 
 .count {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 900;
   color: #202020;
 }
@@ -268,5 +270,11 @@ main {
   border-radius: 1em;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cart-subtotal .subtotal-article {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em;
 }/*# sourceMappingURL=cart.css.map */
