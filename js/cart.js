@@ -51,24 +51,25 @@ function showCartItems () {
     
 
     cartItemsCont.innerHTML += `
-    <div class="left-cont-cart">
-    <img src=${item.image} alt="">
-    <div class="about">
-      <h1 class="title">${item.name}</h1>
-      <div class="counter">
-        <div id="cartCounterBtnMenos${i}" class="btn">-</div>
-        <div id="cartCounterResult${i}" class="count">1</div>
-        <div id="cartCounterBtnMas${i}" class="btn">+</div>
+    <div class="items-inner-cont">
+      <img src=${item.image} alt="">
+      <div class="about">
+        <h1 class="title">${item.name}</h1>
+        <div class="counter">
+          <div id="cartCounterBtnMenos${i}" class="btn">-</div>
+          <div id="cartCounterResult${i}" class="count">1</div>
+          <div id="cartCounterBtnMas${i}" class="btn">+</div>
+        </div>
+        
       </div>
-      
+      <div class="prices">
+        <p id="cartPrice">${item.currency} ${item.unitCost}</p>
+        <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
+      </div>
     </div>
-  </div>
   
 
-  <div class="prices">
-    <p id="cartPrice">${item.currency} ${item.unitCost}</p>
-    <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
-  </div>
+  
     `
 
     

@@ -149,8 +149,6 @@ main {
 
 .cart-items-cont {
   padding: 2em;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
   border-top: 1px solid rgb(224, 224, 224);
   border-bottom: 1px solid rgb(224, 224, 224);
@@ -166,6 +164,9 @@ main {
 }
 .cart-items-cont .subtitle {
   font-size: 0.9em;
+}
+.cart-items-cont .prices {
+  margin-top: 1em;
 }
 .cart-items-cont .prices p {
   font-weight: bold;
@@ -190,8 +191,9 @@ main {
 .cart-items-cont .about {
   padding: 1em;
 }
-.cart-items-cont .left-cont-cart {
+.cart-items-cont .items-inner-cont {
   display: flex;
+  justify-content: space-around;
 }
 
 .counter {

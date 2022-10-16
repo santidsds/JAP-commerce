@@ -190,8 +190,7 @@ body {
 
    .cart-items-cont {
     padding: 2em;
-    display: flex;
-    justify-content: space-around;
+    
     align-items: center;
     border-top: 1px solid rgb(224, 224, 224);
     border-bottom: 1px solid rgb(224, 224, 224);
@@ -214,7 +213,7 @@ body {
     }
 
     .prices {
-      
+      margin-top: 1em;
       p {
         font-weight: bold;
         font-size: 1.5em;
@@ -248,8 +247,9 @@ body {
       padding: 1em;
     }
 
-    .left-cont-cart {
+    .items-inner-cont {
       display: flex;
+      justify-content: space-around;
 
     }
 
