@@ -68,11 +68,9 @@ function showCartItems () {
       </div>
     </div>
   
-
   
     `
 
-    
   let itemCounter = parseInt(document.getElementById("cartCounterResult"+i).innerHTML);
   let counter = 0
   let itemCounterMas = document.getElementById("cartCounterBtnMas"+i);

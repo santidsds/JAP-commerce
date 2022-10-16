@@ -383,7 +383,9 @@ body {
 
    .direccion {
     padding-bottom: 1.5em;
+    padding-top: 1.5em;
     border-bottom: 1px solid rgb(224, 224, 224);
+    border-top: 1px solid rgb(224, 224, 224);
     margin-top: 1em;
 
     .direccion-info{
@@ -409,7 +411,7 @@ body {
    .payment-method {
     margin-top: 1em;
     padding-bottom: 1em;
-    border-bottom: 1px solid rgb(224, 224, 224);
+    
 
     .credit-cards {
       padding: 0.5em;
@@ -422,4 +424,8 @@ body {
 
    textarea:focus, input:focus{
     outline: none;
+}
+
+.editar-direccion {
+  margin-top: 1em;
 }

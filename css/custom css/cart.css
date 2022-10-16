@@ -299,7 +299,9 @@ main {
 
 .direccion {
   padding-bottom: 1.5em;
+  padding-top: 1.5em;
   border-bottom: 1px solid rgb(224, 224, 224);
+  border-top: 1px solid rgb(224, 224, 224);
   margin-top: 1em;
 }
 .direccion .direccion-info {
@@ -319,7 +321,6 @@ main {
 .payment-method {
   margin-top: 1em;
   padding-bottom: 1em;
-  border-bottom: 1px solid rgb(224, 224, 224);
 }
 .payment-method .credit-cards {
   padding: 0.5em;
@@ -330,4 +331,8 @@ main {
 
 textarea:focus, input:focus {
   outline: none;
+}
+
+.editar-direccion {
+  margin-top: 1em;
 }/*# sourceMappingURL=cart.css.map */
