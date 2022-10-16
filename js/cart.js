@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function showCartItems () {
   for(let i=0; i<cartArticlesArray.articles.length; i++){
     let subtotalCount = 0
-    let item = cartArticlesArray.articles[0]
+    let item = cartArticlesArray.articles[i]
     
 
     cartItemsCont.innerHTML += `
@@ -88,8 +88,12 @@ function showCartItems () {
 
       let currentItemCounter = parseInt(document.getElementById("cartCounterResult"+i).innerHTML);
 
+      let addSubtotal = item.unitCost * currentItemCounter
+
+      subtotalCount += addSubtotal
+
       subtotal.innerHTML = `
-        ${item.currency} ${subtotalCount * currentItemCounter}
+        ${item.currency} ${addSubtotal}
       `
       subtotalItemCount.innerHTML = `
         ${currentItemCounter} items
@@ -103,8 +107,12 @@ function showCartItems () {
 
       let currentItemCounter = parseInt(document.getElementById("cartCounterResult"+i).innerHTML);
 
+      let addSubtotal = item.unitCost * currentItemCounter
+
+      subtotalCount += addSubtotal
+
       subtotal.innerHTML = `
-        ${item.currency} ${subtotalCount * currentItemCounter}
+        ${item.currency} ${addSubtotal}
       `
       subtotalItemCount.innerHTML = `
         ${currentItemCounter} items
