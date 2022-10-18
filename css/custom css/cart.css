@@ -102,7 +102,7 @@ body .userBtn {
 }
 
 main {
-  padding: 5em;
+  padding: 6em;
 }
 
 .hero-cont {
@@ -110,15 +110,22 @@ main {
   gap: 100px;
 }
 
+@media (min-width: 1800px) {
+  .hero-cont {
+    margin-left: 6em;
+  }
+}
 .cart-container::-webkit-scrollbar {
   display: none;
 }
 
 .cart-container {
-  overflow-y: scroll;
-  padding: 1em;
+  padding: 2em;
   width: 150vw;
-  height: 70vh;
+  min-height: 60vh;
+  max-height: -webkit-min-content;
+  max-height: -moz-min-content;
+  max-height: min-content;
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -148,7 +155,7 @@ main {
 }
 
 .cart-items-cont {
-  padding: 2em;
+  padding: 0em 2em 6em 2em;
   align-items: center;
   border-top: 1px solid rgb(224, 224, 224);
 }
@@ -194,7 +201,7 @@ main {
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid rgb(224, 224, 224);
-  padding: 1em;
+  padding: 2em;
 }
 
 .counter {
@@ -272,6 +279,7 @@ main {
   border-radius: 1em;
   display: flex;
   flex-direction: column;
+  position: absolute;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .cart-subtotal .subtotal-article {

@@ -1,4 +1,6 @@
 let navUl = document.getElementById("nav-izq");
+const getSubtotal = localStorage.getItem("subtotal")
+
 
 navUl.innerHTML += `
         <li>
@@ -12,7 +14,7 @@ let obj = {
 "id": 50924,
 "name": "Peugeot 208",
 "count": 1,
-"unitCost": 15200,
+"unitCost": 20000,
 "currency": "USD",
 "image": "img/prod50924_1.jpg"
 }, 
@@ -20,7 +22,7 @@ let obj = {
   "id": 50922,
   "name": "Ferrari 208",
   "count": 1,
-  "unitCost": 15200,
+  "unitCost": 10000,
   "currency": "USD",
   "image": "img/prod50922_3.jpg"
   }
@@ -61,15 +63,20 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     
   })
+
+  localStorage.setItem("subtotal", 0)
   
   
 })
 
 function showCartItems () {
-  for(let i=0; i<obj.articles.length; i++){
-    let subtotalCount = 0
-    let item = obj.articles[i]
-    
+  let subtotal = 0
+  let itemCount = 0
+  obj.articles.forEach(function (item){
+    let i = 0
+    while (i<obj.articles.length){
+      i++
+    }
 
     cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
@@ -77,9 +84,9 @@ function showCartItems () {
       <div class="about">
         <h1 class="title">${item.name}</h1>
         <div class="counter">
-          <div id="cartCounterBtnMenos${i}" class="btn">-</div>
-          <div id="cartCounterResult${i}" class="count">1</div>
-          <div id="cartCounterBtnMas${i}" class="btn">+</div>
+          <div id="cartCounterBtnMenos${item.id}"  onclick="btnMenos(${item.id})" class="btn">-</div>
+          <div id="cartCounterResult${item.id}" class="count">1</div>
+          <div id="cartCounterBtnMas${item.id}" onclick="btnMas(${item.id})" class="btn">+</div>
         </div>
         
       </div>
@@ -88,59 +95,86 @@ function showCartItems () {
         <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
       </div>
     </div>
+    
   
   
     `
-
-  let itemCounter = parseInt(document.getElementById("cartCounterResult"+i).innerHTML);
-  let counter = 0
-  let itemCounterMas = document.getElementById("cartCounterBtnMas"+i);
-  let itemCounterMenos = document.getElementById("cartCounterBtnMenos"+i);
-  let subtotalItemCount = document.getElementById("itemCount");
-  
-  subtotalCount += item.unitCost
     
-    itemCounterMas.addEventListener("click", () => {
-      counter += 1
-      
-      document.getElementById("cartCounterResult"+i).innerHTML = itemCounter + counter
+    subtotal += item.unitCost
+    itemCount += item.count
 
-      let currentItemCounter = parseInt(document.getElementById("cartCounterResult"+i).innerHTML);
+    localStorage.setItem("subtotal", subtotal)
+    localStorage.setItem("itemCount", itemCount)
 
-      let addSubtotal = item.unitCost * currentItemCounter
+    document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
+    document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
-      subtotalCount += addSubtotal
+    
 
-      subtotal.innerHTML = `
-        ${item.currency} ${addSubtotal}
-      `
-      subtotalItemCount.innerHTML = `
-        ${currentItemCounter} items
-      `
-    })
+    
+    
   
-    itemCounterMenos.addEventListener("click", () => {
-      counter -= 1
-
-      document.getElementById("cartCounterResult"+i).innerHTML = itemCounter + counter
-
-      let currentItemCounter = parseInt(document.getElementById("cartCounterResult"+i).innerHTML);
-
-      let addSubtotal = item.unitCost * currentItemCounter
-
-      subtotalCount += addSubtotal
-
-      subtotal.innerHTML = `
-        ${item.currency} ${addSubtotal}
-      `
-      subtotalItemCount.innerHTML = `
-        ${currentItemCounter} items
-      `
-      
-    })
-  
-  subtotal.innerHTML += `
-    ${item.currency} ${subtotalCount}
-  `
+  })
+    
   }
-}
+
+  function btnMenos(ID) {
+    let subtotalCount = 0 
+    
+    obj.articles.forEach(function (item){
+      const itemResult = document.getElementById("cartCounterResult" + item.id)
+      if(ID === item.id){
+        if(parseInt(itemResult.innerHTML)===0){
+          itemResult.innerHTML = 0
+        }
+        else {
+
+          itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
+
+          localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
+
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost)))
+
+          document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
+          document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
+
+        }
+      
+
+      }
+    })
+    
+
+    
+
+  
+  }
+
+  function btnMas(ID) {
+    let subtotalCount = 0 
+    
+    obj.articles.forEach(function (item){
+      const itemResult = document.getElementById("cartCounterResult" + item.id)
+      if(ID === item.id){
+        
+
+        itemResult.innerHTML = parseInt(itemResult.innerHTML) + 1
+
+        localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) + parseInt(1)))
+
+        localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost)))
+
+        document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
+        document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
+
+        
+      }
+    })
+    
+
+    
+
+    
+    
+  }
+
