@@ -6,6 +6,27 @@ navUl.innerHTML += `
         </li>
 `
 
+let obj = {
+"articles": [
+{
+"id": 50924,
+"name": "Peugeot 208",
+"count": 1,
+"unitCost": 15200,
+"currency": "USD",
+"image": "img/prod50924_1.jpg"
+}, 
+{
+  "id": 50922,
+  "name": "Ferrari 208",
+  "count": 1,
+  "unitCost": 15200,
+  "currency": "USD",
+  "image": "img/prod50922_3.jpg"
+  }
+]
+}
+
 document.getElementById("userBtn").addEventListener("click", () => {
             
   document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
@@ -45,9 +66,9 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 
 function showCartItems () {
-  for(let i=0; i<cartArticlesArray.articles.length; i++){
+  for(let i=0; i<obj.articles.length; i++){
     let subtotalCount = 0
-    let item = cartArticlesArray.articles[i]
+    let item = obj.articles[i]
     
 
     cartItemsCont.innerHTML += `
@@ -115,6 +136,7 @@ function showCartItems () {
       subtotalItemCount.innerHTML = `
         ${currentItemCounter} items
       `
+      
     })
   
   subtotal.innerHTML += `

@@ -151,7 +151,6 @@ main {
   padding: 2em;
   align-items: center;
   border-top: 1px solid rgb(224, 224, 224);
-  border-bottom: 1px solid rgb(224, 224, 224);
 }
 .cart-items-cont img {
   width: 160px;
@@ -194,6 +193,8 @@ main {
 .cart-items-cont .items-inner-cont {
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding: 1em;
 }
 
 .counter {

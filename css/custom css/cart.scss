@@ -193,7 +193,7 @@ body {
     
     align-items: center;
     border-top: 1px solid rgb(224, 224, 224);
-    border-bottom: 1px solid rgb(224, 224, 224);
+    
 
     img {
       width: 160px;
@@ -250,7 +250,8 @@ body {
     .items-inner-cont {
       display: flex;
       justify-content: space-around;
-
+      border-bottom: 1px solid rgb(224, 224, 224);
+      padding: 1em;
     }
 
     
