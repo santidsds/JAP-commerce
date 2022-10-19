@@ -159,7 +159,7 @@ main {
   padding: 2emem;
   align-items: center;
   border-top: 1px solid rgb(224, 224, 224);
-  margin-bottom: 10em;
+  margin-bottom: 15em;
 }
 .cart-items-cont .item-image {
   width: 160px;
@@ -176,6 +176,7 @@ main {
 .cart-items-cont .prices {
   align-items: center;
   display: flex;
+  justify-content: space-between;
   margin-top: -0.5em;
 }
 .cart-items-cont .prices img {
@@ -196,6 +197,8 @@ main {
   cursor: pointer;
   text-decoration: underline;
   border: none;
+  margin-top: -1em;
+  margin-left: 2em;
 }
 .cart-items-cont .cart-items-cont {
   display: flex;
@@ -350,4 +353,27 @@ textarea:focus, input:focus {
 
 .editar-direccion {
   margin-top: 1em;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-block {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper-block a {
+  margin-top: 0em;
+}
+
+.resumen-pagos {
+  padding: 0em 2em 1.5em 1.5em;
+  margin-top: -1em;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=cart.css.map */

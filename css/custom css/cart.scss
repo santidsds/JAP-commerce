@@ -204,7 +204,7 @@ body {
     
     align-items: center;
     border-top: 1px solid rgb(224, 224, 224);
-    margin-bottom: 10em;
+    margin-bottom: 15em;
     
 
     .item-image {
@@ -228,6 +228,7 @@ body {
       
       align-items: center;
       display: flex;
+      justify-content: space-between;
       margin-top: -0.5em;
       
       
@@ -261,6 +262,9 @@ body {
         cursor: pointer;
         text-decoration: underline;
         border:none;
+        margin-top: -1em;
+        margin-left: 2em;
+        
         
       }
     }
@@ -477,4 +481,27 @@ body {
 
 .editar-direccion {
   margin-top: 1em;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-block {
+  display: flex;
+  flex-direction: column;
+  a {
+    margin-top: 0em;
+  }
+}
+
+.resumen-pagos {
+  padding: 0em 2em 1.5em 1.5em;
+  margin-top: -1em;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
 }

@@ -93,11 +93,16 @@
                 <a href=""><img src="img/c2d9dbb0-f39b-11eb-9984-b7076edb0bb7-m.svg" alt=""></a>
               </div>
             </div>
-
-            <a class="editar-direccion" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              Modificar dirección de envío
-            </a>
-
+            <div class="wrapper-block">
+              <a class="editar-direccion" data-bs-toggle= href="" role="button" aria-expanded="false" aria-controls="">
+                Añadir método de pago
+              </a>
+              <a class="editar-direccion" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Modificar dirección de envío
+              </a>
+  
+            </div>
+            
             <div class="collapse" id="collapseExample">
               <div class="direccion">
                 <p>Dirección de envío:</p>
@@ -124,17 +129,28 @@
   
             
           </div>
-          
-          <div class="cart-subtotal-innercont">
-            <div class="cart-subtotal-left-cont">
-              <p class="subtotal">Subtotal:</p>
-              
-              <p id="itemCount"class="itemCounts">1 item</p>
-            </div>
-            <div class="cart-subtotal-right-cont">
-              <p id="subtotal"></p>
-            </div>
+            <div class="cart-subtotal-innercont">
+              <div class="cart-subtotal-left-cont">
+                <p class="subtotal">Subtotal:</p>
+                
+                <p id="itemCount"class="itemCounts">1 item</p>
+              </div>
+              <div class="cart-subtotal-right-cont">
+                <p id="subtotal"></p>
+              </div>
           </div>
+          <div class="resumen-pagos" id="resumen-pagos">
+            <div class="wrapper">
+              <p>Costo de envío</p>
+              <p id="costo-envio">$100</p>
+            </div>
+            <div class="total" >
+              <h4>Total</h4>
+              <h5 id="total" >$500</h5>
+            </div>
+            
+          </div>
+          
           <button class="checkoutBtn">Confirmar compra</button>
         </div>
       </div>

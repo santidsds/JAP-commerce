@@ -105,7 +105,7 @@ function showCartItems () {
       </div>
       <div class="prices">
         <p id="cartPrice">${item.currency} ${item.unitCost}</p>
-        <button id="cartRemoveItem" class="cartRemoveItem"><img src="img/remove-from-cart.png" alt=""></button>
+        <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
       </div>
     </div>
   
