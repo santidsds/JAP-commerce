@@ -25,7 +25,23 @@ let obj = {
   "unitCost": 10000,
   "currency": "USD",
   "image": "img/prod50922_3.jpg"
-  }
+  }, 
+  {
+    "id": 50932,
+    "name": "Ferrari 208",
+    "count": 1,
+    "unitCost": 10000,
+    "currency": "USD",
+    "image": "img/prod50922_3.jpg"
+    }, 
+    {
+      "id": 50942,
+      "name": "Ferrari 208",
+      "count": 1,
+      "unitCost": 10000,
+      "currency": "USD",
+      "image": "img/prod50922_3.jpg"
+      }
 ]
 }
 
@@ -73,7 +89,7 @@ function showCartItems () {
   let subtotal = 0
   let itemCount = 0
 
-  cartArticlesArray.articles.forEach(function (item){
+  obj.articles.forEach(function (item){
 
     cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
@@ -109,7 +125,7 @@ function showCartItems () {
   }
 
   function btnMenos(ID) {
-    cartArticlesArray.articles.forEach(function (item){
+    obj.articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         if(parseInt(itemResult.innerHTML)===0){
@@ -135,7 +151,7 @@ function showCartItems () {
   }
 
   function btnMas(ID) {
-    cartArticlesArray.articles.forEach(function (item){
+    obj.articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         
@@ -149,7 +165,7 @@ function showCartItems () {
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
       }
-      
+
     })
     
   }

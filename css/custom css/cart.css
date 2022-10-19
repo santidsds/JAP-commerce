@@ -133,6 +133,7 @@ main {
 
 .header {
   margin: auto;
+  margin-top: -1em;
   width: 90%;
   height: 15%;
   display: flex;
@@ -141,7 +142,7 @@ main {
 }
 
 .heading {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   color: #2F3841;
 }
@@ -155,9 +156,10 @@ main {
 }
 
 .cart-items-cont {
-  padding: 0em 2em 6em 2em;
+  padding: 2emem;
   align-items: center;
   border-top: 1px solid rgb(224, 224, 224);
+  margin-bottom: 10em;
 }
 .cart-items-cont .item-image {
   width: 160px;
@@ -172,19 +174,19 @@ main {
   font-size: 0.9em;
 }
 .cart-items-cont .prices {
-  margin-top: -0.9em;
   align-items: center;
   display: flex;
+  margin-top: -0.5em;
 }
 .cart-items-cont .prices img {
   width: 20px;
   border: none;
   margin-left: 6em;
-  margin-top: -3.5em;
-  position: absolute;
+  margin-top: -1em;
 }
 .cart-items-cont .prices p {
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 1.3em;
 }
 .cart-items-cont .prices .cartRemoveItem {
   background-color: white;
@@ -210,19 +212,19 @@ main {
   display: flex;
   justify-content: space-evenly;
   border-bottom: 1px solid rgb(224, 224, 224);
-  padding: 2em;
+  padding: 2.5em;
 }
-.cart-items-cont .items-inner-cont h1, .cart-items-cont .items-inner-cont p {
-  font-size: 1.3em;
+.cart-items-cont .items-inner-cont h1 {
+  font-size: 1.35em;
 }
 
 .counter {
+  position: absolute;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-left: -1em;
   width: 90px;
-  margin-top: -0.5em;
 }
 .counter img {
   width: 20px;
