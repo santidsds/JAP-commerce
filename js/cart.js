@@ -72,34 +72,29 @@ window.addEventListener("DOMContentLoaded", () => {
 function showCartItems () {
   let subtotal = 0
   let itemCount = 0
-  obj.articles.forEach(function (item){
-    let i = 0
-    while (i<obj.articles.length){
-      i++
-    }
+
+  cartArticlesArray.articles.forEach(function (item){
 
     cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
-      <img src=${item.image} alt="">
+      <img class="item-image"src=${item.image} alt="">
       <div class="about">
         <h1 class="title">${item.name}</h1>
         <div class="counter">
-          <div id="cartCounterBtnMenos${item.id}"  onclick="btnMenos(${item.id})" class="btn">-</div>
+          <div id="cartCounterBtnMenos${item.id}"  onclick="btnMenos(${item.id})" class="btn"><img src="img/minus.png" alt=""></div>
           <div id="cartCounterResult${item.id}" class="count">1</div>
-          <div id="cartCounterBtnMas${item.id}" onclick="btnMas(${item.id})" class="btn">+</div>
+          <div id="cartCounterBtnMas${item.id}" onclick="btnMas(${item.id})" class="btn"><img src="img/plus.png" alt=""></div>
         </div>
         
       </div>
       <div class="prices">
         <p id="cartPrice">${item.currency} ${item.unitCost}</p>
-        <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
+        <button id="cartRemoveItem" class="cartRemoveItem"><img src="img/remove-from-cart.png" alt=""></button>
       </div>
     </div>
-    
-  
   
     `
-    
+
     subtotal += item.unitCost
     itemCount += item.count
 
@@ -109,19 +104,12 @@ function showCartItems () {
     document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
     document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
-    
-
-    
-    
-  
   })
     
   }
 
   function btnMenos(ID) {
-    let subtotalCount = 0 
-    
-    obj.articles.forEach(function (item){
+    cartArticlesArray.articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         if(parseInt(itemResult.innerHTML)===0){
@@ -144,20 +132,13 @@ function showCartItems () {
       }
     })
     
-
-    
-
-  
   }
 
   function btnMas(ID) {
-    let subtotalCount = 0 
-    
-    obj.articles.forEach(function (item){
+    cartArticlesArray.articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         
-
         itemResult.innerHTML = parseInt(itemResult.innerHTML) + 1
 
         localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) + parseInt(1)))
@@ -167,14 +148,9 @@ function showCartItems () {
         document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
-        
       }
+      
     })
-    
-
-    
-
-    
     
   }
 
