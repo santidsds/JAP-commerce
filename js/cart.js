@@ -66,6 +66,7 @@ let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
 let cartArticlesArray = []
 
 let realArr = []
+let newArr = []
 
 
 
@@ -123,8 +124,8 @@ function showCartItems () {
   let subtotal = 0
   let itemCount = 0
   
-  console.log(realArr[0][0].articles)
-  realArr[0][0].articles.forEach(function (item){
+  
+ newArr[0].articles.forEach(function (item){
 
     cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
@@ -160,7 +161,7 @@ function showCartItems () {
   }
 
   function btnMenos(ID) {
-    realArr[0][0].articles.forEach(function (item){
+    newArr[0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         if(parseInt(itemResult.innerHTML)===0){
@@ -187,7 +188,7 @@ function showCartItems () {
   }
 
   function btnMas(ID) {
-    realArr[0][0].articles.forEach(function (item){
+    newArr[0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         
@@ -265,7 +266,7 @@ function showCartItems () {
   }
 
   function addItem() {
-    let newArr = []
+    
     let cartLocalStorage = JSON.parse(localStorage.getItem("Shopcart"))
     
     newArr.push(cartArticlesArray)
@@ -280,13 +281,14 @@ function showCartItems () {
       }
   
       newArr[0].articles.push(cartObj)
+      console.log(newArr)
       
     })
   
     
     
   
-    realArr.push(newArr)
+    
     
   
   }
