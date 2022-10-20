@@ -65,6 +65,13 @@ let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
 let cartArticlesArray = []
 
+let realArr = []
+
+
+
+
+
+
 //Métodos de envío
 let standard = document.getElementById("envio_standard");
 let express = document.getElementById("envio_express");
@@ -79,9 +86,11 @@ let sellOptions = document.getElementById("sell-options");
 
 
 window.addEventListener("DOMContentLoaded", () => {
+
   getJSONData(cartArticlesURL).then((res) => {
     if(res.status === "ok"){
       cartArticlesArray = res.data
+      addItem()
       showCartItems()
       shipType()
       
@@ -113,8 +122,9 @@ window.addEventListener("DOMContentLoaded", () => {
 function showCartItems () {
   let subtotal = 0
   let itemCount = 0
-
-  obj.articles.forEach(function (item){
+  
+  console.log(realArr[0][0].articles)
+  realArr[0][0].articles.forEach(function (item){
 
     cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
@@ -150,7 +160,7 @@ function showCartItems () {
   }
 
   function btnMenos(ID) {
-    obj.articles.forEach(function (item){
+    realArr[0][0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         if(parseInt(itemResult.innerHTML)===0){
@@ -177,7 +187,7 @@ function showCartItems () {
   }
 
   function btnMas(ID) {
-    obj.articles.forEach(function (item){
+    realArr[0][0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         
@@ -235,22 +245,49 @@ function showCartItems () {
     addPaymentBtn.addEventListener("click", (e) => {
       addPaymentDIV.classList.toggle("chckShow");
       mainDIV.classList.toggle("blurFilter");
-      nav.classList.toggle("hide")
+      
     })
   
     addPaymentDone.addEventListener("click", () => {
       addPaymentDIV.classList.toggle("chckShow");
       mainDIV.classList.toggle("blurFilter");
-      nav.classList.toggle("hide")
+      
     });
 
     addPaymentCancel.addEventListener("click", () => {
       addPaymentDIV.classList.toggle("chckShow");
       mainDIV.classList.toggle("blurFilter");
-      nav.classList.toggle("hide")
+      
     });
 
 
 
+  }
+
+  function addItem() {
+    let newArr = []
+    let cartLocalStorage = JSON.parse(localStorage.getItem("Shopcart"))
+    
+    newArr.push(cartArticlesArray)
+    cartLocalStorage.forEach(item => {
+      const cartObj = {
+        id: item.id,
+        name: item.name,
+        count: 1,
+        unitCost: item.cost,
+        currency: item.currency,
+        image: item.image
+      }
+  
+      newArr[0].articles.push(cartObj)
+      
+    })
+  
+    
+    
+  
+    realArr.push(newArr)
+    
+  
   }
 

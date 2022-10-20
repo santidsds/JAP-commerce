@@ -20,6 +20,7 @@ let item = arrayToShow[0];
 let productCommentArray = [];
 let productInfo = [];
 let AllProductsArray = []
+let addItemtoCart = document.getElementById("cartAddBtn");
 
 
 
@@ -41,7 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
     getJSONData(productInfoUrl).then(function(resultObj){
       if (resultObj.status === "ok"){
           productInfo = resultObj.data
-          console.log(productInfo)
+
+          localStorage.setItem("arr", JSON.stringify(productInfo))
+          
           showRelatedProducts()
           
       }})
@@ -146,9 +149,13 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.replace("my-profile.html")
   })
 
+  addItemToCart();
+
   
   
 })
+
+
 
 function Comments() {
   
@@ -501,7 +508,7 @@ function showRelatedProducts(){
 
   for(let i=0; i<productInfo.relatedProducts.length ; i++){
     let product = productInfo.relatedProducts[i];
-    console.log(product)
+    
     let itemInfo = AllProductsArray.filter( item => item.id === product.id)[0]
     
 
@@ -538,7 +545,7 @@ function showRelatedProducts(){
 
     relatedBtn.addEventListener("click" , () => {
       localStorage.setItem("product", JSON.stringify(AllProductsArray.filter(x =>  x.id == (product.id))));
-      console.log(product.id)
+      
       localStorage.setItem("itemSelectedId", product.id);
       window.location.replace("product-info.html")
   
@@ -549,5 +556,26 @@ function showRelatedProducts(){
 
 }
 
+function addItemToCart () {
+  let addItemtoCart = document.getElementById("cartAddBtn");
+  addItemtoCart.addEventListener("click", () => {
+
+    
+    
+    
+    
+
+      
+
+  localStorage.setItem("Shopcart", JSON.stringify(JSON.parse(localStorage.getItem("product"))))
+  window.location.replace("cart.html")
+
+    
+    
+      
+    
+    
+  })
+}
 
   

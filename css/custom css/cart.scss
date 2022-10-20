@@ -450,7 +450,7 @@ body {
     padding-bottom: 1.5em;
     padding-top: 1.5em;
     border-bottom: 1px solid rgb(224, 224, 224);
-    border-top: 1px solid rgb(224, 224, 224);
+    
     margin-top: 1em;
 
     .direccion-info{
@@ -476,6 +476,8 @@ body {
    .payment-method {
     margin-top: 1em;
     padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgb(224, 224, 224);
     
 
     .credit-cards {
@@ -490,6 +492,8 @@ body {
    textarea:focus, input:focus{
     outline: none;
 }
+
+
 
 .editar-direccion {
   margin-top: 1em;
@@ -527,7 +531,9 @@ body {
   background: transparent;
   text-align: start;
   color: #0d6efd;
+  
 }
+
 
 .checkout-cont {
   background-color: rgba(32, 32, 32, 0.712);
