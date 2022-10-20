@@ -65,22 +65,47 @@ let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
 let cartArticlesArray = []
 
+//Métodos de envío
+let standard = document.getElementById("envio_standard");
+let express = document.getElementById("envio_express");
+let premium = document.getElementById("envio_premium");
+
 let cartItemsCont = document.getElementById("cart-items-cont");
 let cartSubtotalItemsCont = document.getElementById("subtotal-article");
 let subtotal = document.getElementById("subtotal");
 let sellOptions = document.getElementById("sell-options");
+
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
   getJSONData(cartArticlesURL).then((res) => {
     if(res.status === "ok"){
       cartArticlesArray = res.data
       showCartItems()
+      shipType()
+      
+      
       
     }
     
   })
 
   localStorage.setItem("subtotal", 0)
+  
+  standard.addEventListener("click", () => {
+    shipType() 
+  })
+  express.addEventListener("click", () => {
+    shipType() 
+  })
+  premium.addEventListener("click", () => {
+    shipType() 
+  })
+
+  addPayment();
+
+  
   
   
 })
@@ -141,6 +166,7 @@ function showCartItems () {
 
           document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
           document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
+          shipType()
 
         }
       
@@ -163,10 +189,68 @@ function showCartItems () {
 
         document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
+        shipType()
 
       }
 
     })
     
+  }
+
+  function shipType () {
+    let shipCost = document.getElementById("costo-envio");
+    let p = document.getElementById("costo-title-p")
+    let total = document.getElementById("total")
+    let divToHide = document.getElementById("resumen-pagos")
+    let shipPorcentage = 0
+    let obj = [standard, express, premium];
+
+    
+
+    obj.forEach((each) => {
+      
+      if(each.checked){
+        divToHide.classList.remove("collapse")
+        shipPorcentage = (each.value) / 100
+
+        localStorage.setItem("shipCost", parseInt(localStorage.getItem("subtotal") * shipPorcentage) )
+        shipCost.innerHTML = `USD ${localStorage.getItem("shipCost")}`
+
+        p.innerHTML = `Costo de envío (${parseInt((shipPorcentage*100))}%):`
+      }
+    })
+
+    total.innerHTML = `USD ${parseInt(localStorage.getItem("subtotal")) + parseInt(localStorage.getItem("shipCost")) }`
+
+  }
+
+  function addPayment () {
+    let addPaymentBtn = document.getElementById("addPayment");
+    let addPaymentDone = document.getElementById("addPaymentDone");
+    let addPaymentCancel = document.getElementById("addPaymentCancel");
+    let addPaymentDIV = document.getElementById("checkout");
+    let mainDIV = document.getElementById("main");
+    let nav = document.getElementById("nav-container");
+
+    addPaymentBtn.addEventListener("click", (e) => {
+      addPaymentDIV.classList.toggle("chckShow");
+      mainDIV.classList.toggle("blurFilter");
+      nav.classList.toggle("hide")
+    })
+  
+    addPaymentDone.addEventListener("click", () => {
+      addPaymentDIV.classList.toggle("chckShow");
+      mainDIV.classList.toggle("blurFilter");
+      nav.classList.toggle("hide")
+    });
+
+    addPaymentCancel.addEventListener("click", () => {
+      addPaymentDIV.classList.toggle("chckShow");
+      mainDIV.classList.toggle("blurFilter");
+      nav.classList.toggle("hide")
+    });
+
+
+
   }
 

@@ -14,6 +14,10 @@
 </head>
 
 <body>
+  <div class="filter" id="filter">
+
+    
+  </div>
   <div  id="nav-container"class="nav-container">
     <div class="nav-izq">
       <ul id="nav-izq">
@@ -43,7 +47,8 @@
     <button id="user-settings-salir"><span>Cerrar sesión</span></button>
   </div>
   </div>
-  <main>
+  <main id="main">
+    
     <div class="hero-cont">
       <div class="cart-container">
         <div class="header">
@@ -69,16 +74,22 @@
               <p>Tipo de envío:</p>
               <div class="ship-type-info">
                 
-                <input id="envio_standard" name=envio type="radio">
+                <input id="envio_standard" name=envio type="radio" value="5">
                 <label for="envio_standard">Standard</label>
   
                 
-                <input id="envio_premium" name=envio type="radio">
+                <input id="envio_premium" name=envio type="radio" value="7">
                 <label for="envio_premium">Premium</label>
   
                 
-                <input id="envio_express" name=envio type="radio">
+                <input id="envio_express" name=envio type="radio" value="15">
                 <label for="envio_express">Express</label>
+                
+                <img id="ship-qstnBtn"src="img/question.png" alt="">
+                <div class="popup-ship-info">
+
+                </div>       
+                
               </div>
               
             </div>
@@ -94,12 +105,13 @@
               </div>
             </div>
             <div class="wrapper-block">
-              <a class="editar-direccion" data-bs-toggle= href="" role="button" aria-expanded="false" aria-controls="">
+              <button id="addPayment" class="addPayment">
                 Añadir método de pago
-              </a>
-              <a class="editar-direccion" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              </button>
+              
+              <button class="addPayment" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Modificar dirección de envío
-              </a>
+              </button>
   
             </div>
             
@@ -139,14 +151,14 @@
                 <p id="subtotal"></p>
               </div>
           </div>
-          <div class="resumen-pagos" id="resumen-pagos">
+          <div class="resumen-pagos collapse" id="resumen-pagos">
             <div class="wrapper">
-              <p>Costo de envío</p>
-              <p id="costo-envio">$100</p>
+              <p id="costo-title-p">Costo de envío:</p>
+              <p id="costo-envio">USD 0</p>
             </div>
             <div class="total" >
-              <h4>Total</h4>
-              <h5 id="total" >$500</h5>
+              <h4>Total:</h4>
+              <h5 id="total" >USD 50100</h5>
             </div>
             
           </div>
@@ -157,6 +169,52 @@
     </div>
     
   </main>
+  <div class="checkout" id="checkout">
+    <div id="checkout-cont" class="checkout-cont">
+      <div class="chck-innercont">
+        <h3>Agregar método de pago</h3>
+        <div class="payment-form">
+          <div class="payOption-card">
+            <div class="radioInput-card">
+              <input id="payOption-card" type="radio" name="payOption">
+              <label for="payOption-card">Tarjeta de crédito</label>
+            </div>
+            
+
+            <div class="creditCard-name-div wrapper-block">
+              <label class="label" for="creditCard-name">Numero de tarjeta</label>
+              <input class="input" id="creditCard-name" type="text" >
+            </div>
+
+            <div class="creditCard-cc-div wrapper-block">
+              <label class="label" for="creditCard-cc">Código de seguridad</label>
+              <input class="input" id="creditCard-cc" type="text" >
+            </div>
+
+            <div class="creditCard-expire-div wrapper-block">
+              <label class="label" for="creditCard-expire">Vencimiento</label>
+              <input class="input" id="creditCard-cc" type="text" >
+            </div>
+            
+            
+          </div>
+          
+          <div class="payOption-bank">
+            <input id="payOption-bank" type="radio" name="payOption">
+            <label for="payOption-bank">Transferencia bancaria</label>
+          </div>
+         
+          
+        </div>
+
+        <div class="buttons">
+          <button id="addPaymentCancel" class="addPaymentBtn payCancel">Cancelar</button>
+          <button id="addPaymentDone" class="addPaymentBtn payDone">Listo</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
   
   <div id="spinner-wrapper">
     <div class="lds-ring">
@@ -166,6 +224,7 @@
       <div></div>
     </div>
   </div>
+  
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
