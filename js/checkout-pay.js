@@ -12,7 +12,12 @@ function addCard(){
     <div class="add-card-cont">
     <div class="street-cont"><p>Nombre de titular</p><input type="text" name="street" id="street-input"></div>
     <div class="number-cont"><p>Numero de tarjeta</p><input type="text" name="number" id="street-input"></div>
-    <div class="esq-cont"><p>Fecha de vencimiento</p><input type="text" name="esq" id="street-input"></div>
+    
+    <div class="esq-cont card-bottom-cont">
+    <div><p>Fecha de vencimiento</p><input type="text" name="esq" id="card-expire-input"></div>
+    <div><p>Código de seguridad</p><input type="text" name="esq" id="card-code-input">
+    </div>
+    </div>
     
     <div class="buttons">
     <button id="back-btn" onclick="goBack()">Volver</button>
@@ -24,8 +29,10 @@ function addBankAcc(){
     midCont.innerHTML =  `
     <div class="add-card-cont">
     <div class="street-cont"><p>Nro de cuenta</p><input type="text" name="street" id="street-input"></div>
-    <button id="back-btn" onclick="goBack()">atras</button>
-    <div class="bot-cont"><button id="checkout-continue-btn" class="checkout-continue-btn" >Confirmar compra</button></div>
+        <div class="buttons">
+            <button id="back-btn" onclick="goBack()">Volver</button>
+            <button id="checkout-continue-btn" class="checkout-continue-btn" >Confirmar compra</button></div>
+        </div>
     </div>
     `
 }

@@ -183,4 +183,16 @@ textarea:focus, input:focus {
   margin-right: 0.5em;
   margin-left: 0.5em;
   margin-top: 2em;
+}
+
+.card-bottom-cont {
+  display: flex;
+}
+
+#card-expire-input, #card-code-input {
+  width: 15em;
+}
+
+#card-expire-input {
+  margin-right: 3.5em;
 }/*# sourceMappingURL=checkout-pay.css.map */

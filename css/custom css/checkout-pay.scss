@@ -232,3 +232,16 @@ textarea:focus, input:focus{
     }
     
 }
+
+.card-bottom-cont {
+    display: flex;
+}
+
+#card-expire-input, #card-code-input {
+    width: 15em;
+   
+}
+
+#card-expire-input {
+    margin-right: 3.5em;
+}
