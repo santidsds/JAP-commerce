@@ -1,5 +1,5 @@
 let navUl = document.getElementById("nav-izq");
-const getSubtotal = localStorage.getItem("subtotal")
+
 
 
 navUl.innerHTML += `

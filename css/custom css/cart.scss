@@ -208,20 +208,19 @@ body {
     
 
     .item-image {
-      width: 160px;
-      border: 3px solid rgb(224, 224, 224);
-      border-radius: 1.5em;
-      margin-right: 2em;
-      
+      width: 160px;   
+      border-radius: 1.4em;
     }
 
     .title {
       
-      font-size: 1.5em;
+      font-size: 1.4em;
+      font-weight: normal;
     }
 
     .subtitle {
       font-size: 0.9em;
+    
     }
 
     .prices {
@@ -527,6 +526,7 @@ body {
 }
 
 .addPayment {
+  display: none;
   border: none;
   background: transparent;
   text-align: start;

@@ -163,12 +163,11 @@ main {
 }
 .cart-items-cont .item-image {
   width: 160px;
-  border: 3px solid rgb(224, 224, 224);
-  border-radius: 1.5em;
-  margin-right: 2em;
+  border-radius: 1.4em;
 }
 .cart-items-cont .title {
-  font-size: 1.5em;
+  font-size: 1.4em;
+  font-weight: normal;
 }
 .cart-items-cont .subtitle {
   font-size: 0.9em;
@@ -392,6 +391,7 @@ textarea:focus, input:focus {
 }
 
 .addPayment {
+  display: none;
   border: none;
   background: transparent;
   text-align: start;

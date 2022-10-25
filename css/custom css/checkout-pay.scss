@@ -35,7 +35,7 @@ body {
       color: white;
       background-color: #0d6efd;
       width: 13em;      
-      display: none;
+      
 
       &:hover {
         cursor: pointer;
@@ -198,3 +198,37 @@ textarea:focus, input:focus{
     background-color: #4395ff91; 
 }
 
+.add-card-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.blockClass {
+    display: block;
+}
+
+#back-btn {
+    
+    background: transparent;
+    cursor: pointer;
+    padding: 1.2em;
+    border: none;
+    border-radius: 1em;
+    color: white;
+    background-color: #942222ad;
+    width: 13em;    
+
+}
+
+.buttons {
+    align-self: center;
+    margin-bottom: -3.8em;
+    
+
+    button {
+        margin-right: 0.5em;
+        margin-left: 0.5em;
+        margin-top: 2em;
+    }
+    
+}

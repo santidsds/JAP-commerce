@@ -31,7 +31,6 @@ body {
   color: white;
   background-color: #0d6efd;
   width: 13em;
-  display: none;
 }
 .hero-cont .checkout-continue-btn:hover {
   cursor: pointer;
@@ -154,4 +153,34 @@ textarea:focus, input:focus {
 
 .mercado-pago-btn {
   background-color: rgba(67, 149, 255, 0.568627451);
+}
+
+.add-card-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.blockClass {
+  display: block;
+}
+
+#back-btn {
+  background: transparent;
+  cursor: pointer;
+  padding: 1.2em;
+  border: none;
+  border-radius: 1em;
+  color: white;
+  background-color: rgba(148, 34, 34, 0.6784313725);
+  width: 13em;
+}
+
+.buttons {
+  align-self: center;
+  margin-bottom: -3.8em;
+}
+.buttons button {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  margin-top: 2em;
 }/*# sourceMappingURL=checkout-pay.css.map */

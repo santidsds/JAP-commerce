@@ -12,10 +12,10 @@
     <div class="hero-section">
         <div class="hero-cont">
             <div class="top-cont"><h1>Método de pago</h1></div>
-            <div class="mid-cont">
+            <div id="mid-cont" class="mid-cont">
                 <div class="button-cont">
-                    <button class="add-payment-card" id="add-payment-card"><img src="img/add-creditcard.png" alt=""><p>Agregar tarjeta</p></button>
-                    <button class="add-payment-bankacc" id="add-payment-bankacc"><img src="img/add-bankacc.png" alt=""><p>Agregar cuenta bancaria</p></button>
+                    <button class="add-payment-card" id="add-payment-card" onclick="addCard()"><img src="img/add-creditcard.png" alt=""><p>Agregar tarjeta</p></button>
+                    <button class="add-payment-bankacc" id="add-payment-bankacc" onclick="addBankAcc()"><img src="img/add-bankacc.png" alt=""><p>Agregar cuenta bancaria</p></button>
                 </div>
                 <div class="button-cont-2">
                     <button class="paypal-btn"><img class="paypal-img" src="img/paypal.png" alt=""></button>
@@ -23,7 +23,7 @@
                     <button class="applepay-btn"><img class="applepay-img" src="img/apple-pay.png" alt=""></button>
                 </div>
             </div>
-            <div class="bot-cont"><button id="checkout-continue-btn" class="checkout-continue-btn" >Confirmar compra</button></div>
+            
         </div>
         
 
