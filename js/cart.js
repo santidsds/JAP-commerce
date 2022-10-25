@@ -103,6 +103,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   localStorage.setItem("subtotal", 0)
   
+  //listeners
+  
   standard.addEventListener("click", () => {
     shipType() 
   })
@@ -111,6 +113,10 @@ window.addEventListener("DOMContentLoaded", () => {
   })
   premium.addEventListener("click", () => {
     shipType() 
+  })
+
+  document.getElementById("checkoutBtn").addEventListener("click", () => {
+    window.location.replace("checkout.html") 
   })
 
   addPayment();
@@ -285,11 +291,11 @@ function showCartItems () {
       
     })
   
-    
-    
-  
-    
-    
-  
   }
 
+  function uniqueID () {
+    return new Date().getTime().toString();
+  }
+
+console.log(uniqueID())
+  
