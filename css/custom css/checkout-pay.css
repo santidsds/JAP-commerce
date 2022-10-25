@@ -74,13 +74,17 @@ textarea:focus, input:focus {
   border-radius: 1em;
   margin-bottom: 1em;
   color: white;
-  background-color: rgba(180, 180, 180, 0.5764705882);
+  background-color: rgba(122, 122, 122, 0);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: 0.1s ease;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   width: 100%;
+}
+.add-payment-card:hover, .add-payment-bankacc:hover {
+  background-color: rgba(122, 122, 122, 0.0745098039);
 }
 .add-payment-card img, .add-payment-bankacc img {
   width: 40px;
@@ -118,8 +122,9 @@ textarea:focus, input:focus {
   align-items: center;
   margin-right: 0.5em;
   margin-left: 0.5em;
-  margin-top: 2em;
+  margin-top: 4em;
   transition: 0.3s ease;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .paypal-btn:hover, .mercado-pago-btn:hover, .applepay-btn:hover {
   cursor: pointer;
