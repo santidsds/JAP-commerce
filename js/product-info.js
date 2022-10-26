@@ -184,21 +184,15 @@ function Comments() {
               <div class="rating" >
                 ${rating(comment.score)}
               </div>
-              
             </div>
               <div class="date">
               ${comment.dateTime}
               </div>
-              
-      
           </div>
-        
           <p>${comment.description}</p>
         </div>
         
         `
-    
-    
   }
 
   document.getElementById("comment-section").innerHTML += `
@@ -503,15 +497,14 @@ function showUserComment() {
 }
 
 function showRelatedProducts(){
+
   let relatedProductsSection = document.getElementById("relatedProducts-cont");
   
-
   for(let i=0; i<productInfo.relatedProducts.length ; i++){
+
     let product = productInfo.relatedProducts[i];
-    
     let itemInfo = AllProductsArray.filter( item => item.id === product.id)[0]
     
-
     relatedProductsSection.innerHTML += `
     
     <div id="related-cont${product.id}"class="inner-container">
@@ -536,7 +529,6 @@ function showRelatedProducts(){
     
   `
    
-    
   }
   
   for(let i=0; i<productInfo.relatedProducts.length ; i++){
@@ -558,23 +550,12 @@ function showRelatedProducts(){
 
 function addItemToCart () {
   let addItemtoCart = document.getElementById("cartAddBtn");
+
   addItemtoCart.addEventListener("click", () => {
 
-    
-    
-    
-    
+    localStorage.setItem("Shopcart", JSON.stringify(JSON.parse(localStorage.getItem("product"))))
+    window.location.replace("cart.html")
 
-      
-
-  localStorage.setItem("Shopcart", JSON.stringify(JSON.parse(localStorage.getItem("product"))))
-  window.location.replace("cart.html")
-
-    
-    
-      
-    
-    
   })
 }
 

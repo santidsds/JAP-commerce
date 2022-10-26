@@ -252,6 +252,8 @@ function sortCategories(criteria, array){
     return result;
     
 }
+
+
 function showProductInfo () {
     for(let i=0;i<CurrentSectionArray.length;i++){
 
@@ -271,6 +273,8 @@ function showProductInfo () {
     }
     
 }
+
+
 function rangeFilter () {
     minCount = minPriceInput.value;
     maxCount = maxPriceInput.value;
@@ -291,6 +295,7 @@ function rangeFilter () {
     showSection();
     showProductInfo();
 }
+
 
 function sortAndShowCategories(sortCriteria, CurrentSectionArray){
     currentSortCriteria = sortCriteria;

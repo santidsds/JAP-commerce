@@ -66,7 +66,7 @@ body {
         input {
             
             border: none;
-            border-bottom: 1px solid rgb(224, 224, 224);
+            border-bottom: 1px solid rgb(122, 122, 122);
             background: transparent;
             padding: 0.8em;
             width: 35em;
@@ -75,12 +75,37 @@ body {
         p {
             text-transform: uppercase;
             font-size: 0.8em;
-            color: #737373;
+            color: #616161;
             
-        }
+       }
+
+       img {
+        display: none;
+        width: 20px;
+        position: absolute;
+        margin-top: -2em;
+        margin-left: 29em;
+       }
     }
 }
 
 textarea:focus, input:focus{
     outline: none;
+}
+
+.alert-text {
+    display: flex;
+    color: rgb(223, 80, 80);
+    font-size: 0.8em;
+    position: absolute;
+
+    img {
+        width: 20px;
+        margin-right: 1em;
+    }
+    
+}
+
+.displayBlock {
+    display: block;
 }

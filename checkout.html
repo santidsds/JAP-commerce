@@ -13,11 +13,12 @@
         <div class="hero-cont">
             <div class="top-cont"><h1>Direccion de envío</h1></div>
             <div class="mid-cont">
-                <div class="street-cont"><p>Calle</p><input type="text" name="street" id="street-input"></div>
-                <div class="number-cont"><p>Número</p><input type="text" name="number" id="street-input"></div>
-                <div class="esq-cont"><p>Esq.</p><input type="text" name="esq" id="street-input"></div>
+                <div id="street-cont" class="street-cont"><p id="street-title">Calle</p><input type="text" name="street" id="street-input" oninput="checkValidation()"></div>
+                <div id="number-cont" class="number-cont"><p id="number-title">Número</p><input type="text" name="number" id="number-input"oninput="checkValidation()"></div>
+                <div id="esq-cont" class="esq-cont"><p id="esq-title">Esq.</p><input type="text" name="esq" id="esq-input"oninput="checkValidation()"></div>
+                <div class="alert-text" id="alert-text"></div>
             </div>
-            <div class="bot-cont"><button id="checkout-continue-btn" class="checkout-continue-btn" >Continuar</button></div>
+            <div class="bot-cont"><button id="checkout-continue-btn" class="checkout-continue-btn" onclick="validate()">Continuar</button></div>
         </div>
 
     </div>

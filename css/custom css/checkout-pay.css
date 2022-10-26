@@ -52,7 +52,7 @@ body {
 }
 .mid-cont .street-cont input, .mid-cont .number-cont input, .mid-cont .esq-cont input {
   border: none;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid rgb(122, 122, 122);
   background: transparent;
   padding: 0.8em;
   width: 35em;
@@ -60,7 +60,7 @@ body {
 .mid-cont .street-cont p, .mid-cont .number-cont p, .mid-cont .esq-cont p {
   text-transform: uppercase;
   font-size: 0.8em;
-  color: #737373;
+  color: #616161;
 }
 
 textarea:focus, input:focus {
@@ -195,4 +195,70 @@ textarea:focus, input:focus {
 
 #card-expire-input {
   margin-right: 3.5em;
+}
+
+.alert-text {
+  display: flex;
+  color: rgb(223, 80, 80);
+  font-size: 0.8em;
+}
+.alert-text img {
+  width: 20px;
+  margin-right: 1em;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.buy-succes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  border-radius: 1.5em;
+  width: 30em;
+  height: 40em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.buy-succes .buy-succes-top-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20em;
+  background: rgb(61, 150, 61);
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+}
+.buy-succes .buy-succes-top-cont h2 {
+  color: white;
+}
+.buy-succes .buy-succes-top-cont img {
+  width: 100px;
+  margin-bottom: 1.5em;
+  opacity: 70;
+}
+.buy-succes .buy-succes-bot-cont {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 3em;
+  height: 20em;
+}
+.buy-succes .buy-succes-bot-cont button {
+  background: transparent;
+  cursor: pointer;
+  padding: 1.5em;
+  border: none;
+  border-radius: 1em;
+  color: black;
+  background-color: white;
+  width: 13em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: 0.5s ease;
+  font-weight: bold;
+}
+.buy-succes .buy-succes-bot-cont button:hover {
+  transform: scale(1.05);
 }/*# sourceMappingURL=checkout-pay.css.map */
