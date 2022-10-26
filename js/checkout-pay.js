@@ -77,7 +77,8 @@ function validate () {
     //This shows the "successfull buy" pop up
 
     if(cardCodeInp.value && cardExpireInp.value && cardNameInp.value && cardNumberInp.value ){
-        wholeSection.innerHTML = `
+        setTimeout(() => {
+            wholeSection.innerHTML = `
         <div class="buy-succes">
             <div class="buy-succes-top-cont" id="buy-succes-top-cont" >
                 <img src="img/success.png" alt="">
@@ -93,6 +94,8 @@ function validate () {
             </div>
         </div>
         `
+            
+        }, 1000);
         } 
     
     inputObj.forEach(input => {
@@ -141,7 +144,8 @@ function validateBankAcc () {
     const bankAccInp = document.getElementById("bank-acc-input")
 
     if(bankAccInp.value){
-        wholeSection.innerHTML = `
+        setTimeout(() => {
+            wholeSection.innerHTML = `
         <div class="buy-succes">
             <div class="buy-succes-top-cont" id="buy-succes-top-cont" >
                 <img src="img/success.png" alt="">
@@ -157,6 +161,8 @@ function validateBankAcc () {
             </div>
         </div>
         `
+            
+        }, 1000);
     } 
     
     else {
