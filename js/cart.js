@@ -40,12 +40,15 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 
 function showCartItems () {
+  //Displays items on cart
+
   let subtotal = 0
   let itemCount = 0
   
   
  updatedCart[0].articles.forEach(function (item){
 
+  //If currency is UYU, item.unitCost is converted to USD
     if(item.currency === "UYU"){
       cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
@@ -66,6 +69,7 @@ function showCartItems () {
     </div>
   
     `
+    //Updates subtotal
     subtotal += parseInt(item.unitCost/40.7)
     }
 
@@ -89,11 +93,14 @@ function showCartItems () {
     </div>
   
     `
+    //Updates subtotal
     subtotal += item.unitCost
     }
 
+    //Updates item count
     itemCount += item.count
 
+    //Saves values on localstorage
     localStorage.setItem("subtotal", subtotal)
     localStorage.setItem("itemCount", itemCount)
 
@@ -111,31 +118,35 @@ function showCartItems () {
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
 
+        //Item count cant be less than 1
         if(parseInt(itemResult.innerHTML)===1){
           itemResult.innerHTML = 1
         }
 
+        // Converts UYU to USD
         else if(item.currency === "UYU"){
-          // Converts currency to USD
-
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
 
+          //Saves values on localstorage
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
-
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost / 40.7)))
         }
         
         else {
-
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
 
+          //Saves values on localstorage
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
-
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost)))
         }
 
+        //Updates subtotal
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
+
+        //Updates item count
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
+
+        //Shows selected ship cost
         shipType()
       }
     })
@@ -153,7 +164,7 @@ function showCartItems () {
 
         localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) + parseInt(1)))
 
-        // If currency is UYU, it is converted to USD
+        // Converts UYU to USD
         if(item.currency === "UYU"){
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost / 40.7)))
         } 
@@ -162,8 +173,13 @@ function showCartItems () {
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost)))
         }
 
+        //Updates subtotal
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
+
+        //Updates item count
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
+
+        //Shows selected ship cost
         shipType()
 
       }
@@ -173,6 +189,8 @@ function showCartItems () {
   }
 
   function shipType () {
+    //Calculates and prints each ship cost 
+
     let shipCost = document.getElementById("costo-envio");
     let p = document.getElementById("costo-title-p")
     let total = document.getElementById("total")
@@ -199,6 +217,9 @@ function showCartItems () {
   }
 
   function addItem() {
+    //Item selected on products is added to cart 
+
+    //This is set on Products (when add to cart button is clicked)
     let cartLocalStorage = JSON.parse(localStorage.getItem("Shopcart"))
     
     newArr.push(cartArticlesArray)
@@ -220,10 +241,15 @@ function showCartItems () {
   }
 
 function uniqueID () {
+  //Creates an unique ID
+
   return new Date().getTime().toString();
 }
 
 function validate () {
+  //Validates if atleast one shiptype is checked and redirects to second checkout step
+  //(called by checkoutBtn onclick)
+
   const alert = document.getElementById("alert");
 
   if (!(standard.checked || express.checked || premium.checked)){
@@ -235,6 +261,8 @@ function validate () {
 }
 
 function checkValidation () {
+  //Checks if atleast one shiptype is checked and removes alert if so
+
   const alert = document.getElementById("alert");
   if ((standard.checked || express.checked || premium.checked)){
     alert.innerHTML = ""
@@ -246,26 +274,38 @@ function showResume () {
 }
 
 function userDropdown () {
+  //Display a dropdown when username is clicked (on left corner)
+
+  //Redirects: - Cart
+  //           - Profile
+  //           - Log out
+
+  //Section inside navbar
   let navUl = document.getElementById("nav-izq");
 
+  //Get username from localstorage
   navUl.innerHTML += `
           <li>
             <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
           </li>
   `
 
+  //User button
   document.getElementById("userBtn").addEventListener("click", () => {   
     document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
   })
 
+  //Log out button
   document.getElementById("user-settings-salir").addEventListener("click", () => {
     window.location.replace("index.html")
   })
 
+  //Cart button
   document.getElementById("user-settings-cart").addEventListener("click", () => {
     window.location.replace("cart.html")
   })
 
+  //Profile button
   document.getElementById("user-settings-perfil").addEventListener("click", () => {
     window.location.replace("my-profile.html")
   })
