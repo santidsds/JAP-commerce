@@ -207,12 +207,12 @@ main {
   flex-direction: column;
 }
 .cart-items-cont .about {
-  padding: 1em;
   margin-top: 0.5em;
+  min-width: 7em;
 }
 .cart-items-cont .items-inner-cont {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   border-bottom: 1px solid rgb(224, 224, 224);
   padding: 2.5em;
 }
@@ -251,10 +251,9 @@ main {
 .cart-subtotal .cart-subtotal-left-cont {
   display: flex;
   flex-direction: column;
-  margin-right: 1em;
 }
 .cart-subtotal .cart-subtotal-left-cont .subtotal {
-  font-size: 23px;
+  font-size: 21px;
   margin-bottom: -0.2em;
 }
 .cart-subtotal .cart-subtotal-left-cont .itemCount {
@@ -264,11 +263,12 @@ main {
   margin-right: 1em;
 }
 .cart-subtotal .cart-subtotal-right-cont p {
-  font-size: 23px;
-  font-weight: 500;
+  font-size: 21px;
+  margin-right: -1em;
 }
 .cart-subtotal .cart-subtotal-innercont {
   padding: 1em;
+  margin-left: -0.5em;
   display: flex;
   justify-content: space-between;
 }
@@ -378,16 +378,26 @@ textarea:focus, input:focus {
 }
 
 .resumen-pagos {
-  padding: 0em 2em 1.5em 1.5em;
-  margin-top: -1em;
+  padding: 1em;
+  margin-left: -0.5em;
+  margin-top: -2em;
+}
+.resumen-pagos p {
+  font-size: 15px;
 }
 
 .total {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.5em;
 }
 .total h5 {
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 23px;
+}
+.total h4 {
+  font-weight: 600;
+  font-size: 23px;
 }
 
 .addPayment {
@@ -510,4 +520,17 @@ textarea:focus, input:focus {
 
 .hide {
   display: none;
+}
+
+.alert {
+  color: rgb(218, 62, 62);
+  position: unset;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-top: 1em;
+  margin-bottom: -1em;
+  margin-left: 7.5em;
+  text-align: start;
+  padding: 0;
 }/*# sourceMappingURL=cart.css.map */

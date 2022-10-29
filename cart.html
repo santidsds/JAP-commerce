@@ -74,21 +74,21 @@
               <p>Tipo de envío:</p>
               <div class="ship-type-info">
                 
-                <input id="envio_standard" name=envio type="radio" value="5">
+                <input id="envio_standard" name=envio type="radio" value="5" oninput="checkValidation()">
                 <label for="envio_standard">Standard</label>
   
                 
-                <input id="envio_premium" name=envio type="radio" value="7">
+                <input id="envio_premium" name=envio type="radio" value="7" oninput="checkValidation()">
                 <label for="envio_premium">Premium</label>
   
                 
-                <input id="envio_express" name=envio type="radio" value="15">
+                <input id="envio_express" name=envio type="radio" value="15" oninput="checkValidation()">
                 <label for="envio_express">Express</label>
                 
+                
                 <img id="ship-qstnBtn"src="img/question.png" alt="">
-                <div class="popup-ship-info">
-
-                </div>       
+                
+                <div class="alert" id="alert"></div>    
                 
               </div>
               
@@ -145,14 +145,14 @@
               <div class="cart-subtotal-left-cont">
                 <p class="subtotal">Subtotal:</p>
                 
-                <p id="itemCount"class="itemCounts">1 item</p>
+                <p id="itemCount"class="itemCount">1 item</p>
               </div>
               <div class="cart-subtotal-right-cont">
                 <p id="subtotal"></p>
               </div>
           </div>
           <div class="resumen-pagos collapse" id="resumen-pagos">
-            <div class="wrapper">
+            <div class="wrapper shipCost">
               <p id="costo-title-p">Costo de envío:</p>
               <p id="costo-envio">USD 0</p>
             </div>
@@ -163,7 +163,7 @@
             
           </div>
           
-          <button class="checkoutBtn" id="checkoutBtn">Continuar compra</button>
+          <button class="checkoutBtn" id="checkoutBtn" onclick="validate()">Continuar compra</button>
         </div>
       </div>
     </div>

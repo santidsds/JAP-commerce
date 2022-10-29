@@ -65,9 +65,9 @@ let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
 let cartArticlesArray = []
 
-let realArr = []
-let newArr = []
 
+let newArr = []
+let updatedCart = JSON.parse(localStorage.getItem("newShopcart"))
 
 
 
@@ -115,10 +115,7 @@ window.addEventListener("DOMContentLoaded", () => {
     shipType() 
   })
 
-  document.getElementById("checkoutBtn").addEventListener("click", () => {
-    window.location.replace("checkout.html") 
-  })
-
+  
   addPayment();
 
   
@@ -131,7 +128,7 @@ function showCartItems () {
   let itemCount = 0
   
   
- newArr[0].articles.forEach(function (item){
+ updatedCart[0].articles.forEach(function (item){
 
     cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
@@ -170,8 +167,8 @@ function showCartItems () {
     newArr[0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
-        if(parseInt(itemResult.innerHTML)===0){
-          itemResult.innerHTML = 0
+        if(parseInt(itemResult.innerHTML)===1){
+          itemResult.innerHTML = 1
         }
         else {
 
@@ -287,7 +284,8 @@ function showCartItems () {
       }
   
       newArr[0].articles.push(cartObj)
-      console.log(newArr)
+      localStorage.setItem("newShopcart", JSON.stringify(newArr))
+      console.log(updatedCart)
       
     })
   
@@ -297,5 +295,26 @@ function showCartItems () {
     return new Date().getTime().toString();
   }
 
-console.log(uniqueID())
+function validate () {
+  const alert = document.getElementById("alert");
+
+  if (!(standard.checked || express.checked || premium.checked)){
+    alert.innerHTML = "Debes seleccionar un tipo de envío"
+  }
+   else {
+    window.location.replace("checkout.html")
+  }
+
+}
+
+function checkValidation () {
+  const alert = document.getElementById("alert");
+  if ((standard.checked || express.checked || premium.checked)){
+    alert.innerHTML = ""
+  }
+}
+
+function showResume () {
+
+}
   
