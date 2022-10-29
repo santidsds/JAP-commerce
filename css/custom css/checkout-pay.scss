@@ -301,7 +301,7 @@ textarea:focus, input:focus{
         justify-content: center;
         align-items: end;
         padding: 3em;
-        height: 20em;
+        
         
 
         button {
@@ -323,4 +323,19 @@ textarea:focus, input:focus{
           }
         }
 }
+
+}
+
+.buy-success-mid-cont {
+    height: 0em;
+}
+
+.buy-resume {
+    display: flex;
+    gap: 20px;
+
+    img {
+        width: 50px;
+        border-radius: 50%;
+    }
 }

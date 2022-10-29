@@ -159,6 +159,8 @@ function showCartItems () {
     newArr[0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
+
+        //Updates item counter HTML
         
         itemResult.innerHTML = parseInt(itemResult.innerHTML) + 1
 
@@ -267,10 +269,6 @@ function checkValidation () {
   if ((standard.checked || express.checked || premium.checked)){
     alert.innerHTML = ""
   }
-}
-
-function showResume () {
-
 }
 
 function userDropdown () {

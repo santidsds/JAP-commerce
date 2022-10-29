@@ -9,6 +9,8 @@ const midCont = document.getElementById("mid-cont")
 
 const wholeSection = document.getElementById("whole-section")
 
+const updatedCart = JSON.parse(localStorage.getItem("newShopcart"))
+
 
 function addCard(){
     midCont.innerHTML =  `
@@ -63,7 +65,8 @@ function goBack() {
 
 function validate () {
 
-    //This function validates inputs on add-payment-card and add-payment-bank-acc //
+    //This function validates if every input has a value.
+    //Called on (add-payment-card) and (add-payment-bank-acc)
 
     const cardNameInp = document.getElementById("card-name-input");
     const cardNumberInp = document.getElementById("card-number-input");
@@ -74,10 +77,11 @@ function validate () {
     
     let inputObj = [cardNameInp, cardNumberInp, cardCodeInp, cardExpireInp];
 
-    //This shows the "successfull buy" pop up
-
     if(cardCodeInp.value && cardExpireInp.value && cardNameInp.value && cardNumberInp.value ){
+        //This shows the "successfull buy" pop up if every input has a value
+
         setTimeout(() => {
+
             wholeSection.innerHTML = `
         <div class="buy-succes">
             <div class="buy-succes-top-cont" id="buy-succes-top-cont" >
@@ -99,15 +103,16 @@ function validate () {
         } 
     
     inputObj.forEach(input => {
+        //Displays alert on input without a value
             
-            if (!input.value){
-                input.style.borderBottom = "1px solid rgb(223, 80, 80)";
-                alertText.innerHTML = `
-                <img src="img/signo-de-exclamacion.png" alt="">
-                <p>Ningún campo puede estar vacío</p>
-                `
-                }           
-            })
+        if (!input.value){
+            input.style.borderBottom = "1px solid rgb(223, 80, 80)";
+            alertText.innerHTML = `
+            <img src="img/signo-de-exclamacion.png" alt="">
+            <p>Ningún campo puede estar vacío</p>
+            `
+            }           
+        })
     }
 
     
