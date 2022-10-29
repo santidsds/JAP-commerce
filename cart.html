@@ -68,21 +68,21 @@
         <div class="cart-subtotal-cont">
           
           
-          <div class="sell-options" id="sell-options">
+          <div class="ship-options" id="ship-options">
   
             <div class="ship-type">
               <p>Tipo de envío:</p>
               <div class="ship-type-info">
                 
-                <input id="envio_standard" name=envio type="radio" value="5" oninput="checkValidation()">
+                <input id="envio_standard" name=envio type="radio" value="5" onclick="shipType()" oninput="checkValidation()">
                 <label for="envio_standard">Standard</label>
   
                 
-                <input id="envio_premium" name=envio type="radio" value="7" oninput="checkValidation()">
+                <input id="envio_premium" name=envio type="radio" value="7" onclick="shipType()" oninput="checkValidation()">
                 <label for="envio_premium">Premium</label>
   
                 
-                <input id="envio_express" name=envio type="radio" value="15" oninput="checkValidation()">
+                <input id="envio_express" name=envio type="radio" value="15" onclick="shipType()" oninput="checkValidation()">
                 <label for="envio_express">Express</label>
                 
                 

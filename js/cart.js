@@ -1,92 +1,32 @@
-let navUl = document.getElementById("nav-izq");
-
-
-
-navUl.innerHTML += `
-        <li>
-          <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
-        </li>
-`
-
-let obj = {
-"articles": [
-{
-"id": 50924,
-"name": "Peugeot 208",
-"count": 1,
-"unitCost": 20000,
-"currency": "USD",
-"image": "img/prod50924_1.jpg"
-}, 
-{
-  "id": 50922,
-  "name": "Ferrari 208",
-  "count": 1,
-  "unitCost": 10000,
-  "currency": "USD",
-  "image": "img/prod50922_3.jpg"
-  }, 
-  {
-    "id": 50932,
-    "name": "Ferrari 208",
-    "count": 1,
-    "unitCost": 10000,
-    "currency": "USD",
-    "image": "img/prod50922_3.jpg"
-    }, 
-    {
-      "id": 50942,
-      "name": "Ferrari 208",
-      "count": 1,
-      "unitCost": 10000,
-      "currency": "USD",
-      "image": "img/prod50922_3.jpg"
-      }
-]
-}
-
-document.getElementById("userBtn").addEventListener("click", () => {
-            
-  document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
-  
-})
-
-document.getElementById("user-settings-salir").addEventListener("click", () => {
-  window.location.replace("index.html")
-})
-document.getElementById("user-settings-cart").addEventListener("click", () => {
-  window.location.replace("cart.html")
-})
-document.getElementById("user-settings-perfil").addEventListener("click", () => {
-  window.location.replace("my-profile.html")
-})
 
 let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
 let cartArticlesArray = []
 
-
 let newArr = []
 let updatedCart = JSON.parse(localStorage.getItem("newShopcart"))
 
-
-
-
-
-//Métodos de envío
+//Ship types
 let standard = document.getElementById("envio_standard");
 let express = document.getElementById("envio_express");
 let premium = document.getElementById("envio_premium");
 
+//Principal container
 let cartItemsCont = document.getElementById("cart-items-cont");
+
+//Subtotal container
 let cartSubtotalItemsCont = document.getElementById("subtotal-article");
+
+//Subtotal value
 let subtotal = document.getElementById("subtotal");
-let sellOptions = document.getElementById("sell-options");
 
-
+//Container of ship type inputs
+let sellOptions = document.getElementById("ship-options");
 
 
 window.addEventListener("DOMContentLoaded", () => {
+  localStorage.setItem("subtotal", 0)
+  userDropdown()
 
   getJSONData(cartArticlesURL).then((res) => {
     if(res.status === "ok"){
@@ -95,32 +35,8 @@ window.addEventListener("DOMContentLoaded", () => {
       showCartItems()
       shipType()
       
-      
-      
     }
-    
   })
-
-  localStorage.setItem("subtotal", 0)
-  
-  //listeners
-  
-  standard.addEventListener("click", () => {
-    shipType() 
-  })
-  express.addEventListener("click", () => {
-    shipType() 
-  })
-  premium.addEventListener("click", () => {
-    shipType() 
-  })
-
-  
-  addPayment();
-
-  
-  
-  
 })
 
 function showCartItems () {
@@ -130,7 +46,31 @@ function showCartItems () {
   
  updatedCart[0].articles.forEach(function (item){
 
-    cartItemsCont.innerHTML += `
+    if(item.currency === "UYU"){
+      cartItemsCont.innerHTML += `
+    <div class="items-inner-cont">
+      <img class="item-image"src=${item.image} alt="">
+      <div class="about">
+        <h1 class="title">${item.name}</h1>
+        <div class="counter">
+          <div id="cartCounterBtnMenos${item.id}"  onclick="btnMenos(${item.id})" class="btn"><img src="img/minus.png" alt=""></div>
+          <div id="cartCounterResult${item.id}" class="count">1</div>
+          <div id="cartCounterBtnMas${item.id}" onclick="btnMas(${item.id})" class="btn"><img src="img/plus.png" alt=""></div>
+        </div>
+        
+      </div>
+      <div class="prices">
+        <p id="cartPrice">USD ${parseInt(item.unitCost/40.7)}</p>
+        <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
+      </div>
+    </div>
+  
+    `
+    subtotal += parseInt(item.unitCost/40.7)
+    }
+
+    else {
+      cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
       <img class="item-image"src=${item.image} alt="">
       <div class="about">
@@ -149,14 +89,15 @@ function showCartItems () {
     </div>
   
     `
-
     subtotal += item.unitCost
+    }
+
     itemCount += item.count
 
     localStorage.setItem("subtotal", subtotal)
     localStorage.setItem("itemCount", itemCount)
 
-    document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
+    document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
     document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
   })
@@ -164,12 +105,26 @@ function showCartItems () {
   }
 
   function btnMenos(ID) {
+    // Removes -1 to itemResult and updates itemCount and subtotal.
+
     newArr[0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
+
         if(parseInt(itemResult.innerHTML)===1){
           itemResult.innerHTML = 1
         }
+
+        else if(item.currency === "UYU"){
+          // Converts currency to USD
+
+          itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
+
+          localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
+
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost / 40.7)))
+        }
+        
         else {
 
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
@@ -177,20 +132,19 @@ function showCartItems () {
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
 
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost)))
-
-          document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
-          document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
-          shipType()
-
         }
-      
 
+        document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
+        document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
+        shipType()
       }
     })
     
   }
 
   function btnMas(ID) {
+    // Adds +1 to itemResult and updates itemCount and subtotal.
+
     newArr[0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
@@ -199,9 +153,16 @@ function showCartItems () {
 
         localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) + parseInt(1)))
 
-        localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost)))
+        // If currency is UYU, it is converted to USD
+        if(item.currency === "UYU"){
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost / 40.7)))
+        } 
 
-        document.getElementById("subtotal").innerHTML = item.currency + " " + localStorage.getItem("subtotal")
+        else {
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost)))
+        }
+
+        document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
         shipType()
 
@@ -220,7 +181,6 @@ function showCartItems () {
     let obj = [standard, express, premium];
 
     
-
     obj.forEach((each) => {
       
       if(each.checked){
@@ -238,38 +198,7 @@ function showCartItems () {
 
   }
 
-  function addPayment () {
-    let addPaymentBtn = document.getElementById("addPayment");
-    let addPaymentDone = document.getElementById("addPaymentDone");
-    let addPaymentCancel = document.getElementById("addPaymentCancel");
-    let addPaymentDIV = document.getElementById("checkout");
-    let mainDIV = document.getElementById("main");
-    let nav = document.getElementById("nav-container");
-
-    addPaymentBtn.addEventListener("click", (e) => {
-      addPaymentDIV.classList.toggle("chckShow");
-      mainDIV.classList.toggle("blurFilter");
-      
-    })
-  
-    addPaymentDone.addEventListener("click", () => {
-      addPaymentDIV.classList.toggle("chckShow");
-      mainDIV.classList.toggle("blurFilter");
-      
-    });
-
-    addPaymentCancel.addEventListener("click", () => {
-      addPaymentDIV.classList.toggle("chckShow");
-      mainDIV.classList.toggle("blurFilter");
-      
-    });
-
-
-
-  }
-
   function addItem() {
-    
     let cartLocalStorage = JSON.parse(localStorage.getItem("Shopcart"))
     
     newArr.push(cartArticlesArray)
@@ -288,12 +217,11 @@ function showCartItems () {
       console.log(updatedCart)
       
     })
-  
   }
 
-  function uniqueID () {
-    return new Date().getTime().toString();
-  }
+function uniqueID () {
+  return new Date().getTime().toString();
+}
 
 function validate () {
   const alert = document.getElementById("alert");
@@ -304,7 +232,6 @@ function validate () {
    else {
     window.location.replace("checkout.html")
   }
-
 }
 
 function checkValidation () {
@@ -316,5 +243,31 @@ function checkValidation () {
 
 function showResume () {
 
+}
+
+function userDropdown () {
+  let navUl = document.getElementById("nav-izq");
+
+  navUl.innerHTML += `
+          <li>
+            <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
+          </li>
+  `
+
+  document.getElementById("userBtn").addEventListener("click", () => {   
+    document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
+  })
+
+  document.getElementById("user-settings-salir").addEventListener("click", () => {
+    window.location.replace("index.html")
+  })
+
+  document.getElementById("user-settings-cart").addEventListener("click", () => {
+    window.location.replace("cart.html")
+  })
+
+  document.getElementById("user-settings-perfil").addEventListener("click", () => {
+    window.location.replace("my-profile.html")
+  })
 }
   
