@@ -177,6 +177,4 @@ function validateBankAcc () {
         <p>Ningún campo puede estar vacío</p>
         `
      }
-    
-
 }

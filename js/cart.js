@@ -127,7 +127,6 @@ function showCartItems () {
         else if(item.currency === "UYU"){
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
 
-          //Saves values on localstorage
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost / 40.7)))
         }
@@ -135,15 +134,11 @@ function showCartItems () {
         else {
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
 
-          //Saves values on localstorage
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost)))
         }
 
-        //Updates subtotal
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
-
-        //Updates item count
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
         //Shows selected ship cost
@@ -159,14 +154,13 @@ function showCartItems () {
     newArr[0].articles.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
-
-        //Updates item counter HTML
         
         itemResult.innerHTML = parseInt(itemResult.innerHTML) + 1
 
         localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) + parseInt(1)))
 
         // Converts UYU to USD
+
         if(item.currency === "UYU"){
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost / 40.7)))
         } 
@@ -175,10 +169,7 @@ function showCartItems () {
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost)))
         }
 
-        //Updates subtotal
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
-
-        //Updates item count
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
         //Shows selected ship cost

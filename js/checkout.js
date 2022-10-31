@@ -24,9 +24,6 @@ let inputObj = [streetInp, numberInp, esqInp];
 let alertObj = [streetAlert, numberAlert, esqAlert];
 
 
-
-
-
 function validate () {
 
     if(streetInp.value && numberInp.value && esqInp.value ){
@@ -41,14 +38,8 @@ function validate () {
                 <img src="img/signo-de-exclamacion.png" alt="">
                 <p>Ningún campo puede estar vacío</p>
                 `
-
-                
-                
                 }
-                
         }) 
-        
-        
     })
 }
 
@@ -60,12 +51,8 @@ function checkValidation () {
                 input.style.color = "gray";
                 alertText.innerHTML = ""
                 
-                }
-            
-                
+                }   
         }) 
-
-        
     });
 }
  
