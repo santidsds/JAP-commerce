@@ -17,6 +17,157 @@ body {
     }
 }
 
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+
+  .profile-cont {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    width: 70vw;
+    height: 85vh;
+    border-radius: 2.3em;
+    display: flex;
+    flex-direction: column;
+
+    .profile-cont-top {
+      display: flex;
+      justify-content: space-between;
+      padding: 4em 6em 4em 6em;
+      
+      h2 {
+        font-family: 'Poppins';
+        font-weight: 600;
+      }
+
+      button {
+        border: none;
+        padding: 0.9em;
+        border-radius: 1em;
+        font-size: 0.8em;
+        font-weight: bold;
+        width: 7em;
+        text-align: center;
+        transition: 0.2s ease;
+
+        &:hover {
+          
+          scale: 1.05;
+          
+        }
+      }
+
+      .cancel-btn {
+        background-color: transparent;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      }
+      .save-btn {
+        background-color: black;
+        color: white;
+        margin-left: 1em;
+      }
+    }
+
+    .profile-cont-bot {
+      display: flex;
+      padding: 0em 0em 0em 6em;
+
+      .profile-cb-left {
+        width: 20%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid rgb(184, 184, 184);
+
+        a {
+          color: black;
+          font-size: 0.75em;
+          font-weight: bold;
+          font-family: 'Poppins';
+        }
+      }
+      .profile-cb-right {
+        width: 80%;
+        height: 25em;
+        padding: 0em 6em 0em 6em;
+      }
+    }
+  }
+
+}
+
+.personal-information-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0em 6em 0em 6em;
+    justify-content: space-between;
+    height: 50vh;
+    
+
+    input {
+      border: none;
+      border-bottom: 2px solid rgb(219, 219, 219);
+      width: 15em;
+    }
+
+    p {
+      font-weight: 500;
+      color: rgb(88, 88, 88);
+    }
+}
+
+.profile-pic-settings {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  a {
+    color: rgb(88, 88, 88);
+    text-decoration: underline;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  
+}
+
+.input-cont{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 1.5em;
+  
+}
+
+.profile-pic-circle {
+  height: 120px;
+  width: 120px;
+  border-radius: 100%;
+  border: 1px solid rgb(219, 219, 219);
+}
+
+.active-design {
+  display: none;
+  position: absolute;
+  width: 4px;
+  height: 10px;
+  margin-left: -0.7em;
+  margin-top: 0.27em;
+  background-color: black;
+}
+
+
 .user-settings-swipe {
   transform: translateY(12em);
   

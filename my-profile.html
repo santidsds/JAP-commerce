@@ -30,32 +30,28 @@
 
 <body>
   <div  id="nav-container"class="nav-container">
-    
     <div class="nav-izq">
       <ul id="nav-izq">
         <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">
           account_circle
           </span></a>
       </ul>
-
     </div>
-  
-  <nav >
-    
-    <ul id="nav-ul">
-      <li>
-        <a href="main.html">Inicio</a>
-      </li>
-      <li>
-        <a href="categories.html">Categorías</a>
-      </li>
-      <li>
-        <a href="sell.html">Vender</a>
-      </li>
-      
-    </ul>
-  </nav>
+    <nav >
+      <ul id="nav-ul">
+        <li>
+          <a href="main.html">Inicio</a>
+        </li>
+        <li>
+          <a href="categories.html">Categorías</a>
+        </li>
+        <li>
+          <a href="sell.html">Vender</a>
+        </li>
+      </ul>
+    </nav>
   </div>
+
   <div id="user-settings-hide" class="user-settings-hide">
     <div id="user-settings" class="user-settings">
     <button id="user-settings-cart" >Carrito</button>
@@ -63,19 +59,80 @@
     <button id="user-settings-salir"><span>Cerrar sesión</span></button>
   </div>
   </div>
-  <main>
+
+  <main class="hero-section">
+    <div class="profile-cont" id="profile-cont">
+      <div class="profile-cont-top" id="profile-cont-top">
+        <h2>Perfil</h2>
+        <div class="buttons">
+          <button class="cancel-btn" id="cancel-btn">Cancelar</button>
+          <button class="save-btn" id="save-btn">Guardar</button>
+        </div>
+      </div>
+
+      <div class="profile-cont-bot" id="profile-cont-bot">
+        <div class="profile-cb-left">
+          <a class="profile-personal-info" id="profile-personal-info" href=""><div class="active-design" id="active-design"></div>Información personal</a>
+          <a class="profile-directions" id="profile-directions"href=""><div class="active-design" id="active-design"></div>Dirección</a>
+        </div>
+
+        <div class="profile-cb-right">
+
+          <div class="current-content" id="current-content">
+            <div class="personal-information-form" id="personal-information-form">
+
+              <div class="row">
+                <div class="profile-pic-circle"></div>
+                <div class="profile-pic-settings">
+                  <a href="" class="add-profile-pic" id="add-profile-pic">Agregar foto de perfil</a>
+                  <a href="" class="remove-profile-pic" id="remove-profile-pic">Eliminar foto</a>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="name-input-cont input-cont" id="name-input-cont">
+                  <p class="name-input-label">Nombre</p>
+                  <input type="text" class="name-input" id="name-input">
+                </div>
+                <div class="second-name-input-cont input-cont" id="second-name-input-cont">
+                  <p class="second-name-input-label">Segundo nombre</p>
+                  <input type="text" class="second-name-input" id="second-name-input">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="lastname-input-cont input-cont" id="lastname-input-cont">
+                  <p class="lastname-input-label">Apellido</p>
+                  <input type="text" class="lastname-input" id="lastname-input">
+                </div>
+                <div class="second-lastname-input-cont input-cont" id="second-lastname-input-cont">
+                  <p class="second-lastname-input-label">Segundo apellido</p>
+                  <input type="text" class="second-lastname-input" id="second-lastname-input">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="email-input-cont input-cont" id="email-input-cont">
+                  <p class="email-input-label">Email</p>
+                  <input type="text" class="email-input" id="email-input"placeholder="santidasilva1508@gmail.com">
+                </div>
+                <div class="phone-input-cont input-cont" id="phone-input-cont">
+                  <p class="phone-input-label">Celular</p>
+                  <input type="text" class="phone-input" id="phone-input" >
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+    </div>
     
   </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
-        2022</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
+  
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>

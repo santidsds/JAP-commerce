@@ -69,8 +69,7 @@ function showCartItems () {
     </div>
   
     `
-    //Updates subtotal
-    subtotal += parseInt(item.unitCost/40.7)
+    subtotal += parseInt(item.unitCost/40.7) //Updates subtotal
     }
 
     else {
@@ -93,12 +92,10 @@ function showCartItems () {
     </div>
   
     `
-    //Updates subtotal
-    subtotal += item.unitCost
+    subtotal += item.unitCost //Updates subtotal
     }
 
-    //Updates item count
-    itemCount += item.count
+    itemCount += item.count //Updates item count
 
     //Saves values on localstorage
     localStorage.setItem("subtotal", subtotal)
@@ -118,13 +115,12 @@ function showCartItems () {
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
 
-        //Item count cant be less than 1
-        if(parseInt(itemResult.innerHTML)===1){
+        
+        if(parseInt(itemResult.innerHTML)===1){ //Item count cant be less than 1
           itemResult.innerHTML = 1
         }
 
-        // Converts UYU to USD
-        else if(item.currency === "UYU"){
+        else if(item.currency === "UYU"){ // Converts UYU to USD
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
 
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
@@ -141,8 +137,7 @@ function showCartItems () {
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
-        //Shows selected ship cost
-        shipType()
+        shipType() //Shows selected ship cost
       }
     })
     
@@ -159,9 +154,8 @@ function showCartItems () {
 
         localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) + parseInt(1)))
 
-        // Converts UYU to USD
 
-        if(item.currency === "UYU"){
+        if(item.currency === "UYU"){ // Converts UYU to USD
           localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost / 40.7)))
         } 
 
@@ -172,8 +166,7 @@ function showCartItems () {
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
         document.getElementById("itemCount").innerHTML = localStorage.getItem("itemCount") + " items"
 
-        //Shows selected ship cost
-        shipType()
+        shipType() //Shows selected ship cost
 
       }
 
@@ -212,8 +205,7 @@ function showCartItems () {
   function addItem() {
     //Item selected on products is added to cart 
 
-    //This is set on Products (when add to cart button is clicked)
-    let cartLocalStorage = JSON.parse(localStorage.getItem("Shopcart"))
+    let cartLocalStorage = JSON.parse(localStorage.getItem("Shopcart")) //This is set on Products (when add to cart button is clicked)
     
     newArr.push(cartArticlesArray)
     cartLocalStorage.forEach(item => {
@@ -269,15 +261,13 @@ function userDropdown () {
   //           - Profile
   //           - Log out
 
-  //Section inside navbar
-  let navUl = document.getElementById("nav-izq");
+  let navUl = document.getElementById("nav-izq"); //Section inside navbar
 
-  //Get username from localstorage
-  navUl.innerHTML += `
+  navUl.innerHTML += ` 
           <li>
             <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
           </li>
-  `
+  ` 
 
   //User button
   document.getElementById("userBtn").addEventListener("click", () => {   
