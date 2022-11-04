@@ -75,8 +75,11 @@ textarea:focus, input:focus {
   flex-direction: column;
   border-right: 1px solid rgb(184, 184, 184);
 }
-.hero-section .profile-cont .profile-cont-bot .profile-cb-left a {
+.hero-section .profile-cont .profile-cont-bot .profile-cb-left button {
   color: black;
+  background: transparent;
+  border: none;
+  text-align: start;
   font-size: 0.75em;
   font-weight: bold;
   font-family: "Poppins";
@@ -229,4 +232,42 @@ textarea:focus, input:focus {
   font-size: 19px;
   color: white;
   margin-right: 3em;
+}
+
+.alert-text {
+  display: flex;
+  font-size: 0.9em;
+  position: absolute;
+  margin-top: 18em;
+}
+.alert-text p {
+  color: rgb(223, 80, 80);
+}
+.alert-text img {
+  width: 20px;
+  height: 20px;
+  margin-right: 1em;
+}
+
+.street-cont, .number-cont, .esq-cont {
+  margin-bottom: 1.7em;
+}
+.street-cont input, .number-cont input, .esq-cont input {
+  border: none;
+  border-bottom: 1px solid rgb(122, 122, 122);
+  background: transparent;
+  padding: 0.8em;
+  width: 35em;
+}
+.street-cont p, .number-cont p, .esq-cont p {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #616161;
+}
+.street-cont img, .number-cont img, .esq-cont img {
+  display: none;
+  width: 20px;
+  position: absolute;
+  margin-top: -2em;
+  margin-left: 29em;
 }/*# sourceMappingURL=my-profile.css.map */

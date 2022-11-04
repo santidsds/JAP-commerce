@@ -86,8 +86,11 @@ textarea:focus, input:focus{
         flex-direction: column;
         border-right: 1px solid rgb(184, 184, 184);
 
-        a {
+        button {
           color: black;
+          background: transparent;
+          border: none;
+          text-align: start;
           font-size: 0.75em;
           font-weight: bold;
           font-family: 'Poppins';
@@ -203,12 +206,6 @@ textarea:focus, input:focus{
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-  
-
-  span {
-     
-      
-  }
 
   button {
       color: white;
@@ -293,3 +290,50 @@ textarea:focus, input:focus{
       }
     }
   }
+
+  .alert-text {
+    display: flex;
+    font-size: 0.9em;
+    position: absolute;
+    margin-top: 18em;
+
+    p {
+      color: rgb(223, 80, 80);
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+        margin-right: 1em;
+    }
+    
+}
+
+.street-cont, .number-cont, .esq-cont {
+  margin-bottom: 1.7em;
+
+  input {
+      
+      border: none;
+      border-bottom: 1px solid rgb(122, 122, 122);
+      background: transparent;
+      padding: 0.8em;
+      width: 35em;
+  }
+
+  p {
+      text-transform: uppercase;
+      font-size: 0.8em;
+      color: #616161;
+      
+ }
+
+ img {
+  display: none;
+  width: 20px;
+  position: absolute;
+  margin-top: -2em;
+  margin-left: 29em;
+ }
+}
+
