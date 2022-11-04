@@ -9,20 +9,6 @@ let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
 let MSG = "FUNCIONALIDAD NO IMPLEMENTADA";
 
-let navUl = document.getElementById("nav-izq");
-
-navUl.innerHTML += `
-        <li>
-          <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
-        </li>
-`
-
-document.getElementById("userBtn").addEventListener("click", () => {
-            
-  document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
-  
-})
-
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
     let unitProductCostHTML = document.getElementById("productCostText");
@@ -171,3 +157,39 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+
+function userDropdown () {
+    //Display a dropdown when username is clicked (on left corner)
+  
+    //Redirects: - Cart
+    //           - Profile
+    //           - Log out
+  
+    let navUl = document.getElementById("nav-izq"); //Section inside navbar
+  
+    navUl.innerHTML += ` 
+            <li>
+              <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
+            </li>
+    ` 
+  
+    //User button
+    document.getElementById("userBtn").addEventListener("click", () => {   
+      document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
+    })
+  
+    //Log out button
+    document.getElementById("user-settings-salir").addEventListener("click", () => {
+      window.location.replace("index.html")
+    })
+  
+    //Cart button
+    document.getElementById("user-settings-cart").addEventListener("click", () => {
+      window.location.replace("cart.html")
+    })
+  
+    //Profile button
+    document.getElementById("user-settings-perfil").addEventListener("click", () => {
+      window.location.replace("my-profile.html")
+    })
+  }
