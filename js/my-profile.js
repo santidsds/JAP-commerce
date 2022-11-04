@@ -7,11 +7,14 @@ const secondLastnameInput = document.getElementById("second-lastname-input");
 const emailInput = document.getElementById("email-input");
 const phoneInput = document.getElementById("phone-input");
 
+//Buttons that change content
 const profilePersonalInfoSection = document.getElementById("profile-personal-info")
 const profileDirectionSection = document.getElementById("profile-directions")
 
+//Container of the current content
 const currentContent = document.getElementById("current-content");
 
+//Alert paragraph 
 const alertText = document.getElementById("alert-text")
 
 
@@ -24,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function validateAndSave () {
+  //validates and saves inputs on personal info
+  //called onclick by: (save-btn) 
   let obj = [nameInput, lastnameInput, emailInput]
   
   obj.forEach(input => {
@@ -88,6 +93,8 @@ function showDirectionSection () {
 }
 
 function checkLocalStorage () {
+  //Displays saved values on inputs 
+
   if (localStorage.getItem("name") != 0){
     nameInput.value = localStorage.getItem("name")
     lastnameInput.value = localStorage.getItem("lastname")

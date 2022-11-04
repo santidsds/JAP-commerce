@@ -6,109 +6,12 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
-let navUl = document.getElementById("nav-izq");
-
-navUl.innerHTML += `
-        <li>
-          <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
-        </li>
-`
-
-document.getElementById("userBtn").addEventListener("click", () => {
-            
-  document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
-  
-})
-
-
-
-
-function sortCategories(criteria, array){
-    let result = [];
-    if (criteria === ORDER_ASC_BY_NAME)
-    {
-        result = array.sort(function(a, b) {
-            if ( a.name < b.name ){ return -1; }
-            if ( a.name > b.name ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DESC_BY_NAME){
-        result = array.sort(function(a, b) {
-            if ( a.name > b.name ){ return -1; }
-            if ( a.name < b.name ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_BY_PROD_COUNT){
-        result = array.sort(function(a, b) {
-            let aCount = parseInt(a.productCount);
-            let bCount = parseInt(b.productCount);
-
-            if ( aCount > bCount ){ return -1; }
-            if ( aCount < bCount ){ return 1; }
-            return 0;
-        });
-    }
-
-    return result;
-}
-
-function setCatID(id) {
-    localStorage.setItem("catID", id);
-    window.location = "products.html"
-}
-
-function showCategoriesList(){
-
-    let htmlContentToAppend = "";
-    for(let i = 0; i < currentCategoriesArray.length; i++){
-        let category = currentCategoriesArray[i];
-        console.log(category)
-
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
-            
-
-            htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})">
-                <ul class="card-wrapper">
-                    <li class="card">
-                        <img src='${category.imgSrc}' alt=''>
-                        <div class="card-cont">
-                            <div class="inner-cont">
-                                <h3><a href="">${category.name}</a></h3>
-                                <p class="vendidos">${category.productCount} vendidos</p>
-                            </div>
-                        
-                        <p>${category.description}</p>
-                        </div>
-                        
-                    </li>
-                </ul>
-            </div>
-            `
-        }
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
-    }
-}
-
-function sortAndShowCategories(sortCriteria, categoriesArray){
-    currentSortCriteria = sortCriteria;
-
-    if(categoriesArray != undefined){
-        currentCategoriesArray = categoriesArray;
-    }
-
-    currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
-
-    //Muestro las categorías ordenadas
-    showCategoriesList();
-}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+    userDropdown();
     getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data
@@ -161,14 +64,110 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+});
 
+
+function sortCategories(criteria, array){
+    let result = [];
+    if (criteria === ORDER_ASC_BY_NAME)
+    {
+        result = array.sort(function(a, b) {
+            if ( a.name < b.name ){ return -1; }
+            if ( a.name > b.name ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_NAME){
+        result = array.sort(function(a, b) {
+            if ( a.name > b.name ){ return -1; }
+            if ( a.name < b.name ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_BY_PROD_COUNT){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.productCount);
+            let bCount = parseInt(b.productCount);
+
+            if ( aCount > bCount ){ return -1; }
+            if ( aCount < bCount ){ return 1; }
+            return 0;
+        });
+    }
+
+    return result;
+}
+
+function setCatID(id) {
+    localStorage.setItem("catID", id);
+    window.location = "products.html"
+}
+
+function showCategoriesList(){
+    let htmlContentToAppend = "";
+    for(let i = 0; i < currentCategoriesArray.length; i++){
+        let category = currentCategoriesArray[i];
+        console.log(category)
+
+        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+            
+
+            htmlContentToAppend += `
+            <div onclick="setCatID(${category.id})">
+                <ul class="card-wrapper">
+                    <li class="card">
+                        <img src='${category.imgSrc}' alt=''>
+                        <div class="card-cont">
+                            <div class="inner-cont">
+                                <h3><a href="">${category.name}</a></h3>
+                                <p class="vendidos">${category.productCount} vendidos</p>
+                            </div>
+                        
+                        <p>${category.description}</p>
+                        </div>
+                        
+                    </li>
+                </ul>
+            </div>
+            `
+        }
+
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+    }
+}
+
+function sortAndShowCategories(sortCriteria, categoriesArray){
+    currentSortCriteria = sortCriteria;
+
+    if(categoriesArray != undefined){
+        currentCategoriesArray = categoriesArray;
+    }
+
+    currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
+
+    //Muestro las categorías ordenadas
+    showCategoriesList();
+}
+
+function userDropdown  () {
+    const navUl = document.getElementById("nav-izq");
+  
+    navUl.innerHTML += `
+            <li>
+              <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
+            </li>
+    `
+  
+    document.getElementById("userBtn").addEventListener("click", () => {
+      document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
+    })
+  
     document.getElementById("user-settings-salir").addEventListener("click", () => {
-        window.location.replace("index.html")
-      })
-      document.getElementById("user-settings-cart").addEventListener("click", () => {
-        window.location.replace("cart.html")
-      })
+      window.location.replace("index.html")
+    })
+    document.getElementById("user-settings-cart").addEventListener("click", () => {
+      window.location.replace("cart.html")
+    })
       document.getElementById("user-settings-perfil").addEventListener("click", () => {
         window.location.replace("my-profile.html")
       })
-});
+  }

@@ -1,16 +1,4 @@
-let navUl = document.getElementById("nav-izq");
 
-navUl.innerHTML += `
-        <li>
-          <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
-        </li>
-`
-
-document.getElementById("userBtn").addEventListener("click", () => {
-            
-  document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
-  
-})
 
 let arrayToShow = JSON.parse(localStorage.getItem("product"));
 let productCommentsUrl = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
@@ -25,6 +13,7 @@ let addItemtoCart = document.getElementById("cartAddBtn");
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  userDropdown();
 
   getJSONData(productCommentsUrl).then(function(resultObj){
     if (resultObj.status === "ok"){
@@ -38,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
           AllProductsArray = resultObj.data.products
         }})
 
-
     getJSONData(productInfoUrl).then(function(resultObj){
       if (resultObj.status === "ok"){
           productInfo = resultObj.data
@@ -46,14 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("arr", JSON.stringify(productInfo))
           
           showRelatedProducts()
-          
       }})
 
-
-
-
-
-  
   mainSection.innerHTML += `
   <div class="main-container">
       
@@ -139,20 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.replace("products.html")
   })
 
-  document.getElementById("user-settings-salir").addEventListener("click", () => {
-    window.location.replace("index.html")
-  })
-  document.getElementById("user-settings-cart").addEventListener("click", () => {
-    window.location.replace("cart.html")
-  })
-  document.getElementById("user-settings-perfil").addEventListener("click", () => {
-    window.location.replace("my-profile.html")
-  })
-
   addItemToCart();
-
-  
-  
 })
 
 
@@ -225,8 +194,6 @@ function Comments() {
       
     </div>
   `
-
-
 }
 
 function rating (stars) {
@@ -397,10 +364,7 @@ function userComment() {
     `
     
   })
-  
   showUserComment();
-  
-
 }
 
 function showUserComment() {
@@ -557,6 +521,30 @@ function addItemToCart () {
     window.location.replace("cart.html")
 
   })
+}
+
+function userDropdown  () {
+  const navUl = document.getElementById("nav-izq");
+
+  navUl.innerHTML += `
+          <li>
+            <button class="userBtn" id="userBtn" href="">${localStorage.getItem("user")}</button>
+          </li>
+  `
+
+  document.getElementById("userBtn").addEventListener("click", () => {
+    document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
+  })
+
+  document.getElementById("user-settings-salir").addEventListener("click", () => {
+    window.location.replace("index.html")
+  })
+  document.getElementById("user-settings-cart").addEventListener("click", () => {
+    window.location.replace("cart.html")
+  })
+    document.getElementById("user-settings-perfil").addEventListener("click", () => {
+      window.location.replace("my-profile.html")
+    })
 }
 
   

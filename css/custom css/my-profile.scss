@@ -291,21 +291,21 @@ textarea:focus, input:focus{
     }
   }
 
-  .alert-text {
-    display: flex;
-    font-size: 0.9em;
-    position: absolute;
-    margin-top: 18em;
+.alert-text {
+  display: flex;
+  font-size: 0.9em;
+  position: absolute;
+  margin-top: 18em;
 
-    p {
-      color: rgb(223, 80, 80);
-    }
+  p {
+    color: rgb(223, 80, 80);
+  }
 
-    img {
-        width: 20px;
-        height: 20px;
-        margin-right: 1em;
-    }
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: 1em;
+  }
     
 }
 
@@ -335,5 +335,13 @@ textarea:focus, input:focus{
   margin-top: -2em;
   margin-left: 29em;
  }
+}
+
+.mid-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
 

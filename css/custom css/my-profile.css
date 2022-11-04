@@ -270,4 +270,12 @@ textarea:focus, input:focus {
   position: absolute;
   margin-top: -2em;
   margin-left: 29em;
+}
+
+.mid-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }/*# sourceMappingURL=my-profile.css.map */
