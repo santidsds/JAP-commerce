@@ -6,8 +6,54 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/prod
 const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
+const myAppURL = "http://localhost:3000/products/";
 
 let wantedSection = PRODUCTS_URL + localStorage.getItem("catID") + EXT_TYPE
+
+const postData = async (product) => {
+  try {
+    const response = await fetch(myAppURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(product),
+    });
+    const json = await response.json();
+    console.log(JSON.stringify(json));
+  } catch (error) {
+    console.log(error);
+    console.log(error);
+  }
+};
+
+const deleteData = async (id) => {
+  try {
+    const response = await fetch(myAppURL+id, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      
+    });
+    const json = await response.json();
+    console.log(JSON.stringify(json));
+  } catch (error) {
+    console.log(error);
+    console.log(error);
+  }
+};
+
+const deleteAllData = async () => {
+  try {
+    const response = await fetch(myAppURL, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      
+    });
+    const json = await response.json();
+    console.log(JSON.stringify(json));
+  } catch (error) {
+    console.log(error);
+    console.log(error);
+  }
+};
 
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";

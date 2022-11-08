@@ -1,10 +1,8 @@
 
 let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
-let cartArticlesArray = []
 
-let newArr = []
-let updatedCart = JSON.parse(localStorage.getItem("newShopcart"))
+let cart = []
 
 //Ship types
 let standard = document.getElementById("envio_standard");
@@ -28,10 +26,12 @@ window.addEventListener("DOMContentLoaded", () => {
   localStorage.setItem("subtotal", 0)
   userDropdown()
 
-  getJSONData(cartArticlesURL).then((res) => {
+  getJSONData(myAppURL).then((res) => {
     if(res.status === "ok"){
-      cartArticlesArray = res.data
-      addItem()
+      res.data.forEach(item => {
+        cart.push(item)
+      })
+      console.log(cart)
       showCartItems()
       shipType()
       
@@ -45,10 +45,9 @@ function showCartItems () {
   let subtotal = 0
   let itemCount = 0
   
-  
- updatedCart[0].articles.forEach(function (item){
+cart.forEach(function (item){
 
-  //If currency is UYU, item.unitCost is converted to USD
+  //If currency is UYU, item.cost is converted to USD
     if(item.currency === "UYU"){
       cartItemsCont.innerHTML += `
     <div class="items-inner-cont">
@@ -63,13 +62,13 @@ function showCartItems () {
         
       </div>
       <div class="prices">
-        <p id="cartPrice">USD ${parseInt(item.unitCost/40.7)}</p>
-        <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
+        <p id="cartPrice">USD ${parseInt(item.cost/40.7)}</p>
+        <button id="cartRemoveItem" onclick="removeItem(${item.id}) "class="cartRemoveItem">Remove</button>
       </div>
     </div>
   
     `
-    subtotal += parseInt(item.unitCost/40.7) //Updates subtotal
+    subtotal += parseInt(item.cost/40.7) //Updates subtotal
     }
 
     else {
@@ -86,13 +85,13 @@ function showCartItems () {
         
       </div>
       <div class="prices">
-        <p id="cartPrice">${item.currency} ${item.unitCost}</p>
-        <button id="cartRemoveItem" class="cartRemoveItem">Remove</button>
+        <p id="cartPrice">${item.currency} ${item.cost}</p>
+        <button id="cartRemoveItem" onclick="removeItem(${item.id})" class="cartRemoveItem">Remove</button>
       </div>
     </div>
   
     `
-    subtotal += item.unitCost //Updates subtotal
+    subtotal += item.cost //Updates subtotal
     }
 
     itemCount += item.count //Updates item count
@@ -111,7 +110,7 @@ function showCartItems () {
   function btnMenos(ID) {
     // Removes -1 to itemResult and updates itemCount and subtotal.
 
-    newArr[0].articles.forEach(function (item){
+    cart.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
 
@@ -124,14 +123,14 @@ function showCartItems () {
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
 
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
-          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost / 40.7)))
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.cost / 40.7)))
         }
         
         else {
           itemResult.innerHTML = parseInt(itemResult.innerHTML) - 1
 
           localStorage.setItem("itemCount", parseInt(parseInt(localStorage.getItem("itemCount")) - parseInt(1)))
-          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.unitCost)))
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) - parseInt(item.cost)))
         }
 
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
@@ -146,7 +145,7 @@ function showCartItems () {
   function btnMas(ID) {
     // Adds +1 to itemResult and updates itemCount and subtotal.
 
-    newArr[0].articles.forEach(function (item){
+    cart.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         
@@ -156,11 +155,11 @@ function showCartItems () {
 
 
         if(item.currency === "UYU"){ // Converts UYU to USD
-          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost / 40.7)))
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.cost / 40.7)))
         } 
 
         else {
-          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.unitCost)))
+          localStorage.setItem("subtotal", parseInt(parseInt(localStorage.getItem("subtotal")) + parseInt(item.cost)))
         }
 
         document.getElementById("subtotal").innerHTML = "USD" + " " + localStorage.getItem("subtotal")
@@ -202,28 +201,6 @@ function showCartItems () {
 
   }
 
-  function addItem() {
-    //Item selected on products is added to cart 
-
-    let cartLocalStorage = JSON.parse(localStorage.getItem("Shopcart")) //This is set on Products (when add to cart button is clicked)
-    
-    newArr.push(cartArticlesArray)
-    cartLocalStorage.forEach(item => {
-      const cartObj = {
-        id: item.id,
-        name: item.name,
-        count: 1,
-        unitCost: item.cost,
-        currency: item.currency,
-        image: item.image
-      }
-  
-      newArr[0].articles.push(cartObj)
-      localStorage.setItem("newShopcart", JSON.stringify(newArr))
-      console.log(updatedCart)
-      
-    })
-  }
 
 function uniqueID () {
   //Creates an unique ID
@@ -288,5 +265,20 @@ function userDropdown () {
   document.getElementById("user-settings-perfil").addEventListener("click", () => {
     window.location.replace("my-profile.html")
   })
+}
+
+function removeItem(id){
+  cart.forEach(item => {
+    if(item.id === id){
+      console.log("alo")
+      deleteData(id)
+      window.location.reload()
+    }
+  })
+} 
+
+function removeAllItems(){
+  deleteAllData()
+  window.location.reload()
 }
   

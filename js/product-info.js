@@ -500,9 +500,10 @@ function showRelatedProducts(){
     let relatedBtn = document.getElementById("related-cont"+product.id);
 
     relatedBtn.addEventListener("click" , () => {
+
       localStorage.setItem("product", JSON.stringify(AllProductsArray.filter(x =>  x.id == (product.id))));
-      
       localStorage.setItem("itemSelectedId", product.id);
+
       window.location.replace("product-info.html")
   
       
@@ -516,9 +517,10 @@ function addItemToCart () {
   let addItemtoCart = document.getElementById("cartAddBtn");
 
   addItemtoCart.addEventListener("click", () => {
-
-    localStorage.setItem("Shopcart", JSON.stringify(JSON.parse(localStorage.getItem("product"))))
+    let itemToAdd = JSON.parse(localStorage.getItem("product"))[0]
+    postData(itemToAdd)
     window.location.replace("cart.html")
+    
 
   })
 }
@@ -526,9 +528,9 @@ function addItemToCart () {
 function userDropdown () {
   //Display a dropdown when username is clicked (on left corner)
 
-  //Redirects: - Cart
-  //           - Profile
-  //           - Log out
+  //Redirects to: - Cart
+  //              - Profile
+  //              - Log out
 
   let navUl = document.getElementById("nav-izq"); //Section inside navbar
 

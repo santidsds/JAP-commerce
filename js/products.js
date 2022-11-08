@@ -12,6 +12,7 @@ let currentSortCriteria = undefined;
 let CurrentSectionArray = [];
 let shopCartArray = [];
 
+
 document.addEventListener("DOMContentLoaded", function(e){
     userDropdown();
 
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     sortContent();
     filterContent();
     });
+
 
 function showSection(){
     let htmlContentToAppend = "";
