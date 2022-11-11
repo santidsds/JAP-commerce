@@ -29,25 +29,17 @@
 </head>
 
 <body>
-  <div  id="nav-container"class="nav-container">
+  <div id="nav-container"class="nav-container">
     <div class="nav-izq">
       <ul id="nav-izq">
-        <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">
-          account_circle
-          </span></a>
+        <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">account_circle</span></a>
       </ul>
     </div>
     <nav >
       <ul id="nav-ul">
-        <li>
-          <a href="main.html">Inicio</a>
-        </li>
-        <li>
-          <a href="categories.html">Categorías</a>
-        </li>
-        <li>
-          <a href="sell.html">Vender</a>
-        </li>
+        <li><a href="main.html">Inicio</a></li>
+        <li><a href="categories.html">Categorías</a></li>
+        <li><a href="sell.html">Vender</a></li>
       </ul>
     </nav>
   </div>
@@ -82,10 +74,10 @@
             <div class="personal-information-form" id="personal-information-form">
 
               <div class="row">
-                <div class="profile-pic-circle"></div>
+                <img id="profile-picture-img" src="/img/defaultProfilePic.png" style="width: 150px;" alt="">
                 <div class="profile-pic-settings">
-                  <a href="" class="add-profile-pic" id="add-profile-pic">Agregar foto de perfil</a>
-                  <a href="" class="remove-profile-pic" id="remove-profile-pic">Eliminar foto</a>
+                  <p class="add-profile-pic" id="add-profile-pic">Agregar foto de perfil</p>
+                  <input class="chooseFile" id="chooseFile" onchange="saveImg()" type="file">
                 </div>
               </div>
 

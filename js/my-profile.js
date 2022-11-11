@@ -7,28 +7,36 @@ const secondLastnameInput = document.getElementById("second-lastname-input");
 const emailInput = document.getElementById("email-input");
 const phoneInput = document.getElementById("phone-input");
 
-//Buttons that change content
-const profilePersonalInfoSection = document.getElementById("profile-personal-info")
-const profileDirectionSection = document.getElementById("profile-directions")
+//Profile picture
+const removeProfilePic = document.getElementById("remove-profile-pic");
+const addProfilePic = document.getElementById("add-profile-pic");
+const profilePic = document.getElementById("profile-pic");
+const profilePicImg = document.getElementById("profile-picture-img")
+const pictureInput = document.getElementById("chooseFile");
+
+//Change content buttons
+const profilePersonalInfoSection = document.getElementById("profile-personal-info");
+const profileDirectionSection = document.getElementById("profile-directions");
 
 //Container of the current content
 const currentContent = document.getElementById("current-content");
 
 //Alert paragraph 
-const alertText = document.getElementById("alert-text")
-
+const alertText = document.getElementById("alert-text");
 
 
 document.addEventListener("DOMContentLoaded", () => {
   userDropdown()
   profilePersonalInfoSection.childNodes[0].style.display = "block"
   checkLocalStorage()
-  
+  setProfilePic()
 })
+
 
 function validateAndSave () {
   //validates and saves inputs on personal info
   //called onclick by: (save-btn) 
+
   let obj = [nameInput, lastnameInput, emailInput]
   
   obj.forEach(input => {
@@ -44,6 +52,10 @@ function validateAndSave () {
         localStorage.setItem("name", nameInput.value);
         localStorage.setItem("lastname", lastnameInput.value);
         localStorage.setItem("email", emailInput.value);
+
+        localStorage.setItem("secondName", secondNameInput.value);
+        localStorage.setItem("secondLastname", secondLastnameInput.value);
+        localStorage.setItem("phone", phoneInput.value);
       }
   })
 }
@@ -51,9 +63,9 @@ function validateAndSave () {
 function userDropdown () {
   //Display a dropdown when username is clicked (on left corner)
 
-  //Redirects: - Cart
-  //           - Profile
-  //           - Log out
+  //Redirects to: - Cart
+  //              - Profile
+  //              - Log out
 
   let navUl = document.getElementById("nav-izq"); //Section inside navbar
 
@@ -85,10 +97,14 @@ function userDropdown () {
 }
 
 function showPersonalInformation () {
+  //Displays "Personal Information section"
+
   window.location.reload()
 }
 
 function showDirectionSection () {
+  //Displays "Direction section"
+
   profilePersonalInfoSection.childNodes[0].style.display = "none"
   profileDirectionSection.childNodes[0].style.display = "block"
 
@@ -111,8 +127,36 @@ function checkLocalStorage () {
     nameInput.value = localStorage.getItem("name")
     lastnameInput.value = localStorage.getItem("lastname")
     emailInput.value = localStorage.getItem("email")
+       
+    secondNameInput.value = localStorage.getItem("secondName", secondNameInput.value);
+    secondLastnameInput.value = localStorage.getItem("secondLastname", secondLastnameInput.value);
+    phoneInput.value = localStorage.getItem("phone", phoneInput.value);
   } 
   else {
     emailInput.value = localStorage.getItem("user")
   }
 }
+
+function saveImg (){
+  //Transforms input picture to DataURL and saves it on localstorage "profilePic"
+
+  const reader = new FileReader();
+
+  reader.addEventListener("load", () => {
+    localStorage.setItem("profilePic", reader.result)
+  })
+
+  reader.readAsDataURL(pictureInput.files[0])
+  window.location.reload()
+}
+
+function setProfilePic () {
+  // sets saved image as profile picture
+
+  const imgData = localStorage.getItem("profilePic")
+  if(imgData){
+    profilePicImg.src = imgData
+  } 
+}
+
+
