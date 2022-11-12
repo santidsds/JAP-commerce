@@ -185,12 +185,23 @@ function userDropdown () {
     })
   }
 
-function showFilter() {
+  function showFilter() {
     const filter = document.getElementById("filter-container");
 
-    if(filter.style.display === "block") filter.style.display="none"
-    else filter.style.display="block"
+    if(filter.style.display === "block") filter.style.display="none", document.getElementById("cat-list-container").style.marginTop="2em"
+    else {
+        filter.style.display="block"
+        filter.style.opacity ="0"
+
+        function animation () {
+            filter.style.opacity="100"
+        } 
+
+        setTimeout(animation, 100)
+        document.getElementById("cat-list-container").style.marginTop="5em"
+    }
 }
+
 
 function sortContent () {
     orderDropBtn = document.getElementById("order-drop-btn");

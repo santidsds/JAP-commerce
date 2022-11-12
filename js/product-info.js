@@ -486,8 +486,7 @@ function showRelatedProducts(){
           </div>
 
         </div>
-        <div class ="button-cont">
-        <button id="relatedProducts-btn-${product.id}">Ver</button></div>
+        <div class ="button-cont">      
       </div>
     </div>
     

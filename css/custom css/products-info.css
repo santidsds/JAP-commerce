@@ -1,7 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/sf-pro-display");
-* {
-  font-family: "SF Pro Display", sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Red+Hat+Display:wght@400;500;600;700&display=swap");
 * a {
   text-decoration: none;
 }
@@ -27,6 +25,9 @@ body .userBtn {
   margin-top: 1.2em;
   margin-right: 0.5em;
 }
+#nav-izq button {
+  font-weight: 800;
+}
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 200, "opsz" 48;
@@ -35,12 +36,11 @@ body .userBtn {
 
 .nav-container {
   font-family: "Poppins";
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
   background-color: black;
-  padding: 1em;
-  padding-right: 7em;
-  padding-left: 7em;
+  padding: 1em 6.5em 1em 6.5em;
 }
 .nav-container nav {
   display: flex;
@@ -57,7 +57,7 @@ body .userBtn {
   list-style: none;
 }
 .nav-container ul a {
-  font-size: 19px;
+  font-size: 17px;
   color: white;
   margin-right: 3em;
 }
@@ -107,6 +107,7 @@ body .userBtn {
 }
 
 .main-section {
+  font-family: "SF Pro Display", sans-serif;
   display: flex;
   justify-content: center;
   padding: 5em 10em 10em 10em;
@@ -164,11 +165,20 @@ body .userBtn {
   margin-top: 1em;
 }
 .main-section .main-container .info-cont .button-cont .buyBtn {
-  background-color: #0d6efd;
+  background-color: #000000;
+  transition: ease 0.1s;
+}
+.main-section .main-container .info-cont .button-cont .buyBtn:hover {
+  transform: scale(1.01);
 }
 .main-section .main-container .info-cont .button-cont .cartAddBtn {
-  background-color: rgb(217, 231, 250);
-  color: rgb(83, 150, 250);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  color: rgb(0, 0, 0);
+  transition: ease 0.1s;
+}
+.main-section .main-container .info-cont .button-cont .cartAddBtn:hover {
+  transform: scale(1.01);
 }
 .main-section .main-container .description {
   margin-top: 2em;
@@ -299,7 +309,7 @@ body .userBtn {
   font-weight: bold;
   font-size: 14px;
   margin-top: 1em;
-  background-color: #0d6efd;
+  background-color: #000000;
 }
 .main-section .main-container .submit-comment textarea:focus, .main-section .main-container .submit-comment input:focus {
   outline: none;
@@ -357,9 +367,11 @@ body .userBtn {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 1.5em;
   border-radius: 1em;
+  transition: ease 0.5s;
 }
 .relatedProducts-cont .inner-container:hover {
   cursor: pointer;
+  transform: scale(1.05);
 }
 .relatedProducts-cont .button-cont button {
   width: 100%;
@@ -368,7 +380,7 @@ body .userBtn {
   border-radius: 0.7em;
   color: white;
   margin-top: 1em;
-  background-color: #0d6efd;
+  background-color: #000000;
 }
 .relatedProducts-cont .price {
   display: flex;

@@ -38,7 +38,7 @@
   </div>
 
   <div class="content-bar" >
-    <button onclick="showFilter()" class="show-filter-btn" id="show-filter-btn"><img src="img/settings.png" alt=""></button>
+    <a href="categories.html"><img class="backarrow" style="width:35px;" src="img/backarrow.png" alt=""></a>
     <h1 id="product-title"></h1>
     <a href="cart.html" ><img src="img/shopping-cart.png" alt=""></a>
   </div>
@@ -55,8 +55,17 @@
     </div>
   </div>
 
-  <div class="primary-container">
-      <div class="filter-container" id="filter-container">
+  <div id="primary-container" class="primary-container">
+      
+    <div class="wrapper-column">
+      <div class="wrapper">
+        <button onclick="showFilter()" class="show-filter-btn" id="show-filter-btn"><img src="img/settings.png" alt=""></button>
+        <div class="search">
+          <input id="search-bar"type="search" placeholder="Busca una categoría.." oninput="searchFunc()">
+          <a id="search-btn" href=""><img src="img/search_FILL1_wght700_GRAD0_opsz48.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="filter-container collapse" id="filter-container">
         <div class="inner-cont">
             <input class="form-control" type="number" placeholder="Precio min." id="rangeFilterCountMin">
             <input class="form-control" type="number" placeholder="Precio máx." id="rangeFilterCountMax">
@@ -67,17 +76,28 @@
             </div>
         </div>
       </div>
-    <div class="search">
-      <input id="search-bar"type="search" placeholder="Busca una categoría.." oninput="searchFunc()">
-      <a id="search-btn" href=""><img src="img/search_FILL1_wght700_GRAD0_opsz48.svg" alt=""></a>
-    </div>    
+
+    </div>
+    
+    
+        
   </div>
-  
+
   
   <main id = "Sections" class="product-hero-section">
     
     
   </main>
+  <footer>
+    <div class="credit">
+      <div class="wrapper">
+        <p>Santiago Da Silva 2022 ©</p>
+        <a href="https://github.com/santidsds" target="_blank"><img src="img/signo-de-github.png" class="social" alt=""></a>
+        <a href="https://www.linkedin.com/in/santiago-da-silva-2187831aa/" target="_blank"><img src="img/linkedin.png" class="social" alt=""></a>
+      </div>
+      <a href="https://jovenesaprogramar.edu.uy/" target="_blank"><img src="img/japlogo.png" alt=""></a>
+    </div>
+  </footer>
   
   <div id="spinner-wrapper">
     <div class="lds-ring">

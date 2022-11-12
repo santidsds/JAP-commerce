@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
     sortContent();
     filterContent();
-    showFilter();
     });
 
 
@@ -291,8 +290,18 @@ function filterContent () {
 function showFilter() {
     const filter = document.getElementById("filter-container");
 
-    if(filter.style.display === "none") filter.style.display="block"
-    else filter.style.display="none"
+    if(filter.style.display === "block") filter.style.display="none", document.getElementById("Sections").style.marginTop="2em"
+    else {
+        filter.style.display="block"
+        filter.style.opacity ="0"
+
+        function animation () {
+            filter.style.opacity="100"
+        } 
+
+        setTimeout(animation, 100)
+        document.getElementById("Sections").style.marginTop="5em"
+    }
 }
 
 

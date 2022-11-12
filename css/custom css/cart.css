@@ -278,7 +278,7 @@ main {
   border: none;
   border-radius: 0.7em;
   color: white;
-  background-color: #0d6efd;
+  background-color: #000000;
 }
 .cart-subtotal .cart-subtotal-cont {
   padding: 2em;
@@ -530,7 +530,7 @@ textarea:focus, input:focus {
   width: max-content;
   margin-top: 1em;
   margin-bottom: -1em;
-  margin-left: 7.5em;
+  margin-left: 7em;
   text-align: start;
   padding: 0;
 }/*# sourceMappingURL=cart.css.map */
