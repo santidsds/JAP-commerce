@@ -1,26 +1,29 @@
 
+//Url's
+const productCommentsUrl = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
+const productInfoUrl = PRODUCT_INFO_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
 
-let arrayToShow = JSON.parse(localStorage.getItem("product"));
-let productCommentsUrl = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
-let productInfoUrl = PRODUCT_INFO_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
+//Main section container
 let mainSection = document.getElementById("main-section");
-let item = arrayToShow[0];
+
+//Arrays
 let productCommentArray = [];
 let productInfo = [];
 let AllProductsArray = []
-let addItemtoCart = document.getElementById("cartAddBtn");
 
+//Btn's
+let addItemtoCart = document.getElementById("cartAddBtn");
 
 
 document.addEventListener("DOMContentLoaded", () => {
   userDropdown();
-
-  getJSONData(productCommentsUrl).then(function(resultObj){
-    if (resultObj.status === "ok"){
+  
+    getJSONData(productCommentsUrl).then(function(resultObj){
+      if (resultObj.status === "ok"){
         productCommentArray = resultObj.data 
         Comments()
-        userComment() 
-    }})
+        userRatingEffect()
+      }})
 
     getJSONData(wantedSection).then(function(resultObj){
       if (resultObj.status === "ok"){
@@ -30,31 +33,34 @@ document.addEventListener("DOMContentLoaded", () => {
     getJSONData(productInfoUrl).then(function(resultObj){
       if (resultObj.status === "ok"){
           productInfo = resultObj.data
+          showItems()
+          showRelatedProducts()  
+        }})
 
-          localStorage.setItem("arr", JSON.stringify(productInfo))
-          
-          showRelatedProducts()
-      }})
+  addItemToCart();
+})
 
-  mainSection.innerHTML += `
-  <div class="main-container">
-      
-      <img id="backArrow" class="backArrow" src="img/backarrow.png" alt="">
-      <div class="top-cont">
-        <div class="img-cont">
+
+function showItems () {
+  //Show content 
+
+  const carouselCont = document.getElementById("carousel-contaniner");
+  const secondaryImg = document.getElementById("secondary-img");
+  const title = document.getElementById("title-container");
+  const description = document.getElementById("description-p");
+
+  const images = productInfo.images
+  const item = productInfo
+  
+  images.forEach(img => {
+    carouselCont.innerHTML =  `
           <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+            <div id="carousel-inner" class="carousel-inner">
               <div class="carousel-item active">
-                <img src="img/prod${item.id}_1.jpg" class="d-block w-100" alt="...">
+                <img src="${images[0]}" class="d-block w-100" alt="...">
               </div>
-              <div class="carousel-item">
-                <img src="img/prod${item.id}_2.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/prod${item.id}_3.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/prod${item.id}_4.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item ">
+                <img src="${img}" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -66,68 +72,35 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-
           <div id="secondary-img" class="secondary-img">
-            <img src="img/prod${item.id}_2.jpg" alt="">
-            <img src="img/prod${item.id}_3.jpg" alt="">
-            <img src="img/prod${item.id}_4.jpg" alt="">
+            
           </div>
-        </div>
+    `
 
-        <div class="info-cont">
+    secondaryImg.innerHTML = `
+      <img src="${images[1]}" alt="">
+      <img src="${images[2]}" alt="">
+      <img src="${images[3]}" alt="">
+    `
+  });
 
-          <div class="title">
-            <h1>${item.name}</h1>
-            <div class="price">
-              <h2>${item.currency} ${item.cost}</h2>
-              <p>o en <span>12 coutas de ${item.currency} ${parseInt(item.cost /12)} sin interés</span></p>
-              <p class="stock">Stock disponible</p> 
-              <p>Cantidad: 1</p>
-            </div>
-          </div>
-
-          
-
-          <div class="button-cont">
-            <button id="buyBtn" class="buyBtn">Comprar ahora</button>
-            <button id="cartAddBtn" class="cartAddBtn">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottom-cont">
-        <div class="description">
-          <h2>Descripción</h2>
-          <p>${item.description}</p>
-        </div>
-      
-      </div>
-      <div class = "relatedProducts" id = "relatedProducts">
-      <h3>Productos relacionados</h3>
-      <div class="relatedProducts-cont" id="relatedProducts-cont">
-      </div>
-      </div>
-
-      <div id="comment-section" class="comment-section">
-        <h3>Reseñas</h3>
-        <div id="allComments">
-        </div>
-        
-       
-      </div>
+  title.innerHTML = `
+    <h1>${item.name}</h1>
+    <div class="price">
+      <h2>${item.currency} ${item.cost}</h2>
+      <p>o en <span>12 coutas de ${item.currency} ${parseInt(item.cost /12)} sin interés</span></p>
+      <p class="stock">Stock disponible</p> 
+      <p>Cantidad: 1</p>
     </div>
   `
-  document.getElementById("backArrow").addEventListener("click", () => {
-    window.location.replace("products.html")
-  })
+  description.innerHTML = item.description
+  
 
-  addItemToCart();
-})
-
-
+}
 
 function Comments() {
-  
+  //Show comments 
+
   if(productCommentArray.length === 0){
     document.getElementById("comment-section").innerHTML += `
     <div id="noComments" class="comments">   
@@ -197,6 +170,8 @@ function Comments() {
 }
 
 function rating (stars) {
+  //Function to show stars based on a 5 star rating
+
   let ratingToAppend = ""
   if(stars === 1) {
     ratingToAppend = `
@@ -261,7 +236,9 @@ function rating (stars) {
   }
 }
 
-function userComment() {
+function userRatingEffect() {
+  //Star animation on user rating
+
   let ratingStar1 = document.getElementById("ratingStar-1"); 
   let ratingStar2 = document.getElementById("ratingStar-2"); 
   let ratingStar3 = document.getElementById("ratingStar-3"); 
@@ -368,6 +345,7 @@ function userComment() {
 }
 
 function showUserComment() {
+
   document.getElementById("addComment").addEventListener("click", () => {
     localStorage.setItem("userComment" , document.getElementById("user-comment").value)
 
@@ -384,16 +362,11 @@ function showUserComment() {
               <h2>${localStorage.getItem("user")}</h2>
               <div class="rating" >
                 ${rating(parseInt(localStorage.getItem("userCommentRating")))}
-              </div>
-              
+              </div>   
             </div>
               <div class="date">
-              
               </div>
-              
-      
           </div>
-        
           <p>${localStorage.getItem("userComment")}</p>
         </div>
         
@@ -461,7 +434,6 @@ function showUserComment() {
 }
 
 function showRelatedProducts(){
-
   let relatedProductsSection = document.getElementById("relatedProducts-cont");
   
   for(let i=0; i<productInfo.relatedProducts.length ; i++){
@@ -519,8 +491,6 @@ function addItemToCart () {
     let itemToAdd = JSON.parse(localStorage.getItem("product"))[0]
     postData(itemToAdd)
     window.location.replace("cart.html")
-    
-
   })
 }
 

@@ -43,6 +43,7 @@
       </ul>
     </nav>
   </div>
+
   <div id="user-settings-hide" class="user-settings-hide">
     <div id="user-settings" class="user-settings">
     <button id="user-settings-cart" >Carrito</button>
@@ -50,11 +51,56 @@
     <button id="user-settings-salir"><span>Cerrar sesión</span></button>
   </div>
   </div>
+
   <main id="main-section" class="main-section">
+    <div class="main-container">
+      
+      <a href="products.html"><img id="backArrow" class="backArrow" src="img/backarrow.png" alt=""></a>
+      <div class="top-cont">
+        <div id="img-cont" class="img-cont">
+          <div class="" id="carousel-contaniner">
+            <!-- Bootsrap carousel-->>
+          </div>
+          <div id="secondary-img" class="secondary-img">
+            <!-- 3 Images-->>
+          </div>
+        </div>
+
+        <div class="info-cont">
+          <div id="title-container" class="title">
+            <!-- Product info-->>
+          </div>
+          <div class="button-cont">
+            <button id="buyBtn" class="buyBtn">Comprar ahora</button>
+            <button id="cartAddBtn" class="cartAddBtn">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-cont">
+        <div id="description" class="description">
+          <h2>Descripción</h2>
+          <p id="description-p"></p>
+        </div>
+      
+      </div>
+      <div class = "relatedProducts" id = "relatedProducts">
+      <h3>Productos relacionados</h3>
+      <div class="relatedProducts-cont" id="relatedProducts-cont">
+      </div>
+      </div>
+
+      <div id="comment-section" class="comment-section">
+        <h3>Reseñas</h3>
+        <div id="allComments">
+        </div>
+        
+       
+      </div>
+    </div>
   
     
   </main>
-  
   
   <div id="spinner-wrapper">
     <div class="lds-ring">
@@ -64,6 +110,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
