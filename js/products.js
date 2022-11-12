@@ -12,7 +12,6 @@ let currentSortCriteria = undefined;
 let CurrentSectionArray = [];
 let shopCartArray = [];
 
-
 document.addEventListener("DOMContentLoaded", function(e){
     userDropdown();
 
@@ -24,10 +23,9 @@ document.addEventListener("DOMContentLoaded", function(e){
             showProductInfo();
         }
     });
-
-    hideMenu();
     sortContent();
     filterContent();
+    showFilter();
     });
 
 
@@ -40,9 +38,7 @@ function showSection(){
         
         `*/
     
-    document.getElementById("product-title").innerHTML = `
-    <h1 class="category-title">${SectionArray.catName}</h1>
-    `
+    document.getElementById("product-title").innerHTML = SectionArray.catName
     
     for(let i = 0; i < CurrentSectionArray.length; i++){
         let product = CurrentSectionArray[i];
@@ -51,7 +47,7 @@ function showSection(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
             
             htmlContentToAppend += `
-            <div class="card">
+            <div id=${product.id} class="card">
                 <img src="${product.image}" class="card-img-top" alt="...">
                 <div id=${product.id} class="card-body">
                     <h5 class="card-title">${product.name}</h5>
@@ -60,8 +56,7 @@ function showSection(){
                         <p class="currency card-text">${product.currency}</p>
                         <p class="cost card-text">${product.cost}</p>
                     </div>
-                    <p class="card-text description">${product.description}</p>
-                    <button href="#" id="itemBuyBtn${i}" class="btn btn-primary buyButton">Comprar</button>
+
                 </div>
             </div>
                 `
@@ -122,16 +117,16 @@ function sortCategories(criteria, array){
 
 function showProductInfo () {
     for(let i=0;i<CurrentSectionArray.length;i++){
-
-        let buttonId = "itemBuyBtn"+i
-        let itemBuyBtn = document.getElementById(buttonId);
+        product = CurrentSectionArray[i]
+        
+        let itemBuyBtn = document.getElementById(product.id);
         
         itemBuyBtn.addEventListener("click",()=>{
             
             console.log(itemBuyBtn.parentNode.id)
 
-            localStorage.setItem("product", JSON.stringify(CurrentSectionArray.filter(x =>  x.id == (itemBuyBtn.parentNode.id))));
-            localStorage.setItem("itemSelectedId", itemBuyBtn.parentNode.id);
+            localStorage.setItem("product", JSON.stringify(CurrentSectionArray.filter(x =>  x.id == (itemBuyBtn.id))));
+            localStorage.setItem("itemSelectedId", itemBuyBtn.id);
 
             window.location.replace("product-info.html");
          })     
@@ -223,18 +218,6 @@ function searchFunc () {
      }
 }
 
-function hideMenu () {
-    //hides left menu on products
-
-    swipeBtn = document.getElementById("swipeBtn");
-
-    swipeBtn.addEventListener("click", () => {
-        document.getElementById("hero-hide").classList.toggle("swipe")
-        document.getElementById("swipeImg").classList.toggle("swipeToggle")
-        document.getElementById("Sections").classList.toggle("product-hero-section-margin")
-    })
-}
-
 function sortContent () {
     orderDropBtn = document.getElementById("order-drop-btn");
     masRelevantesBtn = document.getElementById("masRelevantes");
@@ -247,34 +230,43 @@ function sortContent () {
     orderDropBtn.addEventListener("click", () => {
         dropdown.classList.toggle("show");
         dropArrow.classList.toggle("drop-arrow-flip")
+        console.log("aloxd")
     })
     
     masRelevantesBtn.addEventListener("click", () => {
         orderDropBtn.innerHTML = masRelevantesBtn.innerHTML
         dropdown.classList.toggle("show");
         dropArrow.classList.toggle("drop-arrow-flip")
-        sortAndShowCategories("masRelevante",CurrentSectionArray)
+        CurrentSectionArray = sortCategories("masRelevante", SectionArray.products)
+        showSection()
+        showProductInfo()
     })
     
     menosRelevantesBtn.addEventListener("click", () => {
         orderDropBtn.innerHTML = menosRelevantesBtn.innerHTML
         dropdown.classList.toggle("show");
         dropArrow.classList.toggle("drop-arrow-flip")
-        sortAndShowCategories("menosRelevante",CurrentSectionArray)
+        CurrentSectionArray = sortCategories("menosRelevante", SectionArray.products)
+        showSection()
+        showProductInfo()
     })
     
     mayorPrecioBtn.addEventListener("click", () => {
         orderDropBtn.innerHTML = mayorPrecioBtn.innerHTML
         dropdown.classList.toggle("show");
         dropArrow.classList.toggle("drop-arrow-flip")
-        sortAndShowCategories("mayor",CurrentSectionArray)
+        CurrentSectionArray = sortCategories("mayor", SectionArray.products)
+        showSection()
+        showProductInfo()
     })
     
     menorPrecioBtn.addEventListener("click", () => {
         orderDropBtn.innerHTML = menorPrecioBtn.innerHTML
         dropdown.classList.toggle("show");
         dropArrow.classList.toggle("drop-arrow-flip")
-        sortAndShowCategories("menor",CurrentSectionArray)
+        CurrentSectionArray = sortCategories("menor", SectionArray.products)
+        showSection()
+        showProductInfo()
     })
 }
 
@@ -294,6 +286,13 @@ function filterContent () {
         rangeFilter();
         
     });
+}
+
+function showFilter() {
+    const filter = document.getElementById("filter-container");
+
+    if(filter.style.display === "none") filter.style.display="block"
+    else filter.style.display="none"
 }
 
 

@@ -17,28 +17,15 @@
 </head>
 
 <body>
-  <div  id="nav-container"class="nav-container">
-    
+  <div id="nav-container"class="nav-container">
     <div class="nav-izq">
-      <ul id="nav-izq">
-        <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">
-          account_circle
-          </span></a>
-      </ul>
-
+      <ul id="nav-izq"><a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">account_circle</span></a></ul>
     </div>
-    <nav >
+    <nav>
       <ul id="nav-ul">
-        <li>
-          <a href="main.html">Inicio</a>
-        </li>
-        <li>
-          <a href="categories.html">Categorías</a>
-        </li>
-        <li>
-          <a href="sell.html">Vender</a>
-        </li>
-        
+        <li><a href="main.html">Inicio</a></li>
+        <li><a href="categories.html">Categorías</a></li>
+        <li><a href="sell.html">Vender</a></li>
       </ul>
     </nav>
   </div>
@@ -47,24 +34,17 @@
       <button id="user-settings-cart" >Carrito</button>
       <button id="user-settings-perfil" >Perfil</button>
       <button id="user-settings-salir">Cerrar sesión</button>
+    </div>
   </div>
-  
-  </div>
-  
-  <div class="title-cont">
-    <div id="product-title" class="product-title">
 
-      
-    </div>
-    <div class="shop-cart">
-      <p class="shop-cart-price">$0</p>
-      <a href="cart.html" ><img src="img/shopping-cart.png" alt=""></a>
-    </div>
-  
+  <div class="content-bar" >
+    <button onclick="showFilter()" class="show-filter-btn" id="show-filter-btn"><img src="img/settings.png" alt=""></button>
+    <h1 id="product-title"></h1>
+    <a href="cart.html" ><img src="img/shopping-cart.png" alt=""></a>
   </div>
+
   <div class="order">
-    <p >Ordenar por: <button id="order-drop-btn" class="dropbtn">Mas relevantes</button> <img id="drop-arrow"src="img/arrow-down-sign-to-navigate.png" alt="">
-    </p>
+    <p >Ordenar por: <button id="order-drop-btn" class="dropbtn">Mas relevantes</button> <img id="drop-arrow"src="img/arrow-down-sign-to-navigate.png" alt=""></p>
     <div id="myDropdown" class="dropdown-content">
       <div class="a-container">
         <a id="masRelevantes" href="#">Más relevantes</a>
@@ -72,31 +52,14 @@
         <a id="mayorPrecio" href="#">Mayor precio</a>
         <a id="menorPrecio" href="#">Menor precio</a>
       </div>
-  </div>
-  </div>
-
-<div class="img-cont"id="img-cont">
-    <button class="swipeBtn" id="swipeBtn"><img id="swipeImg"class="swipeImg"src="img/swipe-left.png" alt=""></button>
-</div>
-<section id="hero-hide" class="hero-hide">
-  <div class="left-cont">
-    
-    
-
-  </div>
-  
-  
-  <div class="search-cont">
-    <div class="search">
-      <input id="search-bar"type="search" placeholder="Busca un artículo.." oninput="searchFunc()">
-      <a id="search-btn" href=""><img src="img/search_FILL1_wght700_GRAD0_opsz48.svg" alt=""></a>
     </div>
-    <div class="f-cont">
-      <div class=" filter-container">
+  </div>
+
+  <div class="primary-container">
+      <div class="filter-container" id="filter-container">
         <div class="inner-cont">
             <input class="form-control" type="number" placeholder="Precio min." id="rangeFilterCountMin">
             <input class="form-control" type="number" placeholder="Precio máx." id="rangeFilterCountMax">
-          
     
             <div class="btn-group" role="group">
               <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
@@ -104,45 +67,18 @@
             </div>
         </div>
       </div>
-    </div>
-    
-    <!--<div class="cart-cont">
-      <div class="cart-inner-cont1">
-        <p>Carrito</p>
-        <button id="shopCartRemove" class="remove">Limpiar</button>
-      </div>
-      <div id="shopCartContent" class="shopCartContent">
-        
-      </div>
-      <div class="cart-inner-cont2">
-        <div class="wrap">
-          <div class="inner-inner1">
-            <p>Subtotal</p>
-            <p class="items">0 items</p>
-          </div>
-          <p id="cartSubtotal" class="price">$0</p> 
-          
-        </div>
-        <button class="checkoutBtn">Confirmar compra</button>
-        
-      </div>
-    
-    </div>-->
-    
-    
-
-
+    <div class="search">
+      <input id="search-bar"type="search" placeholder="Busca una categoría.." oninput="searchFunc()">
+      <a id="search-btn" href=""><img src="img/search_FILL1_wght700_GRAD0_opsz48.svg" alt=""></a>
+    </div>    
   </div>
-  </section>
+  
   
   <main id = "Sections" class="product-hero-section">
     
     
   </main>
   
-  <footer >
-    
-  </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

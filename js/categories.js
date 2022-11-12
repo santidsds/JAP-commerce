@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
+    sortContent()
 
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_NAME);
@@ -183,3 +184,71 @@ function userDropdown () {
       window.location.replace("my-profile.html")
     })
   }
+
+function showFilter() {
+    const filter = document.getElementById("filter-container");
+
+    if(filter.style.display === "block") filter.style.display="none"
+    else filter.style.display="block"
+}
+
+function sortContent () {
+    orderDropBtn = document.getElementById("order-drop-btn");
+    masRelevantesBtn = document.getElementById("masRelevantes");
+    menosRelevantesBtn = document.getElementById("menosRelevantes");
+    mayorPrecioBtn = document.getElementById("mayorPrecio");
+    menorPrecioBtn = document.getElementById("menorPrecio");
+    dropdown = document.getElementById("myDropdown");
+    dropArrow = document.getElementById("drop-arrow");
+
+    orderDropBtn.addEventListener("click", () => {
+        dropdown.classList.toggle("show");
+        dropArrow.classList.toggle("drop-arrow-flip")
+    })
+    
+    masRelevantesBtn.addEventListener("click", () => {
+        orderDropBtn.innerHTML = masRelevantesBtn.innerHTML
+        dropdown.classList.toggle("show");
+        dropArrow.classList.toggle("drop-arrow-flip")
+        sortAndShowCategories("masRelevante",CurrentSectionArray)
+    })
+    
+    menosRelevantesBtn.addEventListener("click", () => {
+        orderDropBtn.innerHTML = menosRelevantesBtn.innerHTML
+        dropdown.classList.toggle("show");
+        dropArrow.classList.toggle("drop-arrow-flip")
+        sortAndShowCategories("menosRelevante",CurrentSectionArray)
+    })
+    
+    mayorPrecioBtn.addEventListener("click", () => {
+        orderDropBtn.innerHTML = mayorPrecioBtn.innerHTML
+        dropdown.classList.toggle("show");
+        dropArrow.classList.toggle("drop-arrow-flip")
+        sortAndShowCategories("mayor",CurrentSectionArray)
+    })
+    
+    menorPrecioBtn.addEventListener("click", () => {
+        orderDropBtn.innerHTML = menorPrecioBtn.innerHTML
+        dropdown.classList.toggle("show");
+        dropArrow.classList.toggle("drop-arrow-flip")
+        sortAndShowCategories("menor",CurrentSectionArray)
+    })
+}
+
+function filterContent () {
+    document.getElementById("clearRangeFilter").addEventListener("click", function(){
+        document.getElementById("rangeFilterCountMin").value = "";
+        document.getElementById("rangeFilterCountMax").value = "";
+        minCount = undefined;
+        maxCount = undefined;
+        showSection();
+    });
+
+    document.getElementById("rangeFilterCount").addEventListener("click", function(){
+        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+        //de productos por categoría.
+
+        rangeFilter();
+        
+    });
+}

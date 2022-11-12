@@ -1,7 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Red+Hat+Display:wght@400;500;600;700&display=swap");
 @import url("https://fonts.cdnfonts.com/css/sf-pro-display");
-* {
-  font-family: "SF Pro Display", sans-serif;
-}
 * a {
   text-decoration: none;
 }
@@ -217,16 +215,47 @@ body .userBtn {
   color: black;
 }
 
-.search-cont {
+.filter-container {
+  position: absolute;
+  left: 0;
+  margin-left: 7em;
+  margin-top: 2em;
+  display: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  border-radius: 1.3em;
+  padding: 1.5em;
+  padding-right: 1em;
+  padding-left: 1em;
+  transform: scale(0.75);
+}
+.filter-container .inner-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter-container input {
+  margin-right: 1em;
+  width: 150px;
+  background-color: white;
+  border: none;
+}
+.filter-container .btn-group {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  margin-left: 3.5em;
-  margin-top: 3em;
-  align-items: start;
-  position: absolute;
+  align-items: center;
 }
-.search-cont .search {
+.filter-container button {
+  background: transparent;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.search {
+  font-family: "SF Pro Display", sans-serif;
   background-color: white;
   padding: 0.2em 1em 0.2em 1em;
   display: flex;
@@ -235,57 +264,20 @@ body .userBtn {
   border-radius: 0.8em;
   width: 369px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin-bottom: 1.5em;
-  margin-top: 2em;
+  margin-top: 3em;
 }
-.search-cont .search img {
+.search img {
   width: 20px;
 }
-.search-cont input {
+.search input {
   border: none;
   width: 295px;
   border-radius: 0.5em;
   padding: 0.5em;
   margin-right: 1em;
 }
-.search-cont input:focus {
+.search input:focus {
   outline: none;
-}
-
-.f-cont {
-  display: flex;
-  justify-content: start;
-  margin-left: -4em;
-}
-
-.filter-container {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: white;
-  border-radius: 1.3em;
-  padding: 1em;
-  padding-right: 1em;
-  padding-left: 1em;
-  transform: scale(0.75);
-}
-.filter-container .btn-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.filter-container .inner-cont {
-  display: flex;
-  align-items: center;
-}
-.filter-container input {
-  margin-right: 1em;
-  width: 150px;
-  background-color: white;
-  border: none;
-}
-
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
 }
 
 #clearRangeFilter {
@@ -309,6 +301,9 @@ input[type=number]::-webkit-inner-spin-button {
   margin-top: 1.2em;
   margin-right: 0.5em;
 }
+#nav-izq button {
+  font-weight: 800;
+}
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 200, "opsz" 48;
@@ -317,12 +312,11 @@ input[type=number]::-webkit-inner-spin-button {
 
 .nav-container {
   font-family: "Poppins";
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
   background-color: black;
-  padding: 1em;
-  padding-right: 7em;
-  padding-left: 7em;
+  padding: 1em 6.5em 1em 6.5em;
 }
 .nav-container nav {
   display: flex;
@@ -339,7 +333,7 @@ input[type=number]::-webkit-inner-spin-button {
   list-style: none;
 }
 .nav-container ul a {
-  font-size: 19px;
+  font-size: 17px;
   color: white;
   margin-right: 3em;
 }
@@ -355,13 +349,13 @@ input[type=number]::-webkit-inner-spin-button {
   display: grid;
   grid-template-columns: 350px 350px 350px;
   justify-content: center;
-  margin-left: 30em;
 }
 .product-hero-section .card-body {
   display: flex;
   flex-direction: column;
 }
 .product-hero-section .card-body h5 {
+  margin-top: 1em;
   font-weight: bold;
 }
 .product-hero-section .card-body .price {
@@ -369,7 +363,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 .product-hero-section .card-body .price p {
   margin-right: 1em;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
 }
 .product-hero-section .card-body .description {
@@ -380,51 +374,57 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .card {
+  font-family: "SF Pro Display", sans-serif;
   padding: 1em;
   margin-top: 4em;
   margin-left: 2em;
-  max-height: 480px;
+  max-height: 350px;
   border-radius: 1.5em;
   width: 18rem;
   transition: 0.1s;
+  transition: 0.5s ease;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .card:hover {
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.1);
 }
 .card img {
   border-radius: 0.5em;
 }
 
-.title-cont {
+.primary-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.content-bar {
+  padding: 2em 10em 2em 10em;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5em;
-  padding: 2em;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-.title-cont .shop-cart {
-  display: flex;
-}
-.title-cont .shop-cart-price {
-  color: black;
-  text-decoration: none;
-  font-size: 20px;
-  margin-right: 5px;
-  margin-top: 5px;
-}
-.title-cont img {
+.content-bar img {
   width: 40px;
-  margin-right: 17em;
-  transition: 0.5s;
+  transition: 0.5s ease;
 }
-.title-cont h1 {
+.content-bar h1 {
   color: black;
   font-size: 75px;
-  margin-left: 3em;
   font-weight: bold;
+}
+.content-bar p {
+  font-size: 50px;
+  color: rgb(110, 110, 115);
+}
+.content-bar .show-filter-btn {
+  border: none;
+  background: transparent;
+}
+.content-bar .show-filter-btn img {
+  width: 30px;
 }
 
 .cat-title {
@@ -455,15 +455,17 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .order {
+  font-family: "SF Pro Display", sans-serif;
   font-weight: bold;
-  margin-right: 14.5em;
+  margin-right: 8vw;
   display: flex;
   right: 0;
   flex-direction: column;
-  margin-top: -4em;
+  margin-top: 1em;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  font-size: 15px;
   position: absolute;
   z-index: 2;
 }
