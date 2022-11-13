@@ -429,7 +429,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .card {
   
   min-width: 400px;
-  
   min-height:460px;
 
   .vendidos {
@@ -709,6 +708,10 @@ input[type="number"]::-webkit-inner-spin-button {
       grid-template-columns: 400px; 
       gap: 10px;
       
+    }
+
+    .cont-search{
+      margin-right: -2em;
     }
 
     #nav-izq{

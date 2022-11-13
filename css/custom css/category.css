@@ -554,6 +554,9 @@ footer p {
     grid-template-columns: 400px;
     gap: 10px;
   }
+  .cont-search {
+    margin-right: -2em;
+  }
   #nav-izq {
     display: none;
   }
