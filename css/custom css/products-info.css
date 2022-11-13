@@ -631,7 +631,9 @@ nav {
     margin-top: -8em;
   }
   #relatedProducts-cont .inner-container {
-    transform: scale(0.9);
+    transform: scale(0.7);
+    margin-top: -3em;
+    margin-bottom: -1em;
   }
   #backArrow {
     width: 25px;
@@ -650,13 +652,25 @@ nav {
     margin-bottom: -3em;
   }
   #comment-section h3 {
-    margin-left: 1em;
+    margin-left: 1.5em;
   }
   #relatedProducts {
-    padding: 1em;
+    padding: 1.5em;
+  }
+  #relatedProducts h3 {
+    font-size: 19px;
+  }
+  #relatedProductsCont .inner-container {
+    transform: scale(0.7);
   }
   .main-section .main-container .bottom-cont {
-    padding: 1em;
+    padding: 1.5em;
+  }
+  #description-p {
+    font-size: 13px;
+  }
+  #description h2 {
+    font-size: 19px;
   }
   #info-cont {
     width: -webkit-max-content;
