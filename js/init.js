@@ -65,7 +65,7 @@ let hideSpinner = function(){
 
 let getJSONData = function(url){
     let result = {};
-    showSpinner();
+    
     return fetch(url)
     .then(response => {
       if (response.ok) {
@@ -77,13 +77,13 @@ let getJSONData = function(url){
     .then(function(response) {
           result.status = 'ok';
           result.data = response;
-          hideSpinner();
+          
           return result;
     })
     .catch(function(error) {
         result.status = 'error';
         result.data = error;
-        hideSpinner();
+        
         return result;
     });
 }

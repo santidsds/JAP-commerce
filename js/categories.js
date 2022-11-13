@@ -12,6 +12,7 @@ let maxCount = undefined;
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     userDropdown();
+    hideDiv()
     getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data
@@ -187,19 +188,25 @@ function userDropdown () {
 
   function showFilter() {
     const filter = document.getElementById("filter-container");
-
-    if(filter.style.display === "block") filter.style.display="none", document.getElementById("cat-list-container").style.marginTop="2em"
-    else {
+    
+    
+    setTimeout( function () {
+        if(filter.style.display === "block") filter.style.display="none", document.getElementById("Sections").style.marginTop="2em"
+        else {
         filter.style.display="block"
         filter.style.opacity ="0"
 
         function animation () {
-            filter.style.opacity="100"
+            
         } 
 
-        setTimeout(animation, 100)
-        document.getElementById("cat-list-container").style.marginTop="5em"
+        setTimeout(() => {
+            filter.style.opacity="100"
+        }, 50)
+
+        document.getElementById("Sections").style.marginTop="5em"
     }
+    }, 250)
 }
 
 
@@ -262,4 +269,13 @@ function filterContent () {
         rangeFilter();
         
     });
+}
+
+function hideDiv () {
+    const hide = document.getElementById("hide-div")
+
+    setTimeout(() => {
+        hide.style.opacity="0"
+        hide.style.zIndex="-1"
+    },600)
 }

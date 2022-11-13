@@ -290,7 +290,7 @@ function filterContent () {
 function showFilter() {
     const filter = document.getElementById("filter-container");
 
-    if(filter.style.display === "block") filter.style.display="none", document.getElementById("Sections").style.marginTop="2em"
+    if(filter.style.display === "block") filter.style.display="none", document.getElementById("Sections").style.marginTop="3em"
     else {
         filter.style.display="block"
         filter.style.opacity ="0"
@@ -300,7 +300,7 @@ function showFilter() {
         } 
 
         setTimeout(animation, 100)
-        document.getElementById("Sections").style.marginTop="5em"
+        document.getElementById("Sections").style.marginTop="10em"
     }
 }
 

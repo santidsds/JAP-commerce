@@ -82,6 +82,18 @@ function showItems () {
       <img src="${images[2]}" alt="">
       <img src="${images[3]}" alt="">
     `
+
+    function inner () {
+      const innerCont = document.getElementById("carousel-inner");
+
+      innerCont.innerHTML += `
+      <div class="carousel-item ">
+        <img src="${img}" class="d-block w-100" alt="...">
+      </div>
+      `
+    }
+
+    setTimeout(inner, 500)
   });
 
   title.innerHTML = `

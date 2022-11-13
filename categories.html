@@ -40,19 +40,24 @@
   <div class="content-bar" >
     <div></div>
     <h1>Categorias</h1>
-    <a href="cart.html" ><img src="img/shopping-cart.png" alt=""></a>
+    <a href="cart.html" ><img class="cart-img" src="img/shopping-cart.png" alt=""></a>
   </div>
 
   <div class="primary-container">
     <div class="wrapper-column">
       <div class="wrapper">
         <button onclick="showFilter()" class="show-filter-btn" id="show-filter-btn"><img src="img/settings.png" alt=""></button>
-        <div class="search">
-          <input id="search-bar"type="search" placeholder="Busca una categoría.." oninput="searchFunc()">
-          <a id="search-btn" href=""><img src="img/search_FILL1_wght700_GRAD0_opsz48.svg" alt=""></a>
+        <div class="cont-search">
+          <div id="search" class="search">
+            <input id="search-bar"type="search" placeholder="Busca una categoría.." oninput="searchFunc()">
+            <a id="search-btn" href=""><img src="img/search_FILL1_wght700_GRAD0_opsz48.svg" alt=""></a>
+          </div>
         </div>
+        
+        <div class="hide-div" id="hide-div"></div>
       </div>
-      <div class="filter-container collapse" id="filter-container">
+      
+      <div class="filter-container" id="filter-container">
         <div class="inner-cont">
             <input class="form-control" type="number" placeholder="Precio min." id="rangeFilterCountMin">
             <input class="form-control" type="number" placeholder="Precio máx." id="rangeFilterCountMax">
@@ -81,17 +86,32 @@
       
     </div>
   </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/categories.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    let tl = gsap.timeline({defaults:{ease: "power4.inOut", duration: 1.5}});
+    
+    
+    tl.to('h1', {duration: 1.2, ease: "expo.out", opacity:1, y:0})
+    tl.to('.search', { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity:1, y:0, duartion: 2 },"-=1.5")
+    tl.to('.cont-search', {opacity:1, y:0},"-=1")
+    tl.to('.show-filter-btn', { 'clip-path': 'polygon(100% 100%, 0% 100%, 0% 0%, 100% 0%)', opacity:1, y:0,},"-=1.5")
+    tl.to('.cat-list-container', {duration:2, ease:"elastic.out(1.5, 0.8)" , duration:1,opacity:1, y:0},"-=1.2")
+    tl.to('.nav-izq', {opacity:1, y:0},"-=1")
+    tl.to('nav', {'clip-path':'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',opacity:1, y:0},"-=2")
+    tl.to('.cart-img', {'clip-path':'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',opacity:1, y:0},"-=2")
+    tl.to('footer', {'clip-path':'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',opacity:1, y:0},"-=1")
+    
+    
+
+
+
+  </script>
 </body>
 
 </html>

@@ -135,6 +135,13 @@ input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+.cont-search {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.8em;
+  margin-top: 3em;
+  opacity: 0;
+}
+
 .search {
   font-family: "SF Pro Display", sans-serif;
   background-color: white;
@@ -144,8 +151,10 @@ input[type=number]::-webkit-inner-spin-button {
   align-items: center;
   border-radius: 0.8em;
   width: 369px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin-top: 3em;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  opacity: 0;
+  transform: translateY(100px);
 }
 .search img {
   width: 20px;
@@ -168,6 +177,15 @@ input[type=number]::-webkit-inner-spin-button {
 #rangeFilterCount {
   background-color: white;
   border: none;
+}
+
+.nav-izq, nav {
+  opacity: 0;
+}
+
+nav {
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
 }
 
 #nav-izq {
@@ -231,6 +249,8 @@ input[type=number]::-webkit-inner-spin-button {
   grid-template-columns: 350px 350px 350px;
   justify-content: center;
   transition: ease-out 0.2s;
+  transform: translateY(300px);
+  opacity: 0;
 }
 .product-hero-section .card-body {
   display: flex;
@@ -288,14 +308,18 @@ input[type=number]::-webkit-inner-spin-button {
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-.content-bar img {
-  width: 40px;
-  transition: 0.5s ease;
-}
 .content-bar h1 {
   color: black;
   font-size: 75px;
   font-weight: bold;
+  transform: translateY(-200px);
+  opacity: 0;
+}
+.content-bar .cart-img {
+  width: 40px;
+  opacity: 0;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
 }
 .content-bar p {
   font-size: 50px;
@@ -307,6 +331,9 @@ input[type=number]::-webkit-inner-spin-button {
   background: transparent;
   margin-top: 3em;
   margin-right: 1em;
+  -webkit-clip-path: polygon(100% 100%, 100% 100%, 100% 0, 100% 0);
+          clip-path: polygon(100% 100%, 100% 100%, 100% 0, 100% 0);
+  opacity: 0;
 }
 .show-filter-btn img {
   width: 30px;
@@ -335,6 +362,7 @@ input[type=number]::-webkit-inner-spin-button {
   padding: 1.5em;
   padding-right: 1em;
   padding-left: 1em;
+  opacity: 0;
   transform: scale(0.75);
   transition: 0.2s ease;
 }
@@ -356,6 +384,12 @@ input[type=number]::-webkit-inner-spin-button {
 }
 .filter-container button {
   background: transparent;
+}
+
+.backarrow {
+  opacity: 0;
+  -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+          clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 }
 
 .cat-title {
@@ -399,6 +433,7 @@ input[type=number]::-webkit-inner-spin-button {
   font-size: 15px;
   position: absolute;
   z-index: 2;
+  opacity: 0;
 }
 .order img {
   width: 10px;
@@ -459,6 +494,7 @@ footer {
   flex-direction: column;
   align-items: center;
   background-color: white;
+  opacity: 0;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 footer .social {
