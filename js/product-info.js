@@ -131,9 +131,9 @@ function Comments() {
 
     document.getElementById("allComments").innerHTML +=
     `
-        <div class="comments">
+        <div class="comments" id="comments">
           <div class="cont">
-            <div class="user-cont">
+            <div class="user-cont" id="user-cont">
               <h2>${comment.user}</h2>
               <div class="rating" >
                 ${rating(comment.score)}
@@ -368,7 +368,7 @@ function showUserComment() {
     
     document.getElementById("allComments").innerHTML +=
     `
-        <div class="user-comments">
+        <div id="user-comments" class="user-comments">
           <div class="cont">
             <div class="user-cont">
               <h2>${localStorage.getItem("user")}</h2>
@@ -559,5 +559,47 @@ function userDropdown () {
         window.location.replace("index.html");
     }
 })
+}
+
+function hamMenu () {
+  const menu = document.getElementById("ham-menu");
+  const openMenu = document.getElementById("open-ham-menu");
+  const closeMenuIcon = document.getElementById("close-ham-menu"); 
+
+  const primaryCont = document.getElementById("primary-container")
+  const catListCont = document.getElementById("cat-list-container")
+  const contentBar = document.getElementById("content-bar")
+
+  //Open menu and show close button
+  menu.style.display="block"
+  closeMenuIcon.style.display="block"
+  openMenu.style.display="none"
+
+  //Add blur on background
+  catListCont.classList.add("blur")
+  contentBar.classList.add("blur")
+  primaryCont.classList.add("blur")
+  
+}
+
+function closeMenu () {
+  const menu = document.getElementById("ham-menu");
+  const openMenu = document.getElementById("open-ham-menu");
+  const closeMenuIcon = document.getElementById("close-ham-menu"); 
+
+  const primaryCont = document.getElementById("primary-container")
+  const catListCont = document.getElementById("cat-list-container")
+  const contentBar = document.getElementById("content-bar")
+
+  
+  //Close menu and show open menu button    
+  menu.style.display="none"
+  closeMenuIcon.style.display="none"
+  openMenu.style.display="block"
+
+  //Remove blur filter
+  catListCont.classList.remove("blur")
+  contentBar.classList.remove("blur")
+  primaryCont.classList.remove("blur")
 }
   

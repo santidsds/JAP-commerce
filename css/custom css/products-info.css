@@ -551,10 +551,88 @@ nav {
 }
 @media only screen and (max-width: 810px) {
   .main-container {
-    margin-top: -40em;
+    margin-top: 0;
+    transform: scale(1);
+    max-width: 90vw;
   }
   .top-cont {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 100px;
+  }
+  .bottom-cont {
+    padding: 0;
+  }
+  #description {
+    padding: 0;
+    margin: 0;
+    width: 70vw;
+    border-bottom: none;
+    border-top: none;
+    font-size: 14px;
+  }
+  #description h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  #description-p {
+    width: 70vw;
+    font-size: 14px;
+  }
+  .relatedProducts-cont {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #comments {
+    min-width: 85vw;
+    transform: scale(0.8);
+  }
+  #user-comments {
+    max-width: 70vw;
+    transform: scale(0.8);
+    min-width: 70vw;
+  }
+  #user-comment {
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+  }
+  #submit-comment {
+    min-width: 85vw;
+    transform: scale(0.8);
+  }
+  #allComents {
+    position: absolute;
+    margin-left: -15em;
+  }
+  .main-section .main-container .comment-section {
+    padding: 0;
+  }
+  #comment-section h3 {
+    margin-left: 2em;
+  }
+}
+@media only screen and (max-width: 630px) {
+  #comments p {
+    margin-bottom: 0;
+  }
+  #user-cont {
+    flex-direction: column;
+    margin-bottom: 0.5em;
+  }
+  .top-cont {
+    transform: scale(0.8);
+    margin-top: -8em;
+  }
+  #relatedProducts-cont .inner-container {
+    transform: scale(0.9);
+  }
+  #backArrow {
+    width: 25px;
+    height: 25px;
+    margin-left: 1em;
+    margin-top: -1em;
   }
 }/*# sourceMappingURL=products-info.css.map */
