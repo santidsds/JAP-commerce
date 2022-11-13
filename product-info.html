@@ -17,120 +17,122 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body>
-  <div  id="nav-container"class="nav-container">
-    <div class="close-ham-menu" id="close-ham-menu" onclick="closeMenu()" style="position: absolute;"><i  class="fa-solid fa-xmark"></i></div>
-    <div class="open-ham-menu" id="open-ham-menu" onclick="hamMenu()" style="position: absolute;"><span  class="material-symbols-outlined">menu</span></div> 
-    
-    <div class="nav-izq">
-      <ul id="nav-izq">
-        <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">account_circle</span></a>
-      </ul>
-    </div>
-    <nav>
-      <ul id="nav-ul">
-        <li><a href="main.html">Inicio</a></li>
-        <li><a href="categories.html">Categorías</a></li>
-        <li><a href="sell.html">Vender</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="ham-menu" id="ham-menu">
-    <div class="ham-cont" id="ham-cont">
-      <a href="cart.html">CARRITO</a>
-      <a href="">CATEGORÍAS</a>
-      <a href="my-profile.html">PERFIL</a>
-    </div>
-  </div>
-
-  <div id="user-settings-hide" class="user-settings-hide">
-    <div id="user-settings" class="user-settings">
-      <button id="user-settings-cart" >Carrito</button>
-      <button id="user-settings-perfil" >Perfil</button>
-      <button id="user-settings-salir"><span>Cerrar sesión</span></button>
-    </div>
-  </div>
-
-  <main id="main-section" class="main-section">
-    <div class="main-container">
+<div class="hidden-flow">
+  <body>
+    <div  id="nav-container"class="nav-container">
+      <div class="close-ham-menu" id="close-ham-menu" onclick="closeMenu()" style="position: absolute;"><i  class="fa-solid fa-xmark"></i></div>
+      <div class="open-ham-menu" id="open-ham-menu" onclick="hamMenu()" style="position: absolute;"><span  class="material-symbols-outlined">menu</span></div> 
       
-      <a href="products.html"><img id="backArrow" class="backArrow" src="img/backarrow.png" alt=""></a>
-      <div class="top-cont">
-        <div id="img-cont" class="img-cont">
-          <div class="" id="carousel-contaniner">
-            <!-- Bootsrap carousel-->>
-          </div>
-          <div id="secondary-img" class="secondary-img">
-            <!-- 3 Images-->>
-          </div>
-        </div>
-
-        <div class="shadow-cont">
-          <div class="info-cont">
-            <div id="title-container" class="title">
-              <!-- Product info-->>
-            </div>
-            <div class="button-cont">
-              <button id="buyBtn" class="buyBtn">Comprar ahora</button>
-              <button id="cartAddBtn" class="cartAddBtn">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
-        
+      <div class="nav-izq">
+        <ul id="nav-izq">
+          <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">account_circle</span></a>
+        </ul>
       </div>
-
-      <div class="bottom-cont">
-        <div id="description" class="description">
-          <h2>Descripción</h2>
-          <p id="description-p"></p>
-        </div>
-      
-      </div>
-      <div class = "relatedProducts" id = "relatedProducts">
-        <h3>Productos relacionados</h3>
-        <div class="relatedProducts-cont" id="relatedProducts-cont">
-        </div>
-      </div>
-
-      <div id="comment-section" class="comment-section">
-        <h3>Reseñas</h3>
-        <div id="allComments">
-        </div>
-        
-       
+      <nav>
+        <ul id="nav-ul">
+          <li><a href="main.html">Inicio</a></li>
+          <li><a href="categories.html">Categorías</a></li>
+          <li><a href="sell.html">Vender</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="ham-menu" id="ham-menu">
+      <div class="ham-cont" id="ham-cont">
+        <a href="cart.html">CARRITO</a>
+        <a href="">CATEGORÍAS</a>
+        <a href="my-profile.html">PERFIL</a>
       </div>
     </div>
   
-    
-  </main>
-  
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div id="user-settings-hide" class="user-settings-hide">
+      <div id="user-settings" class="user-settings">
+        <button id="user-settings-cart" >Carrito</button>
+        <button id="user-settings-perfil" >Perfil</button>
+        <button id="user-settings-salir"><span>Cerrar sesión</span></button>
+      </div>
     </div>
-  </div>
-
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
-  <script src="https://kit.fontawesome.com/91150ac76e.js" crossorigin="anonymous"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script>
-    let tl = gsap.timeline({defaults:{ease: "power4.inOut", duration: 1.5}});
+  
+    <main id="main-section" class="main-section">
+      <div class="main-container">
+        
+        <a href="products.html"><img id="backArrow" class="backArrow" src="img/backarrow.png" alt=""></a>
+        <div class="top-cont">
+          <div id="img-cont" class="img-cont">
+            <div class="" id="carousel-contaniner">
+              <!-- Bootsrap carousel-->>
+            </div>
+            <div id="secondary-img" class="secondary-img">
+              <!-- 3 Images-->>
+            </div>
+          </div>
+  
+          <div class="shadow-cont">
+            <div class="info-cont">
+              <div id="title-container" class="title">
+                <!-- Product info-->>
+              </div>
+              <div class="button-cont">
+                <button id="buyBtn" class="buyBtn">Comprar ahora</button>
+                <button id="cartAddBtn" class="cartAddBtn">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+  
+        <div class="bottom-cont">
+          <div id="description" class="description">
+            <h2>Descripción</h2>
+            <p id="description-p"></p>
+          </div>
+        
+        </div>
+        <div class = "relatedProducts" id = "relatedProducts">
+          <h3>Productos relacionados</h3>
+          <div class="relatedProducts-cont" id="relatedProducts-cont">
+          </div>
+        </div>
+  
+        <div id="comment-section" class="comment-section">
+          <h3>Reseñas</h3>
+          <div id="allComments">
+          </div>
+          
+         
+        </div>
+      </div>
     
+      
+    </main>
     
-    tl.to('.main-section', {opacity:1,y:0})
-    tl.to('.nav-izq', {opacity:1, y:0},"-=1")
-    tl.to('nav', {'clip-path':'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',opacity:1, y:0},"-=2")
-
-    
-  </script>
-</body>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/product-info.js"></script>
+    <script src="https://kit.fontawesome.com/91150ac76e.js" crossorigin="anonymous"></script>
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+    <script>
+      let tl = gsap.timeline({defaults:{ease: "power4.inOut", duration: 1.5}});
+      
+      
+      tl.to('.main-section', {opacity:1,y:0})
+      tl.to('.nav-izq', {opacity:1, y:0},"-=1")
+      tl.to('nav', {'clip-path':'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',opacity:1, y:0},"-=2")
+  
+      
+    </script>
+  </body>
+</div>
 
 </html>
