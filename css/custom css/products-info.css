@@ -591,21 +591,19 @@ nav {
   }
   #comments {
     min-width: 85vw;
-    transform: scale(0.8);
+    transform: scale(0.7);
   }
   #user-comments {
     max-width: 70vw;
-    transform: scale(0.8);
+    transform: scale(0.7);
     min-width: 70vw;
   }
   #user-comment {
-    width: -webkit-min-content;
-    width: -moz-min-content;
-    width: min-content;
+    width: 70vw;
   }
   #submit-comment {
     min-width: 85vw;
-    transform: scale(0.8);
+    transform: scale(0.7);
   }
   #allComents {
     position: absolute;
