@@ -1,4 +1,4 @@
-
+v
 let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
 
@@ -263,8 +263,13 @@ function userDropdown () {
 
   //Profile button
   document.getElementById("user-settings-perfil").addEventListener("click", () => {
-    window.location.replace("my-profile.html")
-  })
+    if(localStorage.getItem("user")){
+        window.location.replace("my-profile.html")
+    }
+    else {
+        window.location.replace("index.html");
+    }
+})
 }
 
 function removeItem(id){

@@ -19,29 +19,28 @@
 
 <body>
   <div  id="nav-container"class="nav-container">
+    <div class="close-ham-menu" id="close-ham-menu" onclick="closeMenu()" style="position: absolute;"><i  class="fa-solid fa-xmark"></i></div>
+    <div class="open-ham-menu" id="open-ham-menu" onclick="hamMenu()" style="position: absolute;"><span  class="material-symbols-outlined">menu</span></div> 
     
     <div class="nav-izq">
       <ul id="nav-izq">
-        <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">
-          account_circle
-          </span></a>
+        <a class="user-icon"href="my-profile.html"><span class="material-symbols-outlined">account_circle</span></a>
       </ul>
-
     </div>
-    <nav >
+    <nav>
       <ul id="nav-ul">
-        <li>
-          <a href="main.html">Inicio</a>
-        </li>
-        <li>
-          <a href="categories.html">Categorías</a>
-        </li>
-        <li>
-          <a href="sell.html">Vender</a>
-        </li>
-        
+        <li><a href="main.html">Inicio</a></li>
+        <li><a href="categories.html">Categorías</a></li>
+        <li><a href="sell.html">Vender</a></li>
       </ul>
     </nav>
+  </div>
+  <div class="ham-menu" id="ham-menu">
+    <div class="ham-cont" id="ham-cont">
+      <a href="cart.html">CARRITO</a>
+      <a href="">CATEGORÍAS</a>
+      <a href="my-profile.html">PERFIL</a>
+    </div>
   </div>
 
   <div id="user-settings-hide" class="user-settings-hide">
@@ -117,6 +116,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="https://kit.fontawesome.com/91150ac76e.js" crossorigin="anonymous"></script>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

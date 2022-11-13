@@ -198,7 +198,12 @@ function userDropdown () {
   
     //Profile button
     document.getElementById("user-settings-perfil").addEventListener("click", () => {
-      window.location.replace("my-profile.html")
+        if(localStorage.getItem("user")){
+            window.location.replace("my-profile.html")
+        }
+        else {
+            window.location.replace("index.html");
+        }
     })
   }
 
@@ -302,6 +307,48 @@ function showFilter() {
         setTimeout(animation, 100)
         document.getElementById("Sections").style.marginTop="10em"
     }
+}
+
+function hamMenu () {
+    const menu = document.getElementById("ham-menu");
+    const openMenu = document.getElementById("open-ham-menu");
+    const closeMenuIcon = document.getElementById("close-ham-menu"); 
+
+    const primaryCont = document.getElementById("primary-container")
+    const catListCont = document.getElementById("cat-list-container")
+    const contentBar = document.getElementById("content-bar")
+
+    //Open menu and show close button
+    menu.style.display="block"
+    closeMenuIcon.style.display="block"
+    openMenu.style.display="none"
+
+    //Add blur on background
+    catListCont.classList.add("blur")
+    contentBar.classList.add("blur")
+    primaryCont.classList.add("blur")
+    
+}
+
+function closeMenu () {
+    const menu = document.getElementById("ham-menu");
+    const openMenu = document.getElementById("open-ham-menu");
+    const closeMenuIcon = document.getElementById("close-ham-menu"); 
+
+    const primaryCont = document.getElementById("primary-container")
+    const catListCont = document.getElementById("cat-list-container")
+    const contentBar = document.getElementById("content-bar")
+
+    
+    //Close menu and show open menu button    
+    menu.style.display="none"
+    closeMenuIcon.style.display="none"
+    openMenu.style.display="block"
+
+    //Remove blur filter
+    catListCont.classList.remove("blur")
+    contentBar.classList.remove("blur")
+    primaryCont.classList.remove("blur")
 }
 
 

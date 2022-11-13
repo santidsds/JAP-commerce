@@ -426,20 +426,135 @@ nav {
   cursor: pointer;
 }
 
+#open-ham-menu {
+  display: none;
+}
+
+.close-ham-menu {
+  display: none;
+  font-size: 2em;
+  margin-left: 0.9em;
+  margin-top: 0.5em;
+  color: white;
+  cursor: pointer;
+  position: fixed;
+  z-index: 10;
+}
+
+.ham-cont {
+  display: none;
+  flex-direction: column;
+  padding: 2em;
+}
+.ham-cont a {
+  color: white;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 1em;
+}
+
 @media only screen and (max-width: 1700px) {
-  .main-section {
-    transform: scale(0.9);
-    padding-top: 0;
+  #nav-izq button {
+    font-size: 15px;
   }
-  .main-container {
-    margin-top: -4em;
+  #nav-ul a {
+    font-size: 15px;
+  }
+  .content-bar h1 {
+    font-size: 70px;
+  }
+  .content-bar .cart-img {
+    width: 38px;
+  }
+  .backarrow {
+    width: 38px;
   }
 }
 @media only screen and (max-width: 1500px) {
-  .main-section, h1, nav {
-    transform: scale(0.75);
+  .nav-container {
+    padding: 0.5em 5em 0.5em 5em;
+  }
+  #nav-izq button {
+    font-size: 12px;
+  }
+  #nav-ul a {
+    font-size: 13px;
+  }
+  .cart-img, .backarrow {
+    width: 30px;
   }
   .main-container {
-    margin-top: -19em;
+    margin-top: -15em;
+    transform: scale(0.8);
+  }
+  footer {
+    margin-top: 5em;
+  }
+  footer p {
+    font-size: 11px;
+  }
+  footer img {
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 1070px) {
+  .main-container {
+    margin-top: -23em;
+    transform: scale(0.7);
+  }
+}
+@media only screen and (max-width: 930px) {
+  .main-container {
+    transform: scale(0.6);
+    margin-top: -30em;
+    margin-bottom: -35em;
+  }
+  #nav-izq {
+    display: none;
+  }
+  #nav-ul {
+    display: none;
+  }
+  .nav-container {
+    height: 5em;
+    padding: 0;
+  }
+  #no-div {
+    position: absolute;
+  }
+  #open-ham-menu {
+    display: block;
+  }
+  #open-ham-menu .material-symbols-outlined {
+    margin-left: 0.7em;
+    margin-top: 0.7em;
+    font-size: 2em;
+  }
+  #open-ham-menu .material-symbols-outlined:hover {
+    cursor: pointer;
+  }
+  .ham-menu {
+    position: absolute;
+    display: none;
+    background: rgb(0, 0, 0);
+    left: 0;
+    height: 555vh;
+    width: 20em;
+    z-index: 9;
+  }
+  .ham-cont {
+    display: flex;
+  }
+  .blur {
+    filter: blur(10px);
+  }
+}
+@media only screen and (max-width: 810px) {
+  .main-container {
+    margin-top: -40em;
+  }
+  .top-cont {
+    flex-direction: column;
+    justify-content: center;
   }
 }/*# sourceMappingURL=products-info.css.map */

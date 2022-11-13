@@ -648,7 +648,23 @@ input[type="number"]::-webkit-inner-spin-button {
 
     .show-filter-btn {
       img {
-        width: 25px;
+        width: 20px;
+        margin-top: -0.2em;
+        margin-right: -0.2em;
+      }
+    }
+
+    .filter-container {
+      padding: 1em 0.5em 1em 0.5em;
+      margin-left: -3.8em;
+
+      input {
+        width: 120px;
+      }
+
+      input, button {
+        font-size:12px;
+
       }
     }
 
@@ -680,6 +696,20 @@ input[type="number"]::-webkit-inner-spin-button {
       gap: 15px;
       margin-top: 2em;
     }
+
+    footer {
+      p {
+       font-size: 11px; 
+      }
+
+      img {
+        width: 250px;
+      }
+
+      margin-top: 5em;
+    }
+
+    
   }
 
   @media only screen and (max-width:1300px){
@@ -711,7 +741,7 @@ input[type="number"]::-webkit-inner-spin-button {
     }
 
     .cont-search{
-      margin-right: -2em;
+      margin-right: -3.5em;
     }
 
     #nav-izq{

@@ -26,6 +26,7 @@ const alertText = document.getElementById("alert-text");
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  if(localStorage.getItem("user"))emailInput.value = localStorage.getItem("user");
   userDropdown()
   profilePersonalInfoSection.childNodes[0].style.display = "block"
   checkLocalStorage()
@@ -48,7 +49,9 @@ function validateAndSave () {
       `
       }
       else if (nameInput.value && lastnameInput.value && emailInput.value) {
-
+        input.style.borderBottom = "none"
+        alertText.innerHTML = ""
+        
         localStorage.setItem("name", nameInput.value);
         localStorage.setItem("lastname", lastnameInput.value);
         localStorage.setItem("email", emailInput.value);
@@ -92,8 +95,13 @@ function userDropdown () {
 
   //Profile button
   document.getElementById("user-settings-perfil").addEventListener("click", () => {
-    window.location.replace("my-profile.html")
-  })
+    if(localStorage.getItem("user")){
+        window.location.replace("my-profile.html")
+    }
+    else {
+        window.location.replace("index.html");
+    }
+})
 }
 
 function showPersonalInformation () {
@@ -123,7 +131,7 @@ function showDirectionSection () {
 function checkLocalStorage () {
   //Displays saved values on inputs 
 
-  if (localStorage.getItem("name") != 0){
+  if (localStorage.getItem("name")){
     nameInput.value = localStorage.getItem("name")
     lastnameInput.value = localStorage.getItem("lastname")
     emailInput.value = localStorage.getItem("email")
@@ -132,9 +140,7 @@ function checkLocalStorage () {
     secondLastnameInput.value = localStorage.getItem("secondLastname", secondLastnameInput.value);
     phoneInput.value = localStorage.getItem("phone", phoneInput.value);
   } 
-  else {
-    emailInput.value = localStorage.getItem("user")
-  }
+  
 }
 
 function saveImg (){
