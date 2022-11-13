@@ -119,12 +119,12 @@ function showCategoriesList(){
                     <li class="card">
                         <img src='${category.imgSrc}' alt=''>
                         <div class="card-cont">
-                            <div class="inner-cont">
+                            <div class="card-inner-cont">
                                 <h3><a href="">${category.name}</a></h3>
                                 <p class="vendidos">${category.productCount} vendidos</p>
                             </div>
                         
-                        <p>${category.description}</p>
+                            <p>${category.description}</p>
                         </div>
                         
                     </li>
@@ -278,4 +278,46 @@ function hideDiv () {
         hide.style.opacity="0"
         hide.style.zIndex="-1"
     },600)
+}
+
+function hamMenu () {
+    const menu = document.getElementById("ham-menu");
+    const openMenu = document.getElementById("open-ham-menu");
+    const closeMenuIcon = document.getElementById("close-ham-menu"); 
+
+    const primaryCont = document.getElementById("primary-container")
+    const catListCont = document.getElementById("cat-list-container")
+    const contentBar = document.getElementById("content-bar")
+
+    //Open menu and show close button
+    menu.style.display="block"
+    closeMenuIcon.style.display="block"
+    openMenu.style.display="none"
+
+    //Add blur on background
+    catListCont.classList.add("blur")
+    contentBar.classList.add("blur")
+    primaryCont.classList.add("blur")
+    
+}
+
+function closeMenu () {
+    const menu = document.getElementById("ham-menu");
+    const openMenu = document.getElementById("open-ham-menu");
+    const closeMenuIcon = document.getElementById("close-ham-menu"); 
+
+    const primaryCont = document.getElementById("primary-container")
+    const catListCont = document.getElementById("cat-list-container")
+    const contentBar = document.getElementById("content-bar")
+
+    
+    //Close menu and show open menu button    
+    menu.style.display="none"
+    closeMenuIcon.style.display="none"
+    openMenu.style.display="block"
+
+    //Remove blur filter
+    catListCont.classList.remove("blur")
+    contentBar.classList.remove("blur")
+    primaryCont.classList.remove("blur")
 }

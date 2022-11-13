@@ -514,6 +514,7 @@ function userDropdown () {
   //              - Log out
 
   let navUl = document.getElementById("nav-izq"); //Section inside navbar
+  const settings = document.getElementById("user-settings");
 
   navUl.innerHTML += ` 
           <li>
@@ -523,7 +524,20 @@ function userDropdown () {
 
   //User button
   document.getElementById("userBtn").addEventListener("click", () => {   
-    document.getElementById("user-settings-hide").classList.toggle("user-settings-swipe");
+    if(settings.style.transform === "translateY(-200px)") settings.style.transform="translateY(200px)", setTimeout(action, 300)
+    else {
+      settings.style.opacity="0"
+      setTimeout(actionBack, 250)
+      
+    }
+
+    function action () {
+      settings.style.opacity="1"
+    }
+
+    function actionBack () {
+      settings.style.transform="translateY(-200px)"
+    }
   })
 
   //Log out button

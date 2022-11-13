@@ -46,10 +46,10 @@
 
   <div id="user-settings-hide" class="user-settings-hide">
     <div id="user-settings" class="user-settings">
-    <button id="user-settings-cart" >Carrito</button>
-    <button id="user-settings-perfil" >Perfil</button>
-    <button id="user-settings-salir"><span>Cerrar sesión</span></button>
-  </div>
+      <button id="user-settings-cart" >Carrito</button>
+      <button id="user-settings-perfil" >Perfil</button>
+      <button id="user-settings-salir"><span>Cerrar sesión</span></button>
+    </div>
   </div>
 
   <main id="main-section" class="main-section">
@@ -124,13 +124,10 @@
     let tl = gsap.timeline({defaults:{ease: "power4.inOut", duration: 1.5}});
     
     
-    tl.to('.main-section', {'clip-path': 'polygon(0% 99%, 99% 99%, 100% 0%, 0% 0%)',duration: 2, opacity:1},"-=0.5")
-    tl.to('.info-cont', {'clip-path': 'polygon(0% 99%, 99% 99%, 100% 0%, 0% 0%)',duration: 2, opacity:1},"-=1.2")
-    tl.to('.img-cont', {opacity:1, duartion: 1 },"-=1.5")
+    tl.to('.main-section', {opacity:1,y:0})
+    tl.to('.nav-izq', {opacity:1, y:0},"-=1")
+    tl.to('nav', {'clip-path':'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',opacity:1, y:0},"-=2")
 
-    tl.to('.bottom-cont', {opacity:1, y:0,},"-=1")
-    tl.to('.relatedProducts', {opacity:1, y:0,},"-=1")
-    tl.to('.comment-section', {opacity:1, y:0,},"-=1")
     
   </script>
 </body>

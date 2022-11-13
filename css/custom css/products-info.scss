@@ -22,6 +22,15 @@ body {
     }
 }
 
+.nav-izq,nav {
+    opacity: 0;
+  }
+  
+  nav {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  
+  }
+
 #nav-izq {
     display: flex;
     justify-content: center;
@@ -133,6 +142,9 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
+    transition: 0.5s ease;
+    transform: translateY(-200px);
+    opacity: 0;
     
 
     span {
@@ -163,15 +175,13 @@ body {
 }
 
 .main-section {
-    clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
     opacity: 0;
     font-family: 'SF Pro Display', sans-serif;
     display: flex;
     justify-content: center;
-    
     padding: 5em 10em 10em 10em;
     background-color: #f5f5f7;
-    
+    transform: translateY(200px);
 
     .main-container {
         width: 1400px;
@@ -179,6 +189,7 @@ body {
         background-color: white;
         border-radius: 1em;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        
 
         .top-cont {
             display: flex;
@@ -187,7 +198,7 @@ body {
 
         .bottom-cont {
             padding: 3em 3em 3em 3em;
-            opacity: 0;
+            
             
         }
 
@@ -200,8 +211,7 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            opacity: 0;
-            clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+            
 
             
 
@@ -285,7 +295,7 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            opacity: 0;
+            
             margin-top: 1em;
             border-radius: 1em;
             padding: 3em;
@@ -466,7 +476,7 @@ body {
         }
 
         .img-cont {
-            opacity: 0;
+            
             margin-top: 3em;
             img {
                 
@@ -506,7 +516,7 @@ body {
 
 .relatedProducts {
     padding: 3em;
-    opacity: 0;
+    
     
     
 }
