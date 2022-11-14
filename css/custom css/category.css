@@ -149,7 +149,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: -3.6em;
   background: transparent;
 }
 
@@ -185,6 +184,7 @@ nav {
   transform: scale(0.75);
   opacity: 0;
   transition: 0.2s ease;
+  z-index: 9;
 }
 .filter-container .inner-cont {
   display: flex;
@@ -518,7 +518,6 @@ footer p {
   }
   .filter-container {
     padding: 1em 0.5em 1em 0.5em;
-    margin-left: -3.8em;
   }
   .filter-container input {
     width: 120px;
@@ -574,9 +573,6 @@ footer p {
   .cat-list-container {
     grid-template-columns: 400px;
     gap: 10px;
-  }
-  .cont-search {
-    margin-right: -3.5em;
   }
   #nav-izq {
     display: none;

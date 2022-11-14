@@ -201,7 +201,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: -3.6em;
   background: transparent;
 }
 
@@ -238,7 +237,7 @@ nav {
   transform: scale(0.75);
   opacity: 0;
   transition: 0.2s ease;
-
+  z-index: 9;
 
   .inner-cont {
       display: flex;
@@ -656,7 +655,6 @@ input[type="number"]::-webkit-inner-spin-button {
 
     .filter-container {
       padding: 1em 0.5em 1em 0.5em;
-      margin-left: -3.8em;
 
       input {
         width: 120px;
@@ -740,9 +738,7 @@ input[type="number"]::-webkit-inner-spin-button {
       
     }
 
-    .cont-search{
-      margin-right: -3.5em;
-    }
+    
 
     #nav-izq{
       display: none;

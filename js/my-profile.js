@@ -26,8 +26,8 @@ const alertText = document.getElementById("alert-text");
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  if(localStorage.getItem("user"))emailInput.value = localStorage.getItem("user");
   userDropdown()
+  if(localStorage.getItem("user"))emailInput.value = localStorage.getItem("user");
   profilePersonalInfoSection.childNodes[0].style.display = "block"
   checkLocalStorage()
   setProfilePic()

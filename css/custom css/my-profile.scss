@@ -1,4 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Red+Hat+Display:wght@400;500;600;700&display=swap');
+
 
 * {
     font-family: 'SF Pro Display', sans-serif;
@@ -261,47 +263,45 @@ textarea:focus, input:focus{
 }
 
 .nav-container {
-
-    font-family: 'Poppins';
+  font-family: 'Poppins';
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  padding: 1em 6.5em 1em 6.5em;
+  
+  
+   nav {
     display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    
+   
+    
+    
+   }
+
+
+  ul {
+    display: flex;
+    align-content: center;
     justify-content: space-between;
-    background-color: black;
-    padding: 1em;
-    padding-right: 7em;
-    padding-left: 7em;
     
     
-     nav {
-      display: flex;
-      justify-content: flex-end;
-      align-content: center;
+    li {
+      margin-top: 1em;
+      list-style: none;
       
-     
+    }
+
+    a {
+      font-size: 17px;
+      color: white;
+      margin-right: 3em;
       
-      
-     }
-  
-  
-    ul {
-      display: flex;
-      align-content: center;
-      justify-content: space-between;
-      
-      
-      li {
-        margin-top: 1em;
-        list-style: none;
-        
-      }
-  
-      a {
-        font-size: 19px;
-        color: white;
-        margin-right: 3em;
-        
-      }
     }
   }
+}
 
 .alert-text {
   display: flex;

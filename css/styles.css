@@ -30,43 +30,17 @@ nav a {
 }
 
 .jumbotron {
-  
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 2em;
-  
-  height: 87vh;
-  width:86vw;
-  
-  
-  
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-image: url('../img/cover_back.png');
   background-size: contain;
-  background-position-y: 12em;
+  background-position: center;
   background-repeat: no-repeat;
+
   color: black;
   font-weight: bold;
 }
 
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 4rem;
-    padding-bottom: 6rem;
-  }
-}
-
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron-heading {
-  font-weight: 300;
-}
-
 .jumbotron .container {
-  max-width: 40rem;
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
 }
 
