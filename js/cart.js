@@ -1,4 +1,4 @@
-v
+
 let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
 
