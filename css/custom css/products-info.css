@@ -127,6 +127,11 @@ nav {
   border-radius: 1em;
 }
 
+#cartAlert {
+  color: red;
+  margin-top: 1em;
+}
+
 .main-section {
   opacity: 0;
   font-family: "SF Pro Display", sans-serif;

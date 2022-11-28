@@ -1,4 +1,3 @@
-const CAR_SECTION_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
 let minCount = undefined;
 let maxCount = undefined;
@@ -18,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(wantedSection).then(function(resultObj){
         if (resultObj.status === "ok"){
             SectionArray = resultObj.data
+            localStorage.setItem('products', JSON.stringify(SectionArray.products))
             CurrentSectionArray = sortCategories("masRelevante", SectionArray.products)
             showSection();
             showProductInfo();

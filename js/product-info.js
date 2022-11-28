@@ -1,7 +1,18 @@
 
 //Url's
 const productCommentsUrl = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
-const productInfoUrl = PRODUCT_INFO_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE;
+const productInfoUrl = PRODUCT_INFO_URL + localStorage.getItem("itemSelectedId") + EXT_TYPE ;
+
+let cartArray = []
+
+if (localStorage.getItem('cartArray')){
+  let storageCartArray = JSON.parse(localStorage.getItem('cartArray'));
+  storageCartArray.forEach (item => {
+    cartArray = [item];
+  }) 
+} else {
+  cartArray = [];
+}
 
 //Main section container
 let mainSection = document.getElementById("main-section");
@@ -497,12 +508,22 @@ function showRelatedProducts(){
 }
 
 function addItemToCart () {
+  const cartAlert = document.getElementById('cartAlert')
   let addItemtoCart = document.getElementById("cartAddBtn");
 
   addItemtoCart.addEventListener("click", () => {
     let itemToAdd = JSON.parse(localStorage.getItem("product"))[0]
-    postData(itemToAdd)
-    window.location.replace("cart.html")
+
+    cartArray.forEach(item => {
+      if(!(item.id === itemToAdd.id)){
+        cartArray.push(itemToAdd)
+        window.location.replace('cart.html')
+      } else {
+        cartAlert.innerHTML = 'Este item ya esta en tu carrito'
+      }
+    })
+   
+    localStorage.setItem('cartArray', [JSON.stringify(cartArray)])
   })
 }
 

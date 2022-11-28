@@ -1,3 +1,7 @@
+let cartArray = [];
+
+
+console.log(cartArray)
 
 let id = 25801;
 let cartArticlesURL = CART_INFO_URL + id + EXT_TYPE
@@ -23,20 +27,12 @@ let sellOptions = document.getElementById("ship-options");
 
 
 window.addEventListener("DOMContentLoaded", () => {
+  if(localStorage.getItem('cartArray')){
+  cartArray = JSON.parse(localStorage.getItem('cartArray'))
+}
   localStorage.setItem("subtotal", 0)
   userDropdown()
-
-  getJSONData(myAppURL).then((res) => {
-    if(res.status === "ok"){
-      res.data.forEach(item => {
-        cart.push(item)
-      })
-      console.log(cart)
-      showCartItems()
-      shipType()
-      
-    }
-  })
+  showCartItems()
 })
 
 function showCartItems () {
@@ -45,7 +41,7 @@ function showCartItems () {
   let subtotal = 0
   let itemCount = 0
   
-cart.forEach(function (item){
+  cartArray.forEach(function (item){
 
   //If currency is UYU, item.cost is converted to USD
     if(item.currency === "UYU"){
@@ -110,7 +106,7 @@ cart.forEach(function (item){
   function btnMenos(ID) {
     // Removes -1 to itemResult and updates itemCount and subtotal.
 
-    cart.forEach(function (item){
+    cartArray.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
 
@@ -145,7 +141,7 @@ cart.forEach(function (item){
   function btnMas(ID) {
     // Adds +1 to itemResult and updates itemCount and subtotal.
 
-    cart.forEach(function (item){
+    cartArray.forEach(function (item){
       const itemResult = document.getElementById("cartCounterResult" + item.id)
       if(ID === item.id){
         
@@ -283,6 +279,7 @@ function removeItem(id){
 } 
 
 function removeAllItems(){
+  localStorage.setItem('cartArray', '')
   deleteAllData()
   window.location.reload()
 }
